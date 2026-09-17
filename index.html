@@ -107,6 +107,8 @@ details.tr pre{white-space:pre-wrap;font-family:inherit;font-size:13px;color:var
 .hook div{font-size:14px}
 .hook b{display:inline-block;min-width:56px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tenue)}
 .hook .say{font-family:var(--tit);font-size:21px;font-weight:700;line-height:1.15;letter-spacing:-.02em}
+.hook .say::before{content:"«"}
+.hook .say::after{content:"»"}
 .marco{font-size:12.5px;color:var(--tenue);margin-top:6px}
 .beats{display:flex;flex-direction:column}
 .beat{display:grid;grid-template-columns:42px 1fr;gap:10px;padding:9px 0;border-top:1px solid var(--lin)}
@@ -124,6 +126,16 @@ ul.shots input:checked + label{color:var(--tenue);text-decoration:line-through}
 .warn{font-size:13px;background:#141414;color:var(--hueso);border-radius:12px;padding:10px 12px}
 .cap{font-size:13px;color:var(--tenue);white-space:pre-line}
 .heras{background:#141414;color:var(--hueso)}
+body.editing [data-ed]{outline:1px dashed rgba(0,0,0,.28);outline-offset:3px;border-radius:4px;cursor:text}
+body.editing [data-ed]:focus{outline:2px solid var(--naranja);background:#fff}
+[data-ed].edited{background:rgba(255,77,0,.1);box-shadow:inset 0 -2px 0 var(--naranja)}
+.acciones{display:flex;gap:8px;flex-wrap:wrap}
+.acciones button{border:1px solid rgba(0,0,0,.18);background:transparent;border-radius:100px;padding:7px 14px;font-size:13px;font-weight:600;color:#141414}
+.acciones button:hover{border-color:var(--naranja);color:var(--naranja)}
+.acciones .reset[hidden]{display:none}
+#editar[aria-pressed="true"]{border-color:var(--naranja);background:var(--naranja);color:#fff}
+.aviso-ed{display:none;position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:60;background:var(--naranja);color:#fff;border-radius:100px;padding:9px 16px;font-size:13px;font-weight:600;max-width:calc(100% - 32px);text-align:center}
+body.editing .aviso-ed{display:block}
 .heras .lab{color:var(--naranja)}
 .heras ul{margin:0;padding-left:18px;font-size:13px;color:var(--gris)}
 .heras li{margin:3px 0}
@@ -156,7 +168,7 @@ body.onlypicks .row:not(:has(.g.pick)){display:none}
 @media (max-width:700px){
   .bar{gap:6px;padding:10px 12px}
   .bar h1{font-size:16px}
-  .bar h1 small,#onlypicks .t{display:none}
+  .bar h1 small,#onlypicks .t,#editar .t{display:none}
   .chip,.seg button{padding:6px 10px;font-size:12px}
   select.chip{max-width:84px}
 }
@@ -169,6 +181,7 @@ body.onlypicks .row:not(:has(.g.pick)){display:none}
   <h1><i></i>Los Álamos<small>guiones · grabación 18/09</small></h1>
   <span class="sp"></span>
   <select class="chip" id="jump" aria-label="Ir a la referencia"></select>
+  <button class="chip" id="editar" aria-pressed="false">✎<span class="t"> Editar</span></button>
   <button class="chip" id="onlypicks" aria-pressed="false">★<span class="t"> Elegidos</span></button>
   <div class="seg" role="group" aria-label="Vista">
     <button id="mBoard" aria-pressed="true">Tablero</button>
@@ -176,6 +189,7 @@ body.onlypicks .row:not(:has(.g.pick)){display:none}
   </div>
 </div>
 <div id="vp"><div id="world"></div></div>
+<div class="aviso-ed" role="status">Modo edición: tocá cualquier texto del guion y cambialo. Se guarda en este dispositivo.</div>
 <div class="zoomui"><button id="zout" aria-label="Alejar">−</button><button id="zfit" aria-label="Encajar">⤢</button><button id="zin" aria-label="Acercar">+</button></div>
 
 <script src="guiones.js"></script>
@@ -194,38 +208,46 @@ const store = {
 };
 let picks = store.get('la-picks', {});
 let shots = store.get('la-shots', {});
+let edits = store.get('la-edits', {});
+/* Cada edición guarda también el original: si el guion cambia en una versión nueva, la edición vieja no se pega encima. */
+const ed = (key, orig, tag, cls) => {
+  const e = edits[key];
+  const val = e && e.o === orig ? e.t : orig;
+  return `<${tag} class="${cls}${val !== orig ? ' edited' : ''}" data-ed="${esc(key)}" data-o="${esc(orig)}">${esc(val)}</${tag}>`;
+};
 
 function renderScript(r, g){
-  const key = r.n + g.v;
-  const beats = g.beats.map(b => `<div class="beat"><div class="t">${esc(b[0])}</div><div>
-      ${b[1] ? `<div class="p">🎥 ${esc(b[1])}</div>` : ''}
-      <div class="a">${esc(b[2])}</div>
+  const key = r.n + '|' + g.v;
+  const beats = g.beats.map((b, i) => `<div class="beat"><div class="t">${esc(b[0])}</div><div>
+      ${b[1] ? `<div class="p">🎥 ${ed(key + '|p' + i, b[1], 'span', '')}</div>` : ''}
+      ${ed(key + '|a' + i, b[2], 'div', 'a')}
       ${b[3] ? `<div class="d">↳ ${esc(b[3])}</div>` : ''}</div></div>`).join('');
   const sh = (g.shots || []).map((s, i) => {
-    const id = key + '-' + i;
+    const id = r.n + g.v + '-' + i;
     return `<li><input type="checkbox" data-shot="${id}" ${shots[id] ? 'checked' : ''} id="s${id}"><label for="s${id}">${esc(s)}</label></li>`;
   }).join('');
   return `<article class="card g ${picks[r.n] === g.v ? 'pick' : ''}" data-v="${g.v}" data-n="${r.n}">
     <header>
       <span class="var">${esc(g.tipo)}</span>
-      <h3>${esc(g.titulo)}</h3>
+      ${ed(key + '|titulo', g.titulo, 'h3', '')}
       <p class="angle">${esc(g.angulo)}</p>
       <button class="star" data-pick="${r.n}|${g.v}" aria-pressed="${picks[r.n] === g.v}" aria-label="Elegir este guion">★</button>
     </header>
     ${g.heras ? `<div class="sec heras"><p class="lab">Filtro Víctor Heras · la versión anterior sacó ${esc(g.heras.nota)}/10</p><ul>${g.heras.fallas.map(f => `<li>${esc(f)}</li>`).join('')}</ul></div>` : ''}
     <div class="sec"><p class="lab">Hook · primeros 3 segundos</p>
       <div class="hook">
-        <div class="say">«${esc(g.hook.dice)}»</div>
-        <div><b>Placa</b> ${esc(g.hook.placa)}</div>
-        <div><b>Plano</b> ${esc(g.hook.plano)}</div>
+        <div class="say">${ed(key + '|dice', g.hook.dice, 'span', '')}</div>
+        <div><b>Placa</b> ${ed(key + '|placa', g.hook.placa, 'span', '')}</div>
+        <div><b>Plano</b> ${ed(key + '|plano', g.hook.plano, 'span', '')}</div>
       </div>
       <div class="marco">Marco: ${esc(g.hook.marco)}</div>
     </div>
     <div class="sec"><p class="lab">Guion · ${esc(g.dur)}</p><div class="beats">${beats}</div></div>
-    <div class="sec"><p class="lab">Cierre</p><div class="cta">${esc(g.cta)}</div></div>
+    <div class="sec"><p class="lab">Cierre</p>${ed(key + '|cta', g.cta, 'div', 'cta')}</div>
     ${sh ? `<div class="sec"><p class="lab">Planos a grabar</p><ul class="shots">${sh}</ul></div>` : ''}
     ${g.ojo ? `<div class="sec"><div class="warn">⚠️ ${esc(g.ojo)}</div></div>` : ''}
-    ${g.caption ? `<div class="sec"><p class="lab">Caption</p><div class="cap">${esc(g.caption)}</div></div>` : ''}
+    ${g.caption ? `<div class="sec"><p class="lab">Caption</p>${ed(key + '|caption', g.caption, 'div', 'cap')}</div>` : ''}
+    <div class="sec acciones"><button type="button" data-copy="${key}">Copiar guion</button><button type="button" class="reset" data-reset="${key}" ${Object.keys(edits).some(k => k.startsWith(key + '|')) ? '' : 'hidden'}>Volver al original</button></div>
   </article>`;
 }
 
@@ -278,6 +300,70 @@ document.addEventListener('click', e => {
     box.innerHTML = `<iframe src="https://www.instagram.com/reel/${box.dataset.embed}/embed" loading="lazy" allowfullscreen scrolling="no"></iframe>`;
   }
 });
+/* edición */
+const setEditing = on => {
+  document.body.classList.toggle('editing', on);
+  $('#editar').setAttribute('aria-pressed', on);
+  document.querySelectorAll('[data-ed]').forEach(el => {
+    if (on) {
+      el.setAttribute('contenteditable', 'plaintext-only');
+      if (el.contentEditable !== 'plaintext-only') el.setAttribute('contenteditable', 'true');
+      el.spellcheck = true;
+    } else el.removeAttribute('contenteditable');
+  });
+};
+$('#editar').onclick = () => setEditing(!document.body.classList.contains('editing'));
+document.addEventListener('input', e => {
+  const el = e.target.closest && e.target.closest('[data-ed]');
+  if (!el) return;
+  const k = el.dataset.ed, o = el.dataset.o, t = el.innerText.replace(/\n$/, '');
+  if (t === o) delete edits[k]; else edits[k] = {o, t};
+  el.classList.toggle('edited', t !== o);
+  store.set('la-edits', edits);
+  const card = el.closest('.g'), base = card.dataset.n + '|' + card.dataset.v + '|';
+  card.querySelector('.reset').hidden = !Object.keys(edits).some(x => x.startsWith(base));
+});
+document.addEventListener('paste', e => {
+  const el = e.target.closest && e.target.closest('[data-ed]');
+  if (!el) return;
+  e.preventDefault();
+  document.execCommand('insertText', false, (e.clipboardData || window.clipboardData).getData('text/plain'));
+});
+document.addEventListener('keydown', e => {
+  const el = e.target.closest && e.target.closest('[data-ed]');
+  if (el && e.key === 'Enter' && !el.classList.contains('cap')) { e.preventDefault(); el.blur(); }
+});
+const textoGuion = card => {
+  const q = sel => card.querySelector(sel);
+  const lines = [q('h3').innerText, '', 'HOOK: ' + q('.say').innerText];
+  card.querySelectorAll('.hook > div:not(.say)').forEach(d => lines.push(d.innerText.replace(/\s+/, ': ')));
+  lines.push('');
+  card.querySelectorAll('.beat').forEach(b => {
+    const pl = b.querySelector('.p'), a = b.querySelector('.a');
+    lines.push(b.querySelector('.t').innerText + (pl ? '  [' + pl.innerText.replace(/^🎥\s*/, '') + ']' : '') + '  ' + (a ? a.innerText : ''));
+  });
+  lines.push('', 'CIERRE: ' + q('.cta').innerText);
+  const cap = q('.cap'); if (cap) lines.push('', 'CAPTION:', cap.innerText);
+  return lines.join('\n');
+};
+document.addEventListener('click', async e => {
+  const c = e.target.closest('[data-copy]');
+  if (c) {
+    const t = textoGuion(c.closest('.g'));
+    try { await navigator.clipboard.writeText(t); }
+    catch { const ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }
+    c.textContent = 'Copiado ✓';
+    setTimeout(() => c.textContent = 'Copiar guion', 1600);
+  }
+  const r = e.target.closest('[data-reset]');
+  if (r && confirm('¿Volver este guion al texto original? Se pierden tus cambios.')) {
+    const base = r.dataset.reset + '|';
+    Object.keys(edits).filter(k => k.startsWith(base)).forEach(k => delete edits[k]);
+    store.set('la-edits', edits);
+    r.closest('.g').querySelectorAll('[data-ed]').forEach(el => { el.innerText = el.dataset.o; el.classList.remove('edited'); });
+    r.hidden = true;
+  }
+});
 document.addEventListener('change', e => {
   if (e.target.dataset.shot){ shots[e.target.dataset.shot] = e.target.checked; store.set('la-shots', shots); }
 });
@@ -298,7 +384,7 @@ const zoomAt = (f, cx, cy) => {
 const pts = new Map(); let last = null, pinch = null;
 vp.addEventListener('pointerdown', e => {
   if (document.body.classList.contains('list')) return;
-  if (e.target.closest('button,a,input,label,summary,select,iframe,pre,.beats,.cap')) return;
+  if (e.target.closest('button,a,input,label,summary,select,iframe,pre,.beats,.cap,[contenteditable]')) return;
   vp.setPointerCapture(e.pointerId); pts.set(e.pointerId, [e.clientX, e.clientY]);
   last = [e.clientX, e.clientY]; vp.classList.add('drag');
 });
