@@ -123,6 +123,10 @@ ul.shots input{margin-top:3px;accent-color:var(--naranja);width:17px;height:17px
 ul.shots input:checked + label{color:var(--tenue);text-decoration:line-through}
 .warn{font-size:13px;background:#141414;color:var(--hueso);border-radius:12px;padding:10px 12px}
 .cap{font-size:13px;color:var(--tenue);white-space:pre-line}
+.heras{background:#141414;color:var(--hueso)}
+.heras .lab{color:var(--naranja)}
+.heras ul{margin:0;padding-left:18px;font-size:13px;color:var(--gris)}
+.heras li{margin:3px 0}
 
 /* intro */
 .intro{width:420px;padding:26px;background:var(--negro-2);border:1px solid var(--linea)}
@@ -179,6 +183,7 @@ body.onlypicks .row:not(:has(.g.pick)){display:none}
 <script src="refs-2.js"></script>
 <script src="refs-3.js"></script>
 <script src="refs-4.js"></script>
+<script src="heras.js"></script>
 <script>
 const D = window.GUIONES;
 const $ = s => document.querySelector(s);
@@ -207,6 +212,7 @@ function renderScript(r, g){
       <p class="angle">${esc(g.angulo)}</p>
       <button class="star" data-pick="${r.n}|${g.v}" aria-pressed="${picks[r.n] === g.v}" aria-label="Elegir este guion">★</button>
     </header>
+    ${g.heras ? `<div class="sec heras"><p class="lab">Filtro Víctor Heras · la versión anterior sacó ${esc(g.heras.nota)}/10</p><ul>${g.heras.fallas.map(f => `<li>${esc(f)}</li>`).join('')}</ul></div>` : ''}
     <div class="sec"><p class="lab">Hook · primeros 3 segundos</p>
       <div class="hook">
         <div class="say">«${esc(g.hook.dice)}»</div>
