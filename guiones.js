@@ -6,7 +6,7 @@ window.GUIONES = {
   ],
   reglas: [
     "Público: familias y grupos de amigos. No escapada de pareja.",
-    "Mai es quien graba los videos: donde antes decía Sandra, ahora sale Mai. Sandra sigue siendo la anfitriona que recibe y contesta el WhatsApp.",
+    "Se graba de a dos: Mai en cámara y vos filmando (tu voz puede entrar desde atrás). Nadie más aparece. Mai le habla a una sola persona, de vos. Sandra sigue siendo la anfitriona que recibe y contesta el WhatsApp.",
     "Septiembre: la pileta no está abierta. Si sale en un plano, se aclara o no se muestra.",
     "La leña y el carbón los traen ellos. Sandra no da guía de San Pedro.",
     "El festival de country no se nombra: se dice «el festival de country».",
