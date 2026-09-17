@@ -2,7 +2,7 @@ GUIONES.refs.push(
 /* ───────────────────────── 01 ───────────────────────── */
 {
   n: 1, id: "DVJbOB7Dr0t",
-  formato: "La anfitriona te lo presenta",
+  formato: "Te lo presentan a cámara",
   resumen: "Una persona a cámara dice para quién es, y el recorrido va con placas grandes",
   cuenta: "@estancialasmarias_", datos: "69 s · 128 me gusta · 13 comentarios",
   tags: ["A cámara + recorrido", "Placa amarilla palabra por palabra", "Voz continua"],

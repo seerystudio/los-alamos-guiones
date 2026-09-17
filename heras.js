@@ -4,7 +4,7 @@
 GUIONES.intro.push("Versión 2 (17/09): los 30 guiones pasaron por el filtro de Víctor Heras en NotebookLM, con 12 videos suyos como fuente. Cada tarjeta muestra la nota que sacó la versión anterior y las dos fallas que se corrigieron.");
 const H = (n, guiones) => { const r = GUIONES.refs.find(x => x.n === n); if (r) r.guiones = guiones; };
 
-/* ───────── 01 · La anfitriona te lo presenta ───────── */
+/* ───────── 01 · Te lo presentan a cámara ───────── */
 H(1, [
   {
     v: "A", tipo: "Fiel a la referencia",
@@ -18,20 +18,20 @@ H(1, [
     hook: {
       dice: "¿Hace cuántos meses que en tu grupo dicen «este finde nos escapamos» y nunca pasa nada?",
       placa: "EL ERROR DE IRSE DE A 8 🤫",
-      plano: "Sandra camina rápido hacia la cámara por el parque, mate en mano. Sonido real: portón que se abre y pájaros.",
+      plano: "Mai camina rápido hacia la cámara por el parque, mate en mano. Sonido real: portón que se abre y pájaros.",
       marco: "Pregunta incómoda + monólogo interno (Heras) · gancho de 3 partes"
     },
     beats: [
-      ["0:00", "Sandra caminando hacia cámara con mate, portón y pájaros de fondo", "¿Hace cuántos meses que en tu grupo dicen «este finde nos escapamos» y nunca pasa nada?", "¿Por qué no pasa?"],
+      ["0:00", "Mai caminando hacia cámara con mate, portón y pájaros de fondo", "¿Hace cuántos meses que en tu grupo dicen «este finde nos escapamos» y nunca pasa nada?", "¿Por qué no pasa?"],
       ["0:04", "Entra a la cabaña grande, cámara la sigue hasta el hogar", "El problema no son las ganas: es querer meter a ocho personas en el mismo lugar.", "¿Y entonces?"],
       ["0:09", "Corte rápido a la cabaña chica y a su baño", "Acá son dos cabañas de cuatro. Cada familia con su espacio y su baño.", ""],
       ["0:15", "Quincho techado con la parrilla humeando", "Y en el medio, lo que es de todos: quincho techado, fogonero y parque cerrado.", "¿Cuánto sale esto?"],
-      ["0:21", "Sandra sentada en la mesa de mosaico, mira a cámara", "¿Querés saber cómo los convencés de armar el bolso hoy?", "Bucle abierto a propósito"],
+      ["0:21", "Mai sentada en la mesa de mosaico, mira a cámara", "¿Querés saber cómo los convencés de armar el bolso hoy?", "Bucle abierto a propósito"],
       ["0:25", "Plano general con las luces del parque prendidas", "La quinta entera sale veinticinco mil pesos por persona. Lo mismo que una cabaña sola. A dos horas de Buenos Aires.", "Pago del bucle = moraleja"]
     ],
     cta: "Comentá PRECIO y te mandamos las tarifas y las fechas libres por privado.",
-    shots: ["Sandra caminando con mate hacia cámara (grabar el sonido del portón)", "Entrada a la grande hasta el hogar", "Cabaña chica + baño", "Parrilla humeando en el quincho", "Sandra en la mesa de mosaico a cámara", "General con luces del parque"],
-    ojo: "$25.000 por persona es con la quinta completa y 8 personas ($200.000 ÷ 8), por noche. Si Sandra no graba, lo hace cualquiera del grupo.",
+    shots: ["Mai caminando con mate hacia cámara (grabar el sonido del portón)", "Entrada a la grande hasta el hogar", "Cabaña chica + baño", "Parrilla humeando en el quincho", "Mai en la mesa de mosaico a cámara", "General con luces del parque"],
+    ojo: "$25.000 por persona es con la quinta completa y 8 personas ($200.000 ÷ 8), por noche. Si Mai no graba, lo hace cualquiera del grupo.",
     caption: "El error de irse de a ocho: querer meterse todos bajo el mismo techo.\nDos cabañas, quincho, fogonero y parque en San Pedro.\nComentá PRECIO."
   },
   {
@@ -55,10 +55,10 @@ H(1, [
       ["0:09", "Las dos puertas de las cabañas, una al lado de la otra", "Dos cabañas en el mismo predio: cada familia con su espacio y su baño.", ""],
       ["0:14", "Perro corriendo por el parque y entrando a la cabaña", "El perro viene, sin cargo, y duerme adentro. Y si llueve, quincho techado.", ""],
       ["0:20", "Mesa de mosaico con juegos de mesa", "¿Y sabés cómo cerrás la discusión del grupo en dos minutos?", "Bucle abierto"],
-      ["0:24", "Sandra sonriendo a cámara desde el parque", "Les decís que la quinta entera sale veinticinco mil por cabeza la noche. A dos horas de Buenos Aires.", "Pago"]
+      ["0:24", "Mai sonriendo a cámara desde el parque", "Les decís que la quinta entera sale veinticinco mil por cabeza la noche. A dos horas de Buenos Aires.", "Pago"]
     ],
     cta: "Mandáselo al grupo. Y si te dicen que sí, comentá FINDE y te pasamos las fechas libres.",
-    shots: ["Celular con chat de grupo armado (nombres inventados) y sonido de notificaciones", "Cabaña grande enfocándose", "Las dos puertas en un plano", "Perro corriendo y entrando a la cabaña", "Juegos de mesa en la mesa de mosaico", "Sandra a cámara en el parque"],
+    shots: ["Celular con chat de grupo armado (nombres inventados) y sonido de notificaciones", "Cabaña grande enfocándose", "Las dos puertas en un plano", "Perro corriendo y entrando a la cabaña", "Juegos de mesa en la mesa de mosaico", "Mai a cámara en el parque"],
     ojo: "El chat tiene que ser armado: nada de números ni nombres reales.",
     caption: "Si sos la que organiza y el grupo clava el visto 🙃\nDos cabañas, cada familia con su baño, el perro adentro. San Pedro.\nMandáselo al grupo."
   },
@@ -105,47 +105,47 @@ H(2, [
     hook: {
       dice: "Te estoy grabando. Repetí la locura que me dijiste recién.",
       placa: "SE LE ESCAPÓ A SANDRA 🤫",
-      plano: "Celular en mano, movido, apuntando a Sandra en el quincho. Sonido real: la parrilla que chisporrotea.",
+      plano: "Celular en mano, movido, apuntando a Mai en el quincho. Sonido real: la parrilla que chisporrotea.",
       marco: "Impacto visual (parece robado) + secreto a medias, gancho de 3 partes"
     },
     beats: [
-      ["0:00", "Celu movido, Sandra en el quincho junto a la parrilla que chisporrotea", "Te estoy grabando. Repetí la locura que me dijiste recién.", "¿Qué dijo?"],
-      ["0:03", "Sandra se tapa la cara riéndose mientras acomoda el carbón", "—No, cortala. —Dale, que si lo cuento yo en el grupo no me cree nadie.", "Tensión"],
+      ["0:00", "Celu movido, Mai en el quincho junto a la parrilla que chisporrotea", "Te estoy grabando. Repetí la locura que me dijiste recién.", "¿Qué dijo?"],
+      ["0:03", "Mai se tapa la cara riéndose mientras acomoda el carbón", "—No, cortala. —Dale, que si lo cuento yo en el grupo no me cree nadie.", "Tensión"],
       ["0:07", "Quien graba camina rápido hacia la mesa de mosaico", "Porque todos creen que irse ocho personas un finde es imposible de pagar.", "¿Y no lo es?"],
       ["0:12", "Paneo rápido a las dos cabañas", "Dos cabañas, cuatro en cada una, todo el predio para ustedes.", ""],
-      ["0:17", "Vuelve a Sandra en el quincho, ahora seria", "—Bueno: si vienen ocho y toman la quinta completa… sale veinticinco mil pesos por persona la noche.", "Pago"],
+      ["0:17", "Vuelve a Mai en el quincho, ahora seria", "—Bueno: si vienen ocho y toman la quinta completa… sale veinticinco mil pesos por persona la noche.", "Pago"],
       ["0:23", "Gira la cámara al parque con las luces prendidas", "¿Escucharon? Veinticinco por cabeza. En San Pedro, a dos horas.", ""]
     ],
     cta: "Mandáselo al grupo y comentá FINDE: te pasamos las fechas libres.",
-    shots: ["Toma única con el celu, sin estabilizar: Sandra en el quincho con la parrilla sonando", "Caminata rápida a la mesa de mosaico", "Paneo a las dos cabañas", "Giro al parque con luces"],
+    shots: ["Toma única con el celu, sin estabilizar: Mai en el quincho con la parrilla sonando", "Caminata rápida a la mesa de mosaico", "Paneo a las dos cabañas", "Giro al parque con luces"],
     ojo: "No inventar descuento ni promo. $25.000 es con la quinta completa y ocho personas.",
-    caption: "Se le escapó a Sandra 🙈\nQuinta completa para 8: $25.000 por persona la noche.\nMandáselo al grupo."
+    caption: "Se le escapó a Mai 🙈\nQuinta completa para 8: $25.000 por persona la noche.\nMandáselo al grupo."
   },
   {
     v: "B", tipo: "Cambia el segmento",
     titulo: "«¿Y qué hacés con el perro?»",
     angulo: "Enemigo común del que tiene perro: la guardería o el «pet friendly» que lo deja afuera. La respuesta se demora hasta que el perro entra.",
     heras: { nota: "6", fallas: [
-      "Sandra contesta «no paga» en el segundo 3: la duda se cierra enseguida.",
+      "Mai contesta «no paga» en el segundo 3: la duda se cierra enseguida.",
       "Le falta el enemigo común del dueño de perro: la guardería o el lugar que lo deja afuera."
     ]},
     dur: "≈22 s",
     hook: {
       dice: "No, no, repetilo que te estoy grabando: ¿qué hacés con el perro?",
       placa: "¿TU PERRO SE QUEDA AFUERA? 🐶",
-      plano: "Celular con el perro en primer plano mirando a cámara y jadeando; Sandra atrás en el parque.",
+      plano: "Celular con el perro en primer plano mirando a cámara y jadeando; Mai atrás en el parque.",
       marco: "Pregunta incómoda + cocktail party (dueños de perro)"
     },
     beats: [
-      ["0:00", "Perro en primer plano jadeando, Sandra atrás", "No, no, repetilo que te estoy grabando: ¿qué hacés con el perro?", "¿Qué pasa con el perro?"],
-      ["0:04", "Sandra se ríe y camina hacia la puerta de la cabaña", "—Lo que no hacés es dejarlo en una guardería. O atado afuera, como en todos lados.", "¿Y entonces?"],
+      ["0:00", "Perro en primer plano jadeando, Mai atrás", "No, no, repetilo que te estoy grabando: ¿qué hacés con el perro?", "¿Qué pasa con el perro?"],
+      ["0:04", "Mai se ríe y camina hacia la puerta de la cabaña", "—Lo que no hacés es dejarlo en una guardería. O atado afuera, como en todos lados.", "¿Y entonces?"],
       ["0:09", "La cámara sigue al perro, que entra a la cabaña", "(silencio: solo las patas del perro entrando)", "Brecha visual"],
       ["0:12", "El perro se echa al lado del sillón", "—Duerme adentro, con ustedes. No paga y no importa el tamaño.", "Pago"],
       ["0:16", "Paneo al parque cerrado", "—Y el predio está cerrado, así corre suelto mientras ustedes hacen el asado.", ""],
-      ["0:20", "Sandra a cámara", "San Pedro, a dos horas. ¿Lo vas a seguir dejando?", ""]
+      ["0:20", "Mai a cámara", "San Pedro, a dos horas. ¿Lo vas a seguir dejando?", ""]
     ],
     cta: "Etiquetá a esa persona que no viaja sin su perro.",
-    shots: ["Perro mirando a cámara con Sandra atrás", "Sandra caminando a la puerta", "Seguir al perro entrando a la cabaña (sin hablar)", "Perro echado junto al sillón", "Parque cerrado", "Sandra a cámara"],
+    shots: ["Perro mirando a cámara con Mai atrás", "Mai caminando a la puerta", "Seguir al perro entrando a la cabaña (sin hablar)", "Perro echado junto al sillón", "Parque cerrado", "Mai a cámara"],
     ojo: "Única condición real: juntar lo que deja. Perro tranquilo para grabar.",
     caption: "El perro no se queda afuera: duerme en la cabaña, no paga y no importa el tamaño 🐶\nSan Pedro, a dos horas.\nEtiquetá a quien no viaja sin el suyo."
   },
@@ -161,19 +161,19 @@ H(2, [
     hook: {
       dice: "Esperá, decilo de nuevo que te grabo: ¿por qué cargamos el auto al pedo?",
       placa: "NO CARGUES EL BAÚL AL PEDO 🧳",
-      plano: "Cámara entrando apurada al dormitorio, Sandra estirando una frazada. Sonido real del piso y pájaros.",
+      plano: "Cámara entrando apurada al dormitorio, Mai estirando una frazada. Sonido real del piso y pájaros.",
       marco: "Error + enemigo común (el baúl lleno)"
     },
     beats: [
-      ["0:00", "Entrada apurada al dormitorio, Sandra con la frazada", "Esperá, decilo de nuevo que te grabo: ¿por qué cargamos el auto al pedo?", "¿Por qué?"],
-      ["0:04", "Sandra señala la cama hecha", "—Porque sábanas, frazadas y almohadas ya están.", ""],
+      ["0:00", "Entrada apurada al dormitorio, Mai con la frazada", "Esperá, decilo de nuevo que te grabo: ¿por qué cargamos el auto al pedo?", "¿Por qué?"],
+      ["0:04", "Mai señala la cama hecha", "—Porque sábanas, frazadas y almohadas ya están.", ""],
       ["0:07", "Corte rápido a la cocina: platos y tazas en el estante", "—La vajilla también.", "¿Y qué sí traigo?"],
       ["0:10", "Paneo al quincho con la parrilla", "—Traete toallones, condimentos y la leña o el carbón.", ""],
       ["0:14", "Auto estacionado adentro del predio, baúl medio vacío", "—Y el auto queda acá adentro.", ""],
-      ["0:17", "Sandra a cámara con mate en el parque", "Medio baúl menos. San Pedro, a dos horas.", "Pago"]
+      ["0:17", "Mai a cámara con mate en el parque", "Medio baúl menos. San Pedro, a dos horas.", "Pago"]
     ],
     cta: "Guardalo para la noche que armes los bolsos.",
-    shots: ["Entrada apurada al dormitorio con Sandra y la frazada", "Cama hecha", "Vajilla en la cocina", "Quincho y parrilla", "Auto adentro con el baúl medio vacío", "Sandra con mate a cámara"],
+    shots: ["Entrada apurada al dormitorio con Mai y la frazada", "Cama hecha", "Vajilla en la cocina", "Quincho y parrilla", "Auto adentro con el baúl medio vacío", "Mai con mate a cámara"],
     ojo: "Lista exacta del brief del cliente. No hay secador: no decir que está todo.",
     caption: "No cargues el baúl al pedo 🧳\nYa están sábanas, frazadas, almohadas y vajilla. Traés toallones, condimentos y leña o carbón.\nGuardalo para la noche que armes los bolsos."
   }
@@ -183,31 +183,31 @@ H(2, [
 H(3, [
   {
     v: "A", tipo: "Fiel a la referencia",
-    titulo: "POV: secuestrás a la anfitriona",
-    angulo: "Sandra, «secuestrada», no vende la ficha: le resuelve al secuestrador el problema de organizar a ocho. El precio lo pregunta él.",
+    titulo: "POV: secuestrás a la chica de las cabañas",
+    angulo: "Mai, «secuestrada», no vende la ficha: le resuelve al secuestrador el problema de organizar a ocho. El precio lo pregunta él.",
     heras: { nota: "5,5", fallas: [
       "Dos segundos de silencio al arranque: rompe el gancho de 3 partes (falta sonido).",
-      "Sandra se saca la cinta y larga la ficha técnica de golpe: cierra la curiosidad en vez de entrar por el problema del grupo."
+      "Mai se saca la cinta y larga la ficha técnica de golpe: cierra la curiosidad en vez de entrar por el problema del grupo."
     ]},
     dur: "≈30 s",
     hook: {
-      dice: "«¡Mmm! ¡Mmm!» (Sandra grita con la cinta puesta)",
-      placa: "POV: SECUESTRÁS A LA ANFITRIONA 🚗",
-      plano: "Asiento de atrás: Sandra con cinta de pintor en la boca, forcejeando de chiste. Sonido de motor y portazo.",
+      dice: "«¡Mmm! ¡Mmm!» (Mai grita con la cinta puesta)",
+      placa: "POV: SECUESTRÁS A LA CHICA DE LAS CABAÑAS 🚗",
+      plano: "Asiento de atrás: Mai con cinta de pintor en la boca, forcejeando de chiste. Sonido de motor y portazo.",
       marco: "Impacto visual + absurdo, con sonido desde el segundo 0"
     },
     beats: [
-      ["0:00", "Sandra con cinta forcejeando, sonido de motor (auto detenido)", "«¡Mmm! ¡Mmm!»", "¿Qué pasa acá?"],
+      ["0:00", "Mai con cinta forcejeando, sonido de motor (auto detenido)", "«¡Mmm! ¡Mmm!»", "¿Qué pasa acá?"],
       ["0:02", "Se saca la cinta de un tirón y señala al secuestrador por el espejo", "—Antes de llevarme a cualquier lado, resolvé el quilombo que tenés con tu grupo este finde.", "¿Qué quilombo?"],
       ["0:06", "Secuestrador con gorro de lana, la mira por el espejo", "—¿Qué quilombo? —El de meter ocho personas en una casa y volver peleados.", ""],
       ["0:10", "Corte a la cabaña grande, hogar prendido", "—Dos cabañas separadas en San Pedro. Cada familia en la suya, y la grande con hogar a leña.", ""],
       ["0:16", "Corte al quincho con la parrilla humeando", "—Quincho techado, llueva o no. Y el perro duerme adentro, sin cargo.", ""],
       ["0:22", "Secuestrador, resignado", "—…¿Y cuánto sale esa locura?", "Bucle a punto de pagarse"],
-      ["0:24", "Sandra sonríe de oreja a oreja", "—¿Te interesa? Veinticinco mil por persona si son ocho. A dos horas de Buenos Aires.", "Pago"],
+      ["0:24", "Mai sonríe de oreja a oreja", "—¿Te interesa? Veinticinco mil por persona si son ocho. A dos horas de Buenos Aires.", "Pago"],
       ["0:28", "Él frena del todo y le abre la puerta; ella grita desde afuera", "—¡Ni te pasé el WhatsApp! ¡Está en el perfil!", ""]
     ],
     cta: "Comentá RESERVA y te mandamos las fechas libres.",
-    shots: ["Sandra con cinta de pintor en el asiento de atrás (auto estacionado)", "Secuestrador con gorro de lana por el espejo", "Hogar prendido en la grande", "Parrilla humeando", "Sandra bajando y gritando desde la vereda"],
+    shots: ["Mai con cinta de pintor en el asiento de atrás (auto estacionado)", "Secuestrador con gorro de lana por el espejo", "Hogar prendido en la grande", "Parrilla humeando", "Mai bajando y gritando desde la vereda"],
     ojo: "Todo de chiste: cinta de pintor, gorro de lana (no pasamontañas), auto quieto. El sonido de motor se agrega en edición.",
     caption: "Ni secuestrada deja de vender 😅\nDos cabañas, hogar a leña, quincho techado y el perro adentro. San Pedro.\nComentá RESERVA."
   },
@@ -458,16 +458,16 @@ H(6, [
     hook: {
       dice: "Cuarenta segundos para mostrarte por qué acá entran ocho sin pelearse.",
       placa: "40 SEGUNDOS ⏱️ (cronómetro corriendo)",
-      plano: "Portón que se abre con ruido metálico; Sandra invita apurada con la mano, gran angular. Tic-tac en pantalla.",
+      plano: "Portón que se abre con ruido metálico; Mai invita apurada con la mano, gran angular. Tic-tac en pantalla.",
       marco: "Promesa con tiempo + gancho de 3 partes"
     },
     beats: [
-      ["0:00", "Portón abriéndose, Sandra invita, cronómetro arranca", "Cuarenta segundos para mostrarte por qué acá entran ocho sin pelearse.", "¿Llega? ¿Por qué no se pelean?"],
+      ["0:00", "Portón abriéndose, Mai invita, cronómetro arranca", "Cuarenta segundos para mostrarte por qué acá entran ocho sin pelearse.", "¿Llega? ¿Por qué no se pelean?"],
       ["0:04", "Camina rápido por el parque, toma continua", "Uno: el parque es cerrado. Los chicos y el perro, sueltos.", ""],
       ["0:10", "Pasa por el quincho y toca la parrilla", "Dos: si llueve, el asado sale igual. Quincho techado. Y a la noche, fogonero.", ""],
       ["0:17", "Entra a la grande (hogar) y señala la chica por la ventana", "Tres, la que evita las peleas: dos cabañas. Cada familia con su espacio y su baño.", "¿Y cuánto?"],
       ["0:25", "Sale hacia el fogonero y frena; muestra el cronómetro", "¿Y la plata?", "Bucle"],
-      ["0:28", "Sandra mira la pantalla del celu", "Veinticinco mil por persona si son ocho. San Pedro, a dos horas. Treinta y seis segundos.", "Pago"]
+      ["0:28", "Mai mira la pantalla del celu", "Veinticinco mil por persona si son ocho. San Pedro, a dos horas. Treinta y seis segundos.", "Pago"]
     ],
     cta: "Comentá PRECIO y te mandamos las tarifas y las fechas libres.",
     shots: ["UNA toma continua con gran angular, del portón al fogonero (ensayar dos veces)", "Grabar el ruido del portón", "Cronómetro sobreimpreso en edición"],
@@ -538,7 +538,7 @@ H(7, [
   {
     v: "A", tipo: "Fiel a la referencia",
     titulo: "POV: se te meten sin avisar a la quinta",
-    angulo: "Más corto y con conflicto real: Sandra las encara, y el recorrido sale del «ya que están». La plata recién al portón.",
+    angulo: "Más corto y con conflicto real: Mai las encara, y el recorrido sale del «ya que están». La plata recién al portón.",
     heras: { nota: "5,5", fallas: [
       "Casi 50 segundos de tour lento: se pasa de los 15-45 s y cae la retención.",
       "Arranca con un saludo educado y resuelve el conflicto enseguida, sin sonido de impacto."
@@ -547,27 +547,27 @@ H(7, [
     hook: {
       dice: "¿Y ustedes qué hacen acá adentro?",
       placa: "POV: SE TE METEN SIN AVISAR 😳",
-      plano: "Sandra aparece desde atrás del quincho; dos chicas curioseando la parrilla se dan vuelta. Pasos rápidos y portón.",
+      plano: "Mai aparece desde atrás del quincho; dos chicas curioseando la parrilla se dan vuelta. Pasos rápidos y portón.",
       marco: "Conflicto + impacto visual y sonoro"
     },
     beats: [
-      ["0:00", "Sandra aparece por detrás del quincho; las chicas se dan vuelta", "¿Y ustedes qué hacen acá adentro?", "¿Las echa?"],
+      ["0:00", "Mai aparece por detrás del quincho; las chicas se dan vuelta", "¿Y ustedes qué hacen acá adentro?", "¿Las echa?"],
       ["0:03", "Las chicas, avergonzadas", "—Perdón, nos dijeron que podíamos chusmear… somos un grupo de ocho.", ""],
-      ["0:06", "Sandra suspira y arranca a caminar", "—Bueno. Ya que están, les muestro cómo entran ocho sin pelearse.", "¿Cómo?"],
+      ["0:06", "Mai suspira y arranca a caminar", "—Bueno. Ya que están, les muestro cómo entran ocho sin pelearse.", "¿Cómo?"],
       ["0:10", "Entran a la grande: hogar", "—Dos cabañas de cuatro. La grande con hogar a leña, horno y freezer.", ""],
       ["0:15", "Una abre la puerta del baño", "—¿Hay secador? —No. Ese lo traen. Pero el perro entra y duerme adentro.", "Honestidad que suma"],
-      ["0:20", "Salen al fogonero; Sandra las acompaña al portón", "—¿Y ahora me van a preguntar la plata, no?", "Bucle"],
-      ["0:24", "Sandra en el portón, guiño a cámara", "—Si son ocho, veinticinco mil cada una la noche. Escríbanme para la seña.", "Pago"]
+      ["0:20", "Salen al fogonero; Mai las acompaña al portón", "—¿Y ahora me van a preguntar la plata, no?", "Bucle"],
+      ["0:24", "Mai en el portón, guiño a cámara", "—Si son ocho, veinticinco mil cada una la noche. Escríbannos para la seña.", "Pago"]
     ],
-    cta: "Comentá RESERVA y Sandra te escribe.",
-    shots: ["Sandra saliendo desde atrás del quincho (grabar pasos y portón)", "Chicas avergonzadas", "Entrada a la grande con hogar", "Baño y pregunta del secador", "Fogonero", "Portón y guiño"],
+    cta: "Comentá RESERVA y te escribimos.",
+    shots: ["Mai saliendo desde atrás del quincho (grabar pasos y portón)", "Chicas avergonzadas", "Entrada a la grande con hogar", "Baño y pregunta del secador", "Fogonero", "Portón y guiño"],
     ojo: "Actuado pero con charla suelta: repasar las líneas y no leer. No decir que hay visitas de día: es un dato sin confirmar.",
     caption: "Se nos metieron sin avisar… y terminaron preguntando la seña 😅\nDos cabañas para ocho, hogar a leña y el perro adentro. Secador no hay.\nComentá RESERVA."
   },
   {
     v: "B", tipo: "Cambia quién entra",
     titulo: "Cayeron un día antes",
-    angulo: "El grupo que no aguantó la ciudad. La tensión es si Sandra los deja pasar, y la regla del silencio cierra con humor.",
+    angulo: "El grupo que no aguantó la ciudad. La tensión es si Mai los deja pasar, y la regla del silencio cierra con humor.",
     heras: { nota: "6", fallas: [
       "Resuelve el conflicto en el segundo 6 («tienen suerte, está libre»): se va la duda.",
       "Lista logística (sábanas, carbón, súper) sin el monólogo del grupo que se escapa apurado."
@@ -576,20 +576,20 @@ H(7, [
     hook: {
       dice: "¡Paren todo! ¿Qué hacen acá? ¡La reserva es mañana!",
       placa: "CAYERON UN DÍA ANTES 🤦‍♀️",
-      plano: "Sandra abre el portón y del otro lado hay un auto lleno de amigos con la heladerita. Bocinazo y gritos.",
+      plano: "Mai abre el portón y del otro lado hay un auto lleno de amigos con la heladerita. Bocinazo y gritos.",
       marco: "Conflicto + impacto sonoro"
     },
     beats: [
       ["0:00", "Portón, auto lleno de amigos, bocinazo", "¡Paren todo! ¿Qué hacen acá? ¡La reserva es mañana!", "¿Los deja?"],
       ["0:04", "Amigos bajando, riéndose", "—No aguantábamos más la ciudad. —…Y ustedes no aguantan nada, ¿no?", "¿Y?"],
-      ["0:08", "Sandra mira el celular, piensa", "(silencio de un segundo)", "Brecha"],
-      ["0:10", "Sandra abre del todo", "—Tuvieron suerte. Cuatro en la grande y cuatro en la chica. Las camas ya están hechas.", ""],
+      ["0:08", "Mai mira el celular, piensa", "(silencio de un segundo)", "Brecha"],
+      ["0:10", "Mai abre del todo", "—Tuvieron suerte. Cuatro en la grande y cuatro en la chica. Las camas ya están hechas.", ""],
       ["0:15", "Uno corre al quincho", "—¿Trajeron carbón? —…No. —Hay un súper a un minuto.", ""],
       ["0:20", "El perro baja y entra a la cabaña", "—Y el perro, adentro. Eso sí…", "¿Eso sí qué?"],
-      ["0:24", "Sandra a cámara mientras brindan atrás", "—…a las doce, silencio. Los conozco.", "Pago con humor"]
+      ["0:24", "Mai a cámara mientras brindan atrás", "—…a las doce, silencio. Los conozco.", "Pago con humor"]
     ],
     cta: "Mandáselo al amigo que llegaría un día antes.",
-    shots: ["Portón y auto lleno de amigos (bocinazo)", "Amigos bajando", "Sandra mirando el celular", "Amigo corriendo al quincho", "Perro entrando a la cabaña", "Sandra a cámara con brindis atrás"],
+    shots: ["Portón y auto lleno de amigos (bocinazo)", "Amigos bajando", "Mai mirando el celular", "Amigo corriendo al quincho", "Perro entrando a la cabaña", "Mai a cámara con brindis atrás"],
     ojo: "«Tuvieron suerte» es ficción del sketch: no puede sonar a que siempre hay lugar. Súper a un minuto: Supermercado 18, del relevamiento de Maps.",
     caption: "Cuando tu grupo no aguanta y cae un día antes 😂\nDos cabañas para ocho, quincho techado y súper a un minuto.\nMandáselo al que haría esto."
   },
@@ -727,7 +727,7 @@ H(9, [
     hook: {
       dice: "¿Hace cuántos meses que la rutina te tiene congelado?",
       placa: "¿Y SI ESTE FINDE…? 🧉",
-      plano: "Sandra con mate y termo frente a las cabañas a contraluz. Sonido: un sorbo fuerte de mate.",
+      plano: "Mai con mate y termo frente a las cabañas a contraluz. Sonido: un sorbo fuerte de mate.",
       marco: "Pregunta incómoda + enemigo común, gancho de 3 partes"
     },
     beats: [
@@ -824,10 +824,10 @@ H(10, [
       ["0:08", "POV descalzo en el pasto", "San Pedro, a dos horas. Predio cerrado, nadie te busca.", ""],
       ["0:13", "Mano recibiendo un mate frente a las dos cabañas", "Dos cabañas para los ocho del grupo. Quincho techado y fogonero.", ""],
       ["0:18", "Fogonero prendiéndose con las luces del parque, risas", "¿Sabés qué es lo único que tenés que calcular?", "Bucle"],
-      ["0:22", "Sandra a cámara en el parque iluminado", "Veinticinco mil por persona la noche, con la quinta entera.", "Pago"]
+      ["0:22", "Mai a cámara en el parque iluminado", "Veinticinco mil por persona la noche, con la quinta entera.", "Pago"]
     ],
     cta: "Guardalo para el viernes que lo necesites.",
-    shots: ["Credencial en primer plano con portón atrás (grabar el crujido)", "Tirar la credencial al asiento", "Cerrar el baúl con la compu", "POV descalzo en el pasto", "Mano recibiendo mate frente a las cabañas", "Fogonero y luces", "Sandra a cámara"],
+    shots: ["Credencial en primer plano con portón atrás (grabar el crujido)", "Tirar la credencial al asiento", "Cerrar el baúl con la compu", "POV descalzo en el pasto", "Mano recibiendo mate frente a las cabañas", "Fogonero y luces", "Mai a cámara"],
     ojo: "Misma música y ritmo que el POV original: es parte de lo que funcionó. $25.000 es con quinta completa y ocho.",
     caption: "POV: llegás a San Pedro con la credencial todavía puesta.\nSe queda en el auto.\nGuardalo para el viernes que lo necesites."
   },
@@ -882,10 +882,10 @@ H(10, [
       ["0:10", "Zapatillas volando al pasto; mate servido en la mesa de mosaico", "Zapatillas afuera. Primer mate.", ""],
       ["0:14", "Parrilla humeando en el quincho", "El grupo prende el asado.", ""],
       ["0:18", "Fogonero prendido con las luces del parque", "¿Sabés cuánto costó borrar la oficina?", "Bucle"],
-      ["0:21", "Sandra junto al fuego", "Veinticinco mil por persona, entre ocho, con la quinta entera. San Pedro.", "Pago"]
+      ["0:21", "Mai junto al fuego", "Veinticinco mil por persona, entre ocho, con la quinta entera. San Pedro.", "Pago"]
     ],
     cta: "Mandáselo al grupo.",
-    shots: ["Mano cerrando la compu (grabar el clac)", "Llaves del auto", "Ruta desde el parabrisas (graba el acompañante, nunca quien maneja)", "Portón abriéndose", "Bolsos en la cama", "Zapatillas al pasto", "Mate en la mesa de mosaico", "Parrilla humeando", "Fogonero y luces", "Sandra junto al fuego"],
+    shots: ["Mano cerrando la compu (grabar el clac)", "Llaves del auto", "Ruta desde el parabrisas (graba el acompañante, nunca quien maneja)", "Portón abriéndose", "Bolsos en la cama", "Zapatillas al pasto", "Mate en la mesa de mosaico", "Parrilla humeando", "Fogonero y luces", "Mai junto al fuego"],
     ojo: "El ingreso es desde las 11:00: llegar el viernes a la tarde no choca, pero confirmarlo con Sandra antes de publicar. La ruta la graba el acompañante.",
     caption: "De la oficina al fogonero en diez cortes 🔥\nQuinta completa para ocho en San Pedro: $25.000 por persona.\nMandáselo al grupo."
   }
