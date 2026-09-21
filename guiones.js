@@ -7,7 +7,7 @@ window.GUIONES = {
     "Estos son los primeros videos: tres formatos y tres temas —empresas, patrimonio y lo que se puede arreglar antes de un juicio—. Cada fila es un formato: a la izquierda, un video de ejemplo; a la derecha, sus guiones. Los marcados «Pregunta frecuente de tu web» salen de las preguntas de tu página: la respuesta ya es tuya, solo hay que decirla hablando. Debajo de cada arranque hay diez o más para elegir, cada uno con un gancho distinto; los marcados «De tu web» o «Tuya» salen de tu página y de la nota de Perfil y Fortuna. Si te gusta más alguno, tocá «Este».",
     "Las preguntas ya están. Lo que falta sos vos: en cada casillero escribí cómo lo dirías hablando, no como lo escribirías. Si te trabás, tocá «Ver un ejemplo».",
     "Más abajo está cómo se vería el perfil: nombre, bio y destacadas. Todo se puede cambiar.",
-    "Lo que escribís se guarda solo en este dispositivo y en este navegador. Cuando termines, tocá «Enviar» arriba y mandalo por WhatsApp. Si vas a tardar varios días, bajate un respaldo desde «Enviar»: algunos celulares borran lo guardado de las páginas que no se abren por una semana."
+    "Lo que escribís se guarda solo, a medida que escribís: si mañana abrís este mismo link en otro celular o en la compu, vas a ver lo último. Cuando termines, tocá «Enviar» arriba y mandalo por WhatsApp."
   ],
   reglas: [
     "Estos videos son para gente que todavía no te conoce: no hace falta explicar leyes, contá lo que ves en tu escritorio.",
@@ -384,7 +384,7 @@ window.GUIONES.fijados = {
    STORIES-Y-DESTACADAS.md (las cuatro destacadas y sus portadas). Todo se puede cambiar en la página. */
 window.GUIONES.perfil = {
   titulo: "Así se vería el perfil",
-  resumen: "Nombre, bio y destacadas. Tocá cualquier cosa del panel de la derecha y cambiá lo que quieras: se guarda en este dispositivo",
+  resumen: "Nombre, bio y destacadas. Tocá cualquier cosa del panel de la derecha y cambiá lo que quieras: se guarda solo",
   base: {
     usuario: "estudiosolmi",
     nombre: "Solmi & Asociados | Abogados",

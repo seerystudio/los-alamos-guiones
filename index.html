@@ -321,7 +321,7 @@ dialog .resp .btns{grid-template-columns:1fr 1fr}
     <button id="bTxt">Descargar como texto</button>
   </div>
   <div class="resp">
-    <p>Lo escrito vive solo en este dispositivo. Si vas a seguir otro día o en otro aparato, bajate un respaldo y cargalo después.</p>
+    <p id="dlgresp">Lo escrito vive solo en este dispositivo. Si vas a seguir otro día o en otro aparato, bajate un respaldo y cargalo después.</p>
     <div class="btns">
       <button id="bBak">Bajar respaldo</button>
       <button id="bLoad">Cargar respaldo</button>
@@ -333,18 +333,23 @@ dialog .resp .btns{grid-template-columns:1fr 1fr}
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="alerta" id="alerta" hidden>Este navegador no está guardando lo que escribís (puede ser una ventana privada). Antes de cerrar, tocá «Enviar» o bajate un respaldo.</div>
 
-<script src="guiones.js?v=2026-09-21j"></script>
+<script src="guiones.js?v=2026-09-21k"></script>
 <script>
 const D = window.GUIONES;
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-/* guardado: todo en localStorage de este navegador. Si falla, se avisa en vez de callarse. */
+/* guardado: todo en localStorage de este navegador y, si hay NUBE, también en la planilla de Google.
+   Si falla, se avisa en vez de callarse. */
+const NUBE = 'https://script.google.com/macros/s/AKfycbxgjYt2q3iZXebWQTGmeCoIkdg6bAyGNUPSIwTy47F43D51ED09QDCZU1WNqTMlQp31qw/exec', TABLERO = 'solmi-asociados';
+const CLAVES = ['sv-resp', 'sv-fijo', 'sv-conf', 'sv-hkx', 'sv-perfil'];
+const DONDE = NUBE ? 'Guardado' : 'Guardado en este dispositivo';
 let tToast;
-function avisarGuardado(){
+const hora = (h = new Date()) => String(h.getHours()).padStart(2,'0') + ':' + String(h.getMinutes()).padStart(2,'0');
+function toast(txt, ms = 1600){
   const t = $('#toast'); if (!t) return;
-  const h = new Date(); t.textContent = 'Guardado en este dispositivo · ' + String(h.getHours()).padStart(2,'0') + ':' + String(h.getMinutes()).padStart(2,'0');
-  t.classList.add('on'); clearTimeout(tToast); tToast = setTimeout(() => t.classList.remove('on'), 1600);
+  t.textContent = txt; t.classList.add('on'); clearTimeout(tToast); tToast = setTimeout(() => t.classList.remove('on'), ms);
 }
+const avisarGuardado = () => toast(DONDE + ' · ' + hora());
 function alertaGuardado(){ const a = $('#alerta'); if (a) a.hidden = false; }
 let pidioPersistir = false;
 const store = {
@@ -352,12 +357,58 @@ const store = {
   set(k, v, callado){
     try { localStorage.setItem(k, JSON.stringify(v)); }
     catch { alertaGuardado(); return false; }
+    if (CLAVES.includes(k)) marcarCambio();
     if (!callado) avisarGuardado();
     if (!pidioPersistir && navigator.storage && navigator.storage.persist){ pidioPersistir = true; navigator.storage.persist().catch(() => {}); }
     return true;
   }
 };
 try { localStorage.setItem('sv-test', '1'); localStorage.removeItem('sv-test'); } catch { addEventListener('DOMContentLoaded', alertaGuardado); setTimeout(alertaGuardado, 0); }
+/* nube: cada cambio se sube a la planilla un segundo y medio después de la última tecla. Al abrir, si la
+   planilla tiene algo más nuevo que este dispositivo (lo escribió en otro aparato), se trae eso. */
+const leerN = k => { try { return Number(localStorage.getItem(k)) || 0; } catch { return 0; } };
+const anotarN = (k, n) => { try { localStorage.setItem(k, String(n)); } catch {} };
+let tSubir, subiendo = false, huboCambio = false;
+function marcarCambio(){
+  /* nunca para atrás: si el reloj de otro aparato iba adelantado, el cambio de acá igual queda como el último */
+  huboCambio = true; anotarN('sv-cambio', Math.max(Date.now(), leerN('sv-cambio') + 1));
+  if (NUBE){ clearTimeout(tSubir); tSubir = setTimeout(subir, 1500); }
+}
+function estadoLocal(){ const o = {}; CLAVES.forEach(k => { const v = store.get(k, null); if (v !== null) o[k] = v; }); return o; }
+async function subir(keep){
+  if (!NUBE) return;
+  const fecha = leerN('sv-cambio');
+  if (!fecha || fecha <= leerN('sv-subido')) return;
+  if (subiendo && !keep){ clearTimeout(tSubir); tSubir = setTimeout(subir, 1500); return; }
+  subiendo = true;
+  try {
+    const r = await fetch(NUBE, {method: 'POST', keepalive: !!keep, body: JSON.stringify({t: TABLERO, fecha, estado: estadoLocal(), filas: filasTodo()})});
+    const o = await r.json();
+    if (!o.ok) throw 0;
+    anotarN('sv-subido', fecha);
+    if (!keep) toast('Guardado en la nube · ' + hora());
+  } catch {
+    if (!keep) toast('Sin conexión: quedó en este dispositivo y se sube solo cuando vuelva', 3500);
+  } finally { subiendo = false; }
+}
+async function bajar(){
+  if (!NUBE) return;
+  try {
+    const o = await (await fetch(NUBE + '?t=' + encodeURIComponent(TABLERO))).json();
+    if (!o.ok) return;
+    if (o.estado && o.fecha > leerN('sv-cambio') && !huboCambio){
+      CLAVES.forEach(k => { if (k in o.estado) localStorage.setItem(k, JSON.stringify(o.estado[k])); else localStorage.removeItem(k); });
+      anotarN('sv-cambio', o.fecha); anotarN('sv-subido', o.fecha);
+      resp = store.get('sv-resp', {}); fijo = store.get('sv-fijo', {}); conf = store.get('sv-conf', {}); hkx = store.get('sv-hkx', {});
+      perfil = Object.assign(copia(P ? P.base : {}), store.get('sv-perfil', {})); delete perfil.foto;
+      render(); if (!document.body.classList.contains('list')) apply();
+      toast('Traje lo último que escribiste · ' + hora(new Date(o.fecha)), 2500);
+    } else subir();
+  } catch {}
+}
+addEventListener('online', () => subir());
+addEventListener('pagehide', () => subir(true));
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') subir(true); });
 let resp = store.get('sv-resp', {});
 let fijo = store.get('sv-fijo', {});
 let conf = store.get('sv-conf', {});
@@ -458,7 +509,7 @@ function renderFijados(){
       <div class="sticky"><h4>Qué pide</h4><p>${esc(it.pide)}</p></div>
       <div class="sticky"><h4>Tus notas</h4>
         <textarea data-f="${j}" rows="4" aria-label="Notas sobre el fijado ${esc(it.n)}" placeholder="Escribí lo que se te ocurra: qué dirías, qué cambiarías…">${esc(fijo[j] || '')}</textarea>
-        <p class="guardado" data-fg="${j}">${(fijo[j] || '').trim() ? 'Guardado en este dispositivo ✓' : ''}</p></div>
+        <p class="guardado" data-fg="${j}">${(fijo[j] || '').trim() ? DONDE + ' ✓' : ''}</p></div>
     </aside>`).join('')}
   </section>`;
 }
@@ -567,7 +618,7 @@ document.addEventListener('input', e => {
     const j = tf.dataset.f;
     if (tf.value.trim()) fijo[j] = tf.value; else delete fijo[j];
     store.set('sv-fijo', fijo);
-    document.querySelector(`[data-fg="${j}"]`).textContent = tf.value.trim() ? 'Guardado en este dispositivo ✓' : '';
+    document.querySelector(`[data-fg="${j}"]`).textContent = tf.value.trim() ? DONDE + ' ✓' : '';
     return;
   }
   const ta = e.target.closest && e.target.closest('textarea[data-r]');
@@ -604,7 +655,7 @@ document.addEventListener('click', e => {
   }
   if (e.target.closest('#preset')){
     if (!confirm('¿Volver al perfil propuesto? Se pierden los cambios que hiciste en el perfil (las respuestas de los guiones no se tocan).')) return;
-    perfil = copia(P.base); try { localStorage.removeItem('sv-perfil'); } catch {}
+    perfil = copia(P.base); try { localStorage.removeItem('sv-perfil'); } catch {} marcarCambio();
     refrescarVista(); refrescarEditor(); return;
   }
   const hb = e.target.closest('[data-hk]');
@@ -675,8 +726,28 @@ function textoTodo(){
   }
   return L.join('\n');
 }
+/* lo mismo, en filas para la planilla: [sección, qué, texto] */
+function filasTodo(){
+  const F = [];
+  D.refs.forEach(r => r.guiones.forEach(g => {
+    const key = r.n + g.v, sec = String(r.n).padStart(2,'0') + g.v + ' · ' + g.titulo;
+    const el = g.hooks ? elegido(key, g) : null;
+    F.push([sec, 'Arranque', el || g.hook.dice + (g.hooks ? ' (el propuesto)' : '')]);
+    (hkx[key] || []).forEach(t => F.push([sec, 'Arranque propio', t]));
+    g.beats.forEach((b, i) => { if (b[1] === 'V') F.push([sec, 'Víctor · ' + b[0], (resp[key + '|' + i] || '').trim()]); });
+    if (g.confirmar) F.push([sec, 'Confirmar: ' + g.confirmar, conf[key] || '']);
+  }));
+  if (D.fijados) D.fijados.items.forEach((it, j) => F.push(['★ Fijado ' + it.n + ' · ' + it.formato, 'Notas', (fijo[j] || '').trim()]));
+  if (D.ideas) D.ideas.items.forEach((it, j) => F.push(['Otros formatos · ' + it.formato, '¿Lo haría?', conf['idea' + j] || '']));
+  if (P){
+    const p = perfil;
+    [['Usuario', p.usuario], ['Nombre', p.nombre], ['Categoría', p.categoria], ['Bio', p.bio], ['Link', p.link]].forEach(([q, v]) => F.push(['Perfil', q, v || '']));
+    F.push(['Perfil', 'Destacadas', (p.destacadas || []).map(h => h.nombre).join(' · ')]);
+    F.push(['Perfil', 'Fijados', (p.fijados || []).join(' · ')]);
+  }
+  return F;
+}
 /* respaldo: todo lo guardado en un .json que se puede volver a cargar */
-const CLAVES = ['sv-resp', 'sv-fijo', 'sv-conf', 'sv-hkx', 'sv-perfil'];
 $('#bBak').onclick = () => {
   const o = {pagina: 'solmi-guiones', fecha: new Date().toISOString()};
   CLAVES.forEach(k => { const v = store.get(k, null); if (v !== null) o[k] = v; });
@@ -692,11 +763,12 @@ $('#fLoad').onchange = async e => {
   if (!confirm('¿Cargar el respaldo del ' + String(o.fecha || '').slice(0, 10) + '? Reemplaza lo que hay ahora en este dispositivo.')) return;
   try { CLAVES.forEach(k => { if (k in o) localStorage.setItem(k, JSON.stringify(o[k])); else localStorage.removeItem(k); }); }
   catch { alertaGuardado(); return; }
+  anotarN('sv-cambio', Math.max(Date.now(), leerN('sv-cambio') + 1)); anotarN('sv-subido', 0);
   location.reload();
 };
 $('#enviar').onclick = () => {
   const [h, t] = prog();
-  $('#dlgtxt').textContent = h === t ? 'Están todas. ¡Gracias!' : `Respondiste ${h} de ${t}. Podés mandar lo que tengas y seguir después: queda guardado en este dispositivo.`;
+  $('#dlgtxt').textContent = h === t ? 'Están todas. ¡Gracias!' : `Respondiste ${h} de ${t}. Podés mandar lo que tengas y seguir después: ${NUBE ? 'queda guardado y lo ves en cualquier aparato.' : 'queda guardado en este dispositivo.'}`;
   $('#dlg').showModal();
 };
 $('#bClose').onclick = () => $('#dlg').close();
@@ -774,6 +846,8 @@ $('#mBoard').onclick = () => setMode('board');
 $('#mList').onclick = () => setMode('list');
 setMode(store.get('sv-mode', innerWidth < 900 ? 'list' : 'board'));
 apply();
+if (NUBE) $('#dlgresp').textContent = 'Lo escrito se guarda en una planilla nuestra: si abrís esta página en otro aparato, aparece lo último. El respaldo queda por las dudas.';
+bajar();
 </script>
 </body>
 </html>
