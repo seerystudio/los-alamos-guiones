@@ -216,7 +216,8 @@ window.GUIONES.ideas = {
       ideas: [
         "Ranking de lo que más peleas trae en una herencia: del auto a la casa. La mesa de la abuela sale más arriba de lo que uno cree.",
         "Ranking de los papeles que todo negocio debería tener firmados, del menos al más importante.",
-        "Ranking de las excusas para no ordenar nada: «soy joven», «mis hijos se llevan bien», «sale caro»."
+        "Ranking de las excusas para no ordenar nada: «soy joven», «mis hijos se llevan bien», «sale caro».",
+        "Ranking de los peores errores al tener una empresa, del que menos cuesta al que más."
       ],
       pide: "Vos a cámara, de pie. Los íconos y los números se agregan en la edición."
     },
@@ -232,7 +233,8 @@ window.GUIONES.ideas = {
       ideas: [
         "El que firmó con su socio y el que lo dejó de palabra: cinco años después.",
         "La familia que lo habló en la mesa y la que lo dejó para después.",
-        "El que se sentó a arreglar y el que fue directo a juicio: dónde está cada uno un año después."
+        "El que se sentó a arreglar y el que fue directo a juicio: dónde está cada uno un año después.",
+        "Situaciones en las que se puede evitar el juicio: el mismo problema, contado por los dos caminos."
       ],
       pide: "Dos personas en cuadro, o la misma dos veces armado en edición. Vos podés ser el que lo cuenta desde afuera. Es actuado: corto y sin exagerar."
     },
