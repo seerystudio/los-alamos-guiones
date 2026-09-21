@@ -6,7 +6,7 @@ window.GUIONES = {
   intro: [
     "Estos son los primeros videos: tres formatos y tres temas —empresas, patrimonio y lo que se puede arreglar antes de un juicio—. Cada fila es un formato: a la izquierda, un video de ejemplo; a la derecha, sus guiones. Los marcados «Pregunta frecuente de tu web» salen de las preguntas de tu página: la respuesta ya es tuya, solo hay que decirla hablando. Debajo de cada arranque hay otros para elegir: se escribieron cuarenta por guion y quedaron solo los que entendería un chico de cinco años y le importarían a media familia; los marcados «De tu web» o «Tuya» salen de tu página y de la nota de Perfil y Fortuna. Si te gusta más alguno, tocá «Este».",
     "Las preguntas ya están. Lo que falta sos vos: en cada casillero escribí cómo lo dirías hablando, no como lo escribirías. Si te trabás, tocá «Ver un ejemplo».",
-    "Más abajo está cómo se vería el perfil: nombre, bio y destacadas. Todo se puede cambiar.",
+    "Más abajo está cómo se vería el perfil, en cuatro versiones: elegí la que más te guste y cambiale lo que quieras.",
     "Lo que escribís se guarda solo, a medida que escribís: si mañana abrís este mismo link en otro celular o en la compu, vas a ver lo último. Cuando termines, tocá «Enviar» arriba y mandalo por WhatsApp."
   ],
   reglas: [
@@ -695,7 +695,7 @@ window.GUIONES.fijados = {
    STORIES-Y-DESTACADAS.md (las cuatro destacadas y sus portadas). Todo se puede cambiar en la página. */
 window.GUIONES.perfil = {
   titulo: "Así se vería el perfil",
-  resumen: "Nombre, bio y destacadas. Tocá cualquier cosa del panel de la derecha y cambiá lo que quieras: se guarda solo",
+  resumen: "Cuatro versiones para elegir. Tocá una arriba del panel de la derecha y después cambiale lo que quieras: se guarda solo",
   base: {
     usuario: "estudiosolmi",
     nombre: "Solmi & Asociados | Abogados",
@@ -716,6 +716,114 @@ window.GUIONES.perfil = {
     "El nombre tiene un máximo de 30 caracteres y es lo que Instagram usa para buscar: por eso dice «Abogados». La bio, 150.",
     "La bio no invita a escribir todavía: falta saber si la primera consulta es paga y cuántas podés atender. El botón de WhatsApp alcanza.",
     "Las destacadas van con una letra grande, en azul y hueso alternados, hasta tener el logo en vectores. Adentro: tus áreas, dónde queda el estudio, las diez preguntas de tu web y cómo consultar.",
+    "En la B el nombre pasa a ser el tuyo: sigue diciendo «Abogado», que es lo que busca la gente. El usuario no cambia en ninguna: la cuenta ya existe.",
     "Los tres de la grilla son los videos fijados: Instagram muestra primero el último que fijás, así que se fijan en orden 03, 02, 01."
   ]
 };
+
+/* Versiones del perfil para elegir. Cada una pisa sobre la base solo lo que cambia. */
+window.GUIONES.perfil.versiones = [
+  {
+    "v": "A",
+    "titulo": "El estudio",
+    "porque": "La propuesta de hasta ahora: el estudio primero, las tres áreas y el acuerdo antes del juicio.",
+    "datos": {}
+  },
+  {
+    "v": "B",
+    "titulo": "Víctor primero",
+    "porque": "Lo que pediste en la reunión: humanizar la marca. El nombre es el tuyo y la bio habla como hablás vos.",
+    "datos": {
+      "nombre": "Víctor Solmi | Abogado",
+      "categoria": "Abogado",
+      "bio": "Abogado y empresario en San Pedro\n¿Un negocio, un socio, tu casa? Lo ordenamos antes\nSi hay un conflicto, primero busco el acuerdo\n📍 Mitre 2250",
+      "destacadas": [
+        {
+          "nombre": "Quién soy",
+          "letra": "V",
+          "fondo": "azul"
+        },
+        {
+          "nombre": "Qué hago",
+          "letra": "Q",
+          "fondo": "hueso"
+        },
+        {
+          "nombre": "Preguntas",
+          "letra": "P",
+          "fondo": "azul"
+        },
+        {
+          "nombre": "Escribime",
+          "letra": "E",
+          "fondo": "hueso"
+        }
+      ],
+      "fijados": [
+        "Quién soy",
+        "Por qué yo",
+        "Cómo trabajo"
+      ]
+    }
+  },
+  {
+    "v": "C",
+    "titulo": "Antes del juicio",
+    "porque": "La frase de la propuesta arriba de todo: ordenar antes del conflicto, resolver antes del juicio.",
+    "datos": {
+      "bio": "Ordenar antes del conflicto.\nResolver antes del juicio.\nEmpresas · contratos · proteger tus bienes\nVíctor Solmi, abogado y empresario\n📍 San Pedro",
+      "destacadas": [
+        {
+          "nombre": "Áreas",
+          "letra": "A",
+          "fondo": "azul"
+        },
+        {
+          "nombre": "Antes del juicio",
+          "letra": "J",
+          "fondo": "hueso"
+        },
+        {
+          "nombre": "Preguntas",
+          "letra": "P",
+          "fondo": "azul"
+        },
+        {
+          "nombre": "Consultar",
+          "letra": "C",
+          "fondo": "hueso"
+        }
+      ]
+    }
+  },
+  {
+    "v": "D",
+    "titulo": "El largo plazo",
+    "porque": "Tu diferencial: la ética y mirar a futuro. Sale de Perfil y Fortuna y del guion de por qué elegirte.",
+    "datos": {
+      "bio": "Pensamos en cómo vas a estar más adelante, no solo en ganar esta\nAcuerdos antes que juicios\nEmpresas y proteger lo tuyo\n📍 San Pedro",
+      "destacadas": [
+        {
+          "nombre": "El estudio",
+          "letra": "E",
+          "fondo": "azul"
+        },
+        {
+          "nombre": "Cómo trabajamos",
+          "letra": "T",
+          "fondo": "hueso"
+        },
+        {
+          "nombre": "Preguntas",
+          "letra": "P",
+          "fondo": "azul"
+        },
+        {
+          "nombre": "Consultar",
+          "letra": "C",
+          "fondo": "hueso"
+        }
+      ]
+    }
+  }
+];
