@@ -2,9 +2,9 @@
    E = pregunta de Emanuel (fija). V = respuesta de Víctor: casillero para que la escriba él.
    "ej" es solo una ayuda por si se traba; no es el guion. */
 window.GUIONES = {
-  titulo: "Nueve preguntas. Las respuestas son tuyas.",
+  titulo: "Once preguntas. Las respuestas son tuyas.",
   intro: [
-    "Estos son los primeros videos: tres formatos y tres temas —empresas, patrimonio y lo que se puede arreglar antes de un juicio—. Cada fila es un formato: a la izquierda, un video de ejemplo; a la derecha, tres guiones.",
+    "Estos son los primeros videos: tres formatos y tres temas —empresas, patrimonio y lo que se puede arreglar antes de un juicio—. Cada fila es un formato: a la izquierda, un video de ejemplo; a la derecha, sus guiones. Los marcados «Pregunta frecuente de tu web» salen de las preguntas de tu página: la respuesta ya es tuya, solo hay que decirla hablando.",
     "Las preguntas ya están. Lo que falta sos vos: en cada casillero escribí cómo lo dirías hablando, no como lo escribirías. Si te trabás, tocá «Ver un ejemplo».",
     "Lo que escribís se guarda en este dispositivo. Cuando termines, tocá «Enviar» arriba y mandalas por WhatsApp."
   ],
@@ -77,6 +77,21 @@ window.GUIONES = {
           cta: "¿Conocés a alguien peleado con un socio, un vecino o un inquilino? Mandáselo.",
           confirmar: "¿Se puede decir así: que en la mediación deciden las partes y en el juicio decide el juez?",
           ojo: "No expliques el trámite (plazos, pasos, costos): al que te ve por primera vez le alcanza con saber que existe."
+        },
+        {
+          v: "D", tipo: "Pregunta frecuente de tu web",
+          titulo: "¿Qué pasa en una primera consulta?",
+          angulo: "Para el que ya te vio y está pensando en consultar: la cámara es él, llegando a tu escritorio.",
+          dur: "≈32 s",
+          hook: { quien: "Emanuel", dice: "Hola… la verdad, no sé ni por dónde empezar." },
+          beats: [
+            ["0:03", "V", "Cómo lo recibís. Algo humano, antes de hablar de nada legal.", "Sentate tranquilo. ¿Querés un café?"],
+            ["0:06", "E", "¿Tenía que traer algo? No sé nada de leyes."],
+            ["0:09", "V", "Que no hace falta, y qué le pedís que haga.", "Nada. Lo que no sepas, lo pregunto yo. Contame qué te pasó, con tus palabras."],
+            ["0:15", "V", "Con qué se va cuando termina la charla.", "Cuando terminemos, vas a saber cómo estás parado y qué opciones tenés. En criollo."],
+            ["0:21", "E", "¿Y si después no quiero hacer nada?"],
+            ["0:23", "V", "Tu remate: qué es y qué no es una consulta.", "Decidís vos. Esto es una charla, no un trámite. Consultar no te obliga a nada."]
+          ]
         }
       ]
     },
@@ -140,6 +155,21 @@ window.GUIONES = {
           cta: "Mandáselo a quien esté con ganas de «ir a juicio».",
           confirmar: "¿Se puede decir al aire que a veces ganar un juicio sale más caro que arreglar?",
           ojo: "Sin nombrar ni compararte con otros estudios."
+        },
+        {
+          v: "D", tipo: "Pregunta frecuente de tu web",
+          titulo: "¿Todos los problemas legales terminan en juicio?",
+          angulo: "Primero contás lo que cree la gente, y recién después lo desarmás. La respuesta llega a la mitad.",
+          dur: "≈32 s",
+          hook: { quien: "Emanuel", dice: "Víctor, ¿todos los problemas legales terminan en juicio?" },
+          beats: [
+            ["0:03", "V", "No contestes todavía: contá qué cree la gente que llega al estudio.", "Casi todos los que se sientan acá creen que sí. Y llegan con el enojo preparado para eso."],
+            ["0:08", "V", "Qué se imaginan cuando piensan en un juicio.", "Se imaginan años, papeles, un juez… y a la otra persona del otro lado de la sala."],
+            ["0:13", "V", "Lo que casi nadie sabe.", "Lo que casi nadie sabe es que el juicio es una de las puertas. Hay otras antes."],
+            ["0:17", "V", "Recién acá, la respuesta: cuáles son esas otras puertas.", "Un acuerdo, una negociación, una mediación. Y muchos problemas se terminan ahí, sin pisar un tribunal."],
+            ["0:24", "E", "¿Y cómo sabés cuál conviene?"],
+            ["0:26", "V", "Cómo se decide el camino.", "Mirando tu caso. Es lo primero que hacemos."]
+          ]
         }
       ]
     },
