@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tablero de guiones · Los Álamos</title>
-<meta name="description" content="Diez referencias de reels adaptadas a Quinta Los Álamos, con tres guiones por referencia.">
+<title>Guiones · Solmi & Asociados</title>
+<meta name="description" content="Nueve guiones para los primeros videos del estudio, con lugar para las respuestas de Víctor.">
 <meta name="robots" content="noindex">
 <style>
 @font-face{font-family:'General Sans';src:url(assets/generalsans-400.woff2) format('woff2');font-weight:400;font-display:swap}
@@ -174,30 +174,65 @@ body.onlypicks .row:not(:has(.g.pick)){display:none}
 }
 @media (max-width:480px){.seg{display:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* respuestas de Víctor */
+.beat.e .a{font-family:var(--tit);font-weight:700;font-size:16px;letter-spacing:-.01em}
+.who-e{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tenue)}
+.beat.v .who-v{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#C23A00}
+.beat.v .guia{font-size:13px;color:var(--tenue);margin:2px 0 6px}
+.beat textarea{display:block;width:100%;min-height:62px;resize:vertical;border:1px solid rgba(0,0,0,.18);border-radius:10px;background:#fff;color:#141414;font:inherit;font-size:15px;line-height:1.4;padding:9px 11px;transition:border-color .2s}
+.beat textarea:focus{outline:none;border-color:var(--naranja);box-shadow:0 0 0 3px rgba(255,77,0,.18)}
+.beat textarea.ok{border-color:#141414}
+details.ej{margin-top:6px}
+details.ej summary{font-size:12.5px;font-weight:600;color:var(--tenue);cursor:pointer;list-style:none}
+details.ej summary::-webkit-details-marker{display:none}
+details.ej summary::before{content:"+ "}
+details.ej[open] summary::before{content:"− "}
+details.ej p{margin:6px 0 0;font-size:13.5px;font-style:italic;color:var(--tenue);border-left:2px solid var(--lin);padding-left:10px}
+.conf{font-size:13px;background:#fff;border:1px solid var(--naranja);border-radius:12px;padding:10px 12px;display:grid;gap:8px}
+.conf b{color:#C23A00}
+.conf .op{display:flex;gap:6px;flex-wrap:wrap}
+.conf .op button{border:1px solid rgba(0,0,0,.2);background:transparent;border-radius:100px;padding:5px 12px;font-size:12.5px;font-weight:600;color:#141414}
+.conf .op button[aria-pressed="true"]{background:#141414;border-color:#141414;color:#fff}
+.cont{font-size:12px;font-weight:600;color:var(--tenue);margin-top:10px}
+.cont.full{color:#1f7a3a}
+#enviar{border-color:var(--naranja);background:var(--naranja);color:#fff}
+dialog{border:1px solid var(--linea-2);border-radius:18px;background:var(--negro-2);color:var(--hueso);padding:22px;width:min(440px,calc(100% - 32px))}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+dialog h2{font-family:var(--tit);font-size:26px;font-weight:800;letter-spacing:-.03em;margin:0 0 8px}
+dialog p{color:var(--gris);font-size:14px;margin:0 0 16px}
+dialog .btns{display:grid;gap:8px}
+dialog .btns button{border:1px solid var(--linea-2);background:rgba(255,255,255,.04);border-radius:100px;padding:11px 16px;font-weight:600;color:var(--hueso)}
+dialog .btns button.pri{background:var(--naranja);border-color:var(--naranja);color:#fff}
+dialog .cerrar{margin-top:10px;background:transparent;border:0;color:var(--gris);font-size:13px}
 </style>
 </head>
 <body>
 <div class="bar">
-  <h1><i></i>Los Álamos<small>guiones · grabación 18/09</small></h1>
+  <h1><i></i>Solmi &amp; Asociados<small>guiones · primeros videos</small></h1>
   <span class="sp"></span>
-  <select class="chip" id="jump" aria-label="Ir a la referencia"></select>
-  <button class="chip" id="editar" aria-pressed="false">✎<span class="t"> Editar</span></button>
-  <button class="chip" id="onlypicks" aria-pressed="false">★<span class="t"> Elegidos</span></button>
+  <select class="chip" id="jump" aria-label="Ir al formato"></select>
+  <button class="chip" id="enviar">Enviar <span id="prog"></span></button>
   <div class="seg" role="group" aria-label="Vista">
     <button id="mBoard" aria-pressed="true">Tablero</button>
     <button id="mList" aria-pressed="false">Lista</button>
   </div>
 </div>
 <div id="vp"><div id="world"></div></div>
-<div class="aviso-ed" role="status">Modo edición: tocá cualquier texto del guion y cambialo. Se guarda en este dispositivo.</div>
 <div class="zoomui"><button id="zout" aria-label="Alejar">−</button><button id="zfit" aria-label="Encajar">⤢</button><button id="zin" aria-label="Acercar">+</button></div>
 
+<dialog id="dlg">
+  <h2>Tus respuestas</h2>
+  <p id="dlgtxt"></p>
+  <div class="btns">
+    <button class="pri" id="bWa">Mandar por WhatsApp</button>
+    <button id="bCopy">Copiar todo</button>
+    <button id="bTxt">Descargar como texto</button>
+  </div>
+  <button class="cerrar" id="bClose">Cerrar</button>
+</dialog>
+
 <script src="guiones.js"></script>
-<script src="refs-1.js"></script>
-<script src="refs-2.js"></script>
-<script src="refs-3.js"></script>
-<script src="refs-4.js"></script>
-<script src="heras.js"></script>
 <script>
 const D = window.GUIONES;
 const $ = s => document.querySelector(s);
@@ -206,67 +241,63 @@ const store = {
   get(k, d){ try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch { return d; } },
   set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
 };
-let picks = store.get('la-picks', {});
-let shots = store.get('la-shots', {});
-let edits = store.get('la-edits', {});
-/* Cada edición guarda también el original: si el guion cambia en una versión nueva, la edición vieja no se pega encima. */
-const ed = (key, orig, tag, cls) => {
-  const e = edits[key];
-  const val = e && e.o === orig ? e.t : orig;
-  return `<${tag} class="${cls}${val !== orig ? ' edited' : ''}" data-ed="${esc(key)}" data-o="${esc(orig)}">${esc(val)}</${tag}>`;
-};
+let resp = store.get('sv-resp', {});
+let conf = store.get('sv-conf', {});
+const nV = g => g.beats.filter(b => b[1] === 'V').length;
+const hechas = (key, g) => g.beats.reduce((s, b, i) => s + (b[1] === 'V' && (resp[key + '|' + i] || '').trim() ? 1 : 0), 0);
+const guion = key => { for (const r of D.refs) for (const g of r.guiones) if (r.n + g.v === key) return g; };
 
 function renderScript(r, g){
-  const key = r.n + '|' + g.v;
-  const beats = g.beats.map((b, i) => `<div class="beat"><div class="t">${esc(b[0])}</div><div>
-      ${b[1] ? `<div class="p">🎥 ${ed(key + '|p' + i, b[1], 'span', '')}</div>` : ''}
-      ${ed(key + '|a' + i, b[2], 'div', 'a')}
-      ${b[3] ? `<div class="d">↳ ${esc(b[3])}</div>` : ''}</div></div>`).join('');
-  const sh = (g.shots || []).map((s, i) => {
-    const id = r.n + g.v + '-' + i;
-    return `<li><input type="checkbox" data-shot="${id}" ${shots[id] ? 'checked' : ''} id="s${id}"><label for="s${id}">${esc(s)}</label></li>`;
-  }).join('');
-  return `<article class="card g ${picks[r.n] === g.v ? 'pick' : ''}" data-v="${g.v}" data-n="${r.n}">
+  const key = r.n + g.v;
+  const beats = g.beats.map((b, i) => b[1] === 'E'
+    ? `<div class="beat e"><div class="t">${esc(b[0])}</div><div><div class="who-e">Emanuel pregunta</div><div class="a">${esc(b[2])}</div></div></div>`
+    : `<div class="beat v"><div class="t">${esc(b[0])}</div><div>
+        <div class="who-v">Víctor</div>
+        <div class="guia">${esc(b[2])}</div>
+        <textarea data-r="${key}|${i}" rows="3" aria-label="Respuesta de Víctor, ${esc(b[0])}" placeholder="Escribí cómo lo dirías…" class="${(resp[key + '|' + i] || '').trim() ? 'ok' : ''}">${esc(resp[key + '|' + i] || '')}</textarea>
+        ${b[3] ? `<details class="ej"><summary>Ver un ejemplo</summary><p>${esc(b[3])}</p></details>` : ''}
+      </div></div>`).join('');
+  const h = hechas(key, g), t = nV(g), c = conf[key];
+  return `<article class="card g" data-v="${g.v}" data-k="${key}">
     <header>
       <span class="var">${esc(g.tipo)}</span>
-      ${ed(key + '|titulo', g.titulo, 'h3', '')}
+      <h3>${esc(g.titulo)}</h3>
       <p class="angle">${esc(g.angulo)}</p>
-      <button class="star" data-pick="${r.n}|${g.v}" aria-pressed="${picks[r.n] === g.v}" aria-label="Elegir este guion">★</button>
+      <div class="cont ${h === t ? 'full' : ''}" data-cont="${key}">${h} de ${t} respondidas</div>
     </header>
-    ${g.heras ? `<div class="sec heras"><p class="lab">Filtro Víctor Heras · la versión anterior sacó ${esc(g.heras.nota)}/10</p><ul>${g.heras.fallas.map(f => `<li>${esc(f)}</li>`).join('')}</ul></div>` : ''}
-    <div class="sec"><p class="lab">Hook · primeros 3 segundos</p>
+    <div class="sec"><p class="lab">Arranque · primeros 3 segundos · dice ${esc(g.hook.quien)}</p>
       <div class="hook">
-        <div class="say">${ed(key + '|dice', g.hook.dice, 'span', '')}</div>
-        <div><b>Placa</b> ${ed(key + '|placa', g.hook.placa, 'span', '')}</div>
-        <div><b>Plano</b> ${ed(key + '|plano', g.hook.plano, 'span', '')}</div>
+        <div class="say">${esc(g.hook.dice)}</div>
+        <div><b>Placa</b> ${esc(g.hook.placa)}</div>
+        <div><b>Plano</b> ${esc(g.hook.plano)}</div>
       </div>
-      <div class="marco">Marco: ${esc(g.hook.marco)}</div>
     </div>
     <div class="sec"><p class="lab">Guion · ${esc(g.dur)}</p><div class="beats">${beats}</div></div>
-    <div class="sec"><p class="lab">Cierre</p>${ed(key + '|cta', g.cta, 'div', 'cta')}</div>
-    ${sh ? `<div class="sec"><p class="lab">Planos a grabar</p><ul class="shots">${sh}</ul></div>` : ''}
-    ${g.ojo ? `<div class="sec"><div class="warn">⚠️ ${esc(g.ojo)}</div></div>` : ''}
-    ${g.caption ? `<div class="sec"><p class="lab">Caption</p>${ed(key + '|caption', g.caption, 'div', 'cap')}</div>` : ''}
-    <div class="sec acciones"><button type="button" data-copy="${key}">Copiar guion</button><button type="button" class="reset" data-reset="${key}" ${Object.keys(edits).some(k => k.startsWith(key + '|')) ? '' : 'hidden'}>Volver al original</button></div>
+    <div class="sec"><p class="lab">Cierre</p><div class="cta">${esc(g.cta)}</div></div>
+    ${g.confirmar ? `<div class="sec"><div class="conf"><div><b>Confirmanos:</b> ${esc(g.confirmar)}</div>
+      <div class="op">${['Sí, va así', 'No, cambiarlo', 'Lo hablamos'].map(o => `<button type="button" data-conf="${key}" aria-pressed="${c === o}">${o}</button>`).join('')}</div></div></div>` : ''}
+    ${g.ojo ? `<div class="sec"><div class="warn">Ojo: ${esc(g.ojo)}</div></div>` : ''}
   </article>`;
 }
 
 function renderRef(r){
-  const vid = r.id
-    ? `<div class="vid" data-embed="${r.id}"><div class="ph"><button type="button">▶ Ver el reel</button><a href="https://www.instagram.com/reel/${r.id}/" target="_blank" rel="noopener">abrir en Instagram ↗</a></div></div>`
-    : `<div class="vid"><div class="ph">${esc(r.sinVideo || 'Sin referencia externa')}</div></div>`;
   return `<aside class="card ref">
-    ${vid}
+    <div class="vid" data-embed="${r.id}"><div class="ph"><button type="button">▶ Ver el ejemplo</button><a href="https://www.instagram.com/reel/${r.id}/" target="_blank" rel="noopener">abrir en Instagram ↗</a></div></div>
     <div class="who">${r.cuenta ? `<b>${esc(r.cuenta)}</b> · ` : ''}${esc(r.datos || '')}</div>
     <div class="kv">${(r.tags || []).map(t => `<span>${esc(t)}</span>`).join('')}</div>
     <div class="sticky"><h4>Por qué funciona</h4><ol>${r.mecanica.map(m => `<li>${esc(m)}</li>`).join('')}</ol></div>
-    ${r.transcripcion ? `<details class="tr"><summary>Transcripción</summary><pre>${esc(r.transcripcion)}</pre></details>` : ''}
   </aside>`;
 }
 
+function prog(){
+  let h = 0, t = 0;
+  D.refs.forEach(r => r.guiones.forEach(g => { h += hechas(r.n + g.v, g); t += nV(g); }));
+  $('#prog').textContent = h + '/' + t;
+  return [h, t];
+}
 function render(){
   const intro = `<section class="row" id="r0"><div class="card intro">
-    <span class="rotulo">Quinta Los Álamos · reels</span>
+    <span class="rotulo">Solmi &amp; Asociados · primeros videos</span>
     <h2>${esc(D.titulo)}</h2>
     ${D.intro.map(p => `<p>${esc(p)}</p>`).join('')}
     <ul>${D.reglas.map(p => `<li>${esc(p)}</li>`).join('')}</ul>
@@ -277,21 +308,29 @@ function render(){
     <div class="scripts">${r.guiones.map(g => renderScript(r, g)).join('')}</div>
   </section>`).join('');
   $('#jump').innerHTML = `<option value="0">Ir a…</option>` + D.refs.map(r => `<option value="${r.n}">${String(r.n).padStart(2,'0')} · ${esc(r.formato)}</option>`).join('');
+  prog();
 }
 render();
 
-/* interacciones */
+/* escribir: se guarda en el dispositivo a cada tecla */
+document.addEventListener('input', e => {
+  const ta = e.target.closest && e.target.closest('textarea[data-r]');
+  if (!ta) return;
+  const v = ta.value;
+  if (v.trim()) resp[ta.dataset.r] = v; else delete resp[ta.dataset.r];
+  store.set('sv-resp', resp);
+  ta.classList.toggle('ok', !!v.trim());
+  const key = ta.dataset.r.split('|')[0], g = guion(key);
+  const h = hechas(key, g), t = nV(g), el = document.querySelector(`[data-cont="${key}"]`);
+  el.textContent = h + ' de ' + t + ' respondidas'; el.classList.toggle('full', h === t);
+  prog();
+});
 document.addEventListener('click', e => {
-  const st = e.target.closest('[data-pick]');
-  if (st){
-    const [n, v] = st.dataset.pick.split('|');
-    picks[n] = picks[n] === v ? null : v;
-    store.set('la-picks', picks);
-    document.querySelectorAll(`.g[data-n="${n}"]`).forEach(g => {
-      const on = picks[n] === g.dataset.v;
-      g.classList.toggle('pick', on);
-      g.querySelector('.star').setAttribute('aria-pressed', on);
-    });
+  const cb = e.target.closest('[data-conf]');
+  if (cb){
+    const k = cb.dataset.conf, o = cb.textContent;
+    conf[k] = conf[k] === o ? null : o; store.set('sv-conf', conf);
+    cb.parentNode.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', conf[k] === b.textContent));
     return;
   }
   const pb = e.target.closest('.vid[data-embed] button');
@@ -300,77 +339,44 @@ document.addEventListener('click', e => {
     box.innerHTML = `<iframe src="https://www.instagram.com/reel/${box.dataset.embed}/embed" loading="lazy" allowfullscreen scrolling="no"></iframe>`;
   }
 });
-/* edición */
-const setEditing = on => {
-  document.body.classList.toggle('editing', on);
-  $('#editar').setAttribute('aria-pressed', on);
-  document.querySelectorAll('[data-ed]').forEach(el => {
-    if (on) {
-      el.setAttribute('contenteditable', 'plaintext-only');
-      if (el.contentEditable !== 'plaintext-only') el.setAttribute('contenteditable', 'true');
-      el.spellcheck = true;
-    } else el.removeAttribute('contenteditable');
-  });
+
+/* enviar */
+function textoTodo(){
+  const L = ['RESPUESTAS DE VÍCTOR · guiones Solmi & Asociados', ''];
+  D.refs.forEach(r => r.guiones.forEach(g => {
+    const key = r.n + g.v;
+    L.push('== ' + String(r.n).padStart(2,'0') + g.v + ' · ' + r.formato + ' · ' + g.titulo);
+    L.push(g.hook.quien + ': ' + g.hook.dice);
+    g.beats.forEach((b, i) => {
+      if (b[1] === 'E') L.push('Emanuel: ' + b[2]);
+      else L.push('Víctor: ' + ((resp[key + '|' + i] || '').trim() || '(sin responder)'));
+    });
+    if (g.confirmar) L.push('Confirmar: ' + g.confirmar + ' → ' + (conf[key] || 'sin respuesta'));
+    L.push('');
+  }));
+  return L.join('\n');
+}
+$('#enviar').onclick = () => {
+  const [h, t] = prog();
+  $('#dlgtxt').textContent = h === t ? 'Están todas. ¡Gracias!' : `Respondiste ${h} de ${t}. Podés mandar lo que tengas y seguir después: queda guardado en este dispositivo.`;
+  $('#dlg').showModal();
 };
-$('#editar').onclick = () => setEditing(!document.body.classList.contains('editing'));
-document.addEventListener('input', e => {
-  const el = e.target.closest && e.target.closest('[data-ed]');
-  if (!el) return;
-  const k = el.dataset.ed, o = el.dataset.o, t = el.innerText.replace(/\n$/, '');
-  if (t === o) delete edits[k]; else edits[k] = {o, t};
-  el.classList.toggle('edited', t !== o);
-  store.set('la-edits', edits);
-  const card = el.closest('.g'), base = card.dataset.n + '|' + card.dataset.v + '|';
-  card.querySelector('.reset').hidden = !Object.keys(edits).some(x => x.startsWith(base));
-});
-document.addEventListener('paste', e => {
-  const el = e.target.closest && e.target.closest('[data-ed]');
-  if (!el) return;
-  e.preventDefault();
-  document.execCommand('insertText', false, (e.clipboardData || window.clipboardData).getData('text/plain'));
-});
-document.addEventListener('keydown', e => {
-  const el = e.target.closest && e.target.closest('[data-ed]');
-  if (el && e.key === 'Enter' && !el.classList.contains('cap')) { e.preventDefault(); el.blur(); }
-});
-const textoGuion = card => {
-  const q = sel => card.querySelector(sel);
-  const lines = [q('h3').innerText, '', 'HOOK: ' + q('.say').innerText];
-  card.querySelectorAll('.hook > div:not(.say)').forEach(d => lines.push(d.innerText.replace(/\s+/, ': ')));
-  lines.push('');
-  card.querySelectorAll('.beat').forEach(b => {
-    const pl = b.querySelector('.p'), a = b.querySelector('.a');
-    lines.push(b.querySelector('.t').innerText + (pl ? '  [' + pl.innerText.replace(/^🎥\s*/, '') + ']' : '') + '  ' + (a ? a.innerText : ''));
-  });
-  lines.push('', 'CIERRE: ' + q('.cta').innerText);
-  const cap = q('.cap'); if (cap) lines.push('', 'CAPTION:', cap.innerText);
-  return lines.join('\n');
+$('#bClose').onclick = () => $('#dlg').close();
+$('#bWa').onclick = async () => {
+  const t = textoTodo();
+  if (navigator.share && matchMedia('(pointer:coarse)').matches) { try { await navigator.share({text: t}); return; } catch {} }
+  window.open('https://wa.me/?text=' + encodeURIComponent(t), '_blank', 'noopener');
 };
-document.addEventListener('click', async e => {
-  const c = e.target.closest('[data-copy]');
-  if (c) {
-    const t = textoGuion(c.closest('.g'));
-    try { await navigator.clipboard.writeText(t); }
-    catch { const ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }
-    c.textContent = 'Copiado ✓';
-    setTimeout(() => c.textContent = 'Copiar guion', 1600);
-  }
-  const r = e.target.closest('[data-reset]');
-  if (r && confirm('¿Volver este guion al texto original? Se pierden tus cambios.')) {
-    const base = r.dataset.reset + '|';
-    Object.keys(edits).filter(k => k.startsWith(base)).forEach(k => delete edits[k]);
-    store.set('la-edits', edits);
-    r.closest('.g').querySelectorAll('[data-ed]').forEach(el => { el.innerText = el.dataset.o; el.classList.remove('edited'); });
-    r.hidden = true;
-  }
-});
-document.addEventListener('change', e => {
-  if (e.target.dataset.shot){ shots[e.target.dataset.shot] = e.target.checked; store.set('la-shots', shots); }
-});
-$('#onlypicks').onclick = function(){
-  const on = this.getAttribute('aria-pressed') !== 'true';
-  this.setAttribute('aria-pressed', on);
-  document.body.classList.toggle('onlypicks', on);
+$('#bCopy').onclick = async () => {
+  const t = textoTodo();
+  try { await navigator.clipboard.writeText(t); }
+  catch { const ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }
+  $('#bCopy').textContent = 'Copiado ✓'; setTimeout(() => $('#bCopy').textContent = 'Copiar todo', 1600);
+};
+$('#bTxt').onclick = () => {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([textoTodo()], {type: 'text/plain;charset=utf-8'}));
+  a.download = 'respuestas-victor.txt'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 };
 
 /* tablero: pan y zoom */
@@ -384,7 +390,7 @@ const zoomAt = (f, cx, cy) => {
 const pts = new Map(); let last = null, pinch = null;
 vp.addEventListener('pointerdown', e => {
   if (document.body.classList.contains('list')) return;
-  if (e.target.closest('button,a,input,label,summary,select,iframe,pre,.beats,.cap,[contenteditable]')) return;
+  if (e.target.closest('button,a,input,label,summary,select,iframe,pre,textarea,details,.beats,.cap')) return;
   vp.setPointerCapture(e.pointerId); pts.set(e.pointerId, [e.clientX, e.clientY]);
   last = [e.clientX, e.clientY]; vp.classList.add('drag');
 });
@@ -423,12 +429,12 @@ function setMode(m){
   document.body.classList.toggle('list', m === 'list');
   $('#mList').setAttribute('aria-pressed', m === 'list');
   $('#mBoard').setAttribute('aria-pressed', m !== 'list');
-  store.set('la-mode', m);
+  store.set('sv-mode', m);
   if (m !== 'list') apply();
 }
 $('#mBoard').onclick = () => setMode('board');
 $('#mList').onclick = () => setMode('list');
-setMode(store.get('la-mode', innerWidth < 900 ? 'list' : 'board'));
+setMode(store.get('sv-mode', innerWidth < 900 ? 'list' : 'board'));
 apply();
 </script>
 </body>
