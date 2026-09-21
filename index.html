@@ -196,6 +196,11 @@ details.ej p{margin:6px 0 0;font-size:13.5px;font-style:italic;color:var(--tenue
 .conf .op button[aria-pressed="true"]{background:#141414;border-color:#141414;color:#fff}
 .cont{font-size:12px;font-weight:600;color:var(--tenue);margin-top:10px}
 .cont.full{color:#1f7a3a}
+.idea-f{font-family:var(--tit);font-size:24px;font-weight:800;letter-spacing:-.03em;line-height:1.05;margin:0}
+.idea .sticky p{margin:0;color:var(--gris);font-size:14px}
+.idea .op{display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid var(--linea);padding-top:14px}
+.idea .op button{border:1px solid var(--linea-2);background:transparent;border-radius:100px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--hueso)}
+.idea .op button[aria-pressed="true"]{background:var(--naranja);border-color:var(--naranja);color:#fff}
 #enviar{border-color:var(--naranja);background:var(--naranja);color:#fff}
 dialog{border:1px solid var(--linea-2);border-radius:18px;background:var(--negro-2);color:var(--hueso);padding:22px;width:min(440px,calc(100% - 32px))}
 dialog::backdrop{background:rgba(0,0,0,.6)}
@@ -291,6 +296,22 @@ function prog(){
   $('#prog').textContent = h + '/' + t;
   return [h, t];
 }
+function renderIdeas(){
+  const I = D.ideas; if (!I) return '';
+  return `<section class="row" id="r${I.n}">
+    <div class="row-title"><span class="n">${String(I.n).padStart(2,'0')}</span><span class="f">${esc(I.titulo)}</span><span class="m">${esc(I.resumen)}</span></div>
+    ${I.items.map((it, j) => `<aside class="card ref idea">
+      <div class="vid" data-embed="${it.id}"><div class="ph"><button type="button">▶ Ver el ejemplo</button><a href="https://www.instagram.com/reel/${it.id}/" target="_blank" rel="noopener">abrir en Instagram ↗</a></div></div>
+      <h3 class="idea-f">${esc(it.formato)}</h3>
+      <div class="who"><b>${esc(it.cuenta)}</b> · ${esc(it.datos)}</div>
+      <div class="kv">${it.tags.map(t => `<span>${esc(t)}</span>`).join('')}</div>
+      <div class="sticky"><h4>Cómo es</h4><ol>${it.mecanica.map(m => `<li>${esc(m)}</li>`).join('')}</ol></div>
+      <div class="sticky"><h4>Cómo lo haría Solmi</h4><ol>${it.ideas.map(m => `<li>${esc(m)}</li>`).join('')}</ol></div>
+      <div class="sticky"><h4>Qué pide</h4><p>${esc(it.pide)}</p></div>
+      <div class="op">${['Lo haría', 'No me convence'].map(o => `<button type="button" data-conf="idea${j}" aria-pressed="${conf['idea' + j] === o}">${o}</button>`).join('')}</div>
+    </aside>`).join('')}
+  </section>`;
+}
 function render(){
   const intro = `<section class="row" id="r0"><div class="card intro">
     <span class="rotulo">Solmi &amp; Asociados · primeros videos</span>
@@ -302,8 +323,8 @@ function render(){
     <div class="row-title"><span class="n">${String(r.n).padStart(2,'0')}</span><span class="f">${esc(r.formato)}</span><span class="m">${esc(r.resumen)}</span></div>
     ${renderRef(r)}
     <div class="scripts">${r.guiones.map(g => renderScript(r, g)).join('')}</div>
-  </section>`).join('');
-  $('#jump').innerHTML = `<option value="0">Ir a…</option>` + D.refs.map(r => `<option value="${r.n}">${String(r.n).padStart(2,'0')} · ${esc(r.formato)}</option>`).join('');
+  </section>`).join('') + renderIdeas();
+  $('#jump').innerHTML = `<option value="0">Ir a…</option>` + D.refs.map(r => `<option value="${r.n}">${String(r.n).padStart(2,'0')} · ${esc(r.formato)}</option>`).join('') + (D.ideas ? `<option value="${D.ideas.n}">${String(D.ideas.n).padStart(2,'0')} · ${esc(D.ideas.titulo)}</option>` : '');
   prog();
 }
 render();
@@ -350,6 +371,7 @@ function textoTodo(){
     if (g.confirmar) L.push('Confirmar: ' + g.confirmar + ' → ' + (conf[key] || 'sin respuesta'));
     L.push('');
   }));
+  if (D.ideas){ L.push('== ' + D.ideas.titulo); D.ideas.items.forEach((it, j) => L.push(it.formato + ': ' + (conf['idea' + j] || 'sin marcar'))); }
   return L.join('\n');
 }
 $('#enviar').onclick = () => {

@@ -198,3 +198,59 @@ window.GUIONES = {
     }
   ]
 };
+
+window.GUIONES.ideas = {
+  n: 4,
+  titulo: "Ideas de otros formatos",
+  resumen: "Tres formatos más para los próximos meses. Se toma la forma, no el tono. Marcá si lo harías",
+  items: [
+    {
+      id: "DbQ_BeHBEOx", formato: "El ranking",
+      cuenta: "Eder Salinas", datos: "finanzas personales, México",
+      tags: ["Del 1 al 10", "Se arma en pantalla", "De pie, con saco"],
+      mecanica: [
+        "Anuncia un ranking y uno se queda hasta ver quién sale primero.",
+        "Cada puesto entra con su logo y una palabra: se entiende sin audio.",
+        "Con saco y en la calle se ve serio, y a la vez tiene movimiento."
+      ],
+      ideas: [
+        "Ranking de lo que más peleas trae en una herencia: del auto a la casa. La mesa de la abuela sale más arriba de lo que uno cree.",
+        "Ranking de los papeles que todo negocio debería tener firmados, del menos al más importante.",
+        "Ranking de las excusas para no ordenar nada: «soy joven», «mis hijos se llevan bien», «sale caro»."
+      ],
+      pide: "Vos a cámara, de pie. Los íconos y los números se agregan en la edición."
+    },
+    {
+      id: "DcuOzmjFBhd", formato: "Dos caminos",
+      cuenta: "@estudiorossiyasociados", datos: "estudio jurídico, Argentina",
+      tags: ["Lado a lado", "Mismo punto de partida", "Remate en placa"],
+      mecanica: [
+        "Dos personas arrancan igual y cada una elige distinto: uno mira para saber cómo termina cada una.",
+        "Los carteles de arriba dicen qué eligió cada una: se entiende sin audio.",
+        "Cierra con una placa que dice de qué se trataba en realidad."
+      ],
+      ideas: [
+        "El que firmó con su socio y el que lo dejó de palabra: cinco años después.",
+        "La familia que lo habló en la mesa y la que lo dejó para después.",
+        "El que se sentó a arreglar y el que fue directo a juicio: dónde está cada uno un año después."
+      ],
+      pide: "Dos personas en cuadro, o la misma dos veces armado en edición. Vos podés ser el que lo cuenta desde afuera. Es actuado: corto y sin exagerar."
+    },
+    {
+      id: "DcPk7G7x2iT", formato: "Esto sí, esto no",
+      cuenta: "@clemente.jimenez_", datos: "abogado, México",
+      tags: ["Dos columnas", "Íconos que aparecen", "Sentado, suelto"],
+      mecanica: [
+        "Dos palabras opuestas arriba, y el que mira adivina de qué lado cae cada cosa.",
+        "Los íconos aparecen de a uno mientras habla: tiene ritmo sin moverse de la silla.",
+        "Mucho gesto y tono de charla: serio sin ser solemne."
+      ],
+      ideas: [
+        "Lo que sirve y lo que no para dejar ordenada una herencia: lo dicho en una sobremesa, un audio de WhatsApp, un papel firmado.",
+        "Lo que conviene dejar firmado y lo que no hace falta cuando abrís un negocio con alguien.",
+        "Lo que se puede arreglar antes de un juicio y lo que no."
+      ],
+      pide: "Vos sentado, como en el teleprompter. Los íconos van en la edición. Explica un poco más, así que sirve para gente que ya te vio alguna vez."
+    }
+  ]
+};
