@@ -268,15 +268,11 @@ function renderScript(r, g){
     <div class="sec"><p class="lab">Arranque · primeros 3 segundos · dice ${esc(g.hook.quien)}</p>
       <div class="hook">
         <div class="say">${esc(g.hook.dice)}</div>
-        <div><b>Placa</b> ${esc(g.hook.placa)}</div>
-        <div><b>Plano</b> ${esc(g.hook.plano)}</div>
       </div>
     </div>
     <div class="sec"><p class="lab">Guion · ${esc(g.dur)}</p><div class="beats">${beats}</div></div>
-    <div class="sec"><p class="lab">Cierre</p><div class="cta">${esc(g.cta)}</div></div>
     ${g.confirmar ? `<div class="sec"><div class="conf"><div><b>Confirmanos:</b> ${esc(g.confirmar)}</div>
       <div class="op">${['Sí, va así', 'No, cambiarlo', 'Lo hablamos'].map(o => `<button type="button" data-conf="${key}" aria-pressed="${c === o}">${o}</button>`).join('')}</div></div></div>` : ''}
-    ${g.ojo ? `<div class="sec"><div class="warn">Ojo: ${esc(g.ojo)}</div></div>` : ''}
   </article>`;
 }
 
