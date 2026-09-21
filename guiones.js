@@ -144,60 +144,55 @@ window.GUIONES = {
       ]
     },
     {
-      n: 3, id: "DbJtxojRE86",
-      formato: "Lista de tres",
-      resumen: "Vos solo a cámara. Tres puntos cortos, con un cambio de plano en cada uno",
-      cuenta: "", datos: "estudio jurídico · «5 cosas que nunca haría después de un accidente»",
-      tags: ["El número en el título", "Una frase por punto", "Cambio de plano"],
+      n: 3, id: "Dc2G3EAxZzh",
+      formato: "Teleprompter, sin solemnidad",
+      resumen: "Vos a cámara con el texto en el celular, pero como hablás en una charla: suelto, con algún gesto y alguna sonrisa",
+      cuenta: "@clemente.jimenez_", datos: "abogado, México",
+      tags: ["Texto preparado", "Tono de charla", "Dos tamaños de plano"],
       mecanica: [
-        "El número en el título abre una cuenta: uno se queda para llegar al tercero.",
-        "Cada punto es una frase, sin desarrollo: entra en 30 segundos.",
-        "Un plano distinto en cada punto (escritorio, de pie, un detalle) le da movimiento sin perder seriedad."
+        "El texto está preparado, así que sale claro y sin trabarse: por eso transmite autoridad.",
+        "Lo que le saca la solemnidad es el tono: decirlo como se lo contarías a un amigo en un café, no como un alegato.",
+        "Alternar plano medio y primer plano en cada punto le da ritmo sin moverse del escritorio."
       ],
       guiones: [
         {
           v: "A", tipo: "Empresas",
           titulo: "3 cosas de las empresas familiares que llegan a los nietos",
-          angulo: "Lo que tienen las que duran: entra por lo que se quiere lograr.",
+          angulo: "Lo que tienen las que duran, contado con una sonrisa.",
           dur: "≈30 s",
-          hook: { quien: "Víctor", dice: "Las empresas familiares que llegan a los nietos tienen tres cosas en común. Por lo menos, las que yo veo.", placa: "3 cosas que tienen las empresas familiares que llegan a los nietos", plano: "Escritorio, a cámara." },
+          hook: { quien: "Víctor", dice: "Las empresas familiares que llegan a los nietos tienen tres cosas en común. Y ninguna es la plata." },
           beats: [
-            ["0:05", "V", "Cosa 1 · en una frase. Plano: de pie, junto al mapa.", "Los hermanos saben quién decide. No mandan todos."],
-            ["0:11", "V", "Cosa 2 · en una frase. Plano: detalle de las manos sobre la mesa.", "Lo hablaron con la mesa puesta. No en el velorio."],
-            ["0:17", "V", "Cosa 3 · en una frase. Plano: escritorio, más cerrado.", "Lo dejaron escrito. De palabra no llega a los nietos."],
+            ["0:05", "V", "Cosa 1 · en una frase. Primer plano.", "Una: los hermanos saben quién decide. Spoiler: no deciden todos."],
+            ["0:11", "V", "Cosa 2 · en una frase. Plano medio.", "Dos: lo hablaron con la mesa puesta y el asado en la parrilla. No en el velorio."],
+            ["0:17", "V", "Cosa 3 · en una frase. Primer plano.", "Tres: lo dejaron escrito. Porque de palabra, a los nietos no llega nada."],
             ["0:23", "V", "Una frase que junte las tres.", "Los nietos no heredan la empresa. Heredan cómo se hablaba en esa mesa."]
-          ],
-          cta: "Si tenés una empresa familiar, mandáselo a la familia.",
-          ojo: "Que sean las tres que ves vos. Sin porcentajes de cuántas empresas sobreviven: circulan muchos y ninguno tiene fuente."
+          ]
         },
         {
           v: "B", tipo: "Patrimonio",
           titulo: "3 frases que escucho antes de que una familia se pelee",
-          angulo: "Tres frases que cualquiera dijo en su casa, y lo que pasa después.",
+          angulo: "Tres frases que cualquiera dijo en su casa. Se reconoce y se ríe, y después piensa.",
           dur: "≈30 s",
-          hook: { quien: "Víctor", dice: "Hay tres frases que escucho siempre antes de que una familia se pelee por una herencia.", placa: "3 frases que escucho antes de que una familia se pelee por una herencia", plano: "Escritorio, a cámara." },
+          hook: { quien: "Víctor", dice: "Hay tres frases que escucho siempre antes de que una familia se pelee por una herencia. Fijate si alguna la dijiste vos." },
           beats: [
-            ["0:04", "V", "Frase 1, y qué pasa después. Plano: de pie, junto al mapa.", "«Mis hijos se llevan bien.» Y es verdad. Hasta que hay que decidir quién se queda con qué."],
-            ["0:10", "V", "Frase 2, y qué pasa después. Plano: detalle de la mesa.", "«Ya les dije lo que quiero.» Lo que dijiste en una sobremesa, cada uno lo recuerda a su manera."],
-            ["0:16", "V", "Frase 3, y qué pasa después. Plano: escritorio, más cerrado.", "«Eso lo vemos después.» El después llega justo cuando ya no podés decidir vos."],
-            ["0:22", "V", "Qué tienen en común las tres.", "Las tres son frases de cariño. Por eso nadie las ve venir."]
-          ],
-          cta: "Si escuchaste alguna en tu casa, mandáselo a tu familia."
+            ["0:05", "V", "Frase 1, y qué pasa después. Primer plano.", "«Mis hijos se llevan bien.» Y es verdad. Hasta que hay que decidir quién se queda con la casa de la costa."],
+            ["0:11", "V", "Frase 2, y qué pasa después. Plano medio.", "«Ya les dije lo que quiero.» En una sobremesa. Y cada uno se acuerda de una versión distinta."],
+            ["0:17", "V", "Frase 3, y qué pasa después. Primer plano.", "«Eso lo vemos después.» El después llega justo cuando ya no podés decidir vos."],
+            ["0:23", "V", "Qué tienen en común las tres.", "Las tres son frases de cariño. Por eso nadie las ve venir."]
+          ]
         },
         {
           v: "C", tipo: "Antes del juicio",
           titulo: "3 cosas que ves en una mediación y nadie te cuenta",
-          angulo: "Lo humano de esa mesa, desde tu silla.",
+          angulo: "Lo humano de esa mesa, contado desde tu silla.",
           dur: "≈30 s",
-          hook: { quien: "Víctor", dice: "Tres cosas que ves sentado en una mediación, y nadie te cuenta.", placa: "3 cosas que ves en una mediación y nadie te cuenta", plano: "Escritorio, a cámara." },
+          hook: { quien: "Víctor", dice: "Tres cosas que ves sentado en una mediación, y que en las películas no te muestran." },
           beats: [
-            ["0:04", "V", "Cosa 1. Plano: de pie, junto al mapa.", "Se habla mucho más de lo que pasó que de la plata."],
-            ["0:09", "V", "Cosa 2. Plano: dos sillas vacías, frente a frente.", "El que más grita no siempre es el que menos quiere arreglar."],
-            ["0:15", "V", "Cosa 3. Plano: escritorio, más cerrado.", "A veces lo que destraba todo no es un número. Es una disculpa."],
+            ["0:04", "V", "Cosa 1. Primer plano.", "Una: se habla mucho más de lo que pasó que de la plata."],
+            ["0:09", "V", "Cosa 2. Plano medio.", "Dos: el que más grita no siempre es el que menos quiere arreglar. A veces es el que más."],
+            ["0:15", "V", "Cosa 3. Primer plano.", "Tres: a veces lo que destraba todo no es un número. Es un «perdoname»."],
             ["0:21", "V", "Qué dejan ver las tres.", "Lo que traba casi nunca es lo que se reclama."]
-          ],
-          cta: "¿Conocés a alguien que esté por ir a una? Mandáselo.",
-          ojo: "Ningún caso que se pueda reconocer: ni tipo de conflicto, ni barrio, ni montos."
+          ]
         }
       ]
     }
