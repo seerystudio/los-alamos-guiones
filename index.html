@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Guiones · Solmi & Asociados</title>
-<meta name="description" content="Once guiones para los primeros videos del estudio, con lugar para las respuestas de Víctor.">
+<meta name="description" content="Trece guiones para los primeros videos del estudio, con lugar para las respuestas de Víctor, y el perfil de Instagram de ejemplo.">
 <meta name="robots" content="noindex">
 <style>
 @font-face{font-family:'General Sans';src:url(assets/generalsans-400.woff2) format('woff2');font-weight:400;font-display:swap}
@@ -164,7 +164,8 @@ body.list .row{flex-direction:column;align-items:stretch;gap:16px}
 body.list .row-title{position:static;white-space:normal;flex-wrap:wrap;row-gap:4px}
 body.list .row-title .f{font-size:26px}
 body.list .row-title .m{flex-basis:100%}
-body.list .ref,body.list .intro{width:auto}
+body.list .ref,body.list .intro,body.list .ped{width:auto}
+body.list .igw{width:100%;max-width:390px;margin:0 auto}
 body.list .intro h2{font-size:32px}
 body.list .scripts{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:4px 16px 14px;scrollbar-width:none}
 body.list .g{flex:0 0 88%;max-width:450px;scroll-snap-align:center}
@@ -237,6 +238,64 @@ dialog .btns{display:grid;gap:8px}
 dialog .btns button{border:1px solid var(--linea-2);background:rgba(255,255,255,.04);border-radius:100px;padding:11px 16px;font-weight:600;color:var(--hueso)}
 dialog .btns button.pri{background:var(--naranja);border-color:var(--naranja);color:#fff}
 dialog .cerrar{margin-top:10px;background:transparent;border:0;color:var(--gris);font-size:13px}
+dialog .resp{margin-top:16px;padding-top:14px;border-top:1px solid var(--linea)}
+dialog .resp p{margin:0 0 10px;font-size:13px}
+dialog .resp .btns{grid-template-columns:1fr 1fr}
+
+/* guardado */
+.toast{position:fixed;left:18px;bottom:18px;z-index:45;background:rgba(20,20,20,.92);border:1px solid var(--linea-2);color:var(--hueso);border-radius:100px;padding:8px 14px;font-size:12.5px;font-weight:600;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s var(--sal);pointer-events:none}
+.toast.on{opacity:1;transform:none}
+.alerta{position:fixed;left:50%;top:64px;transform:translateX(-50%);z-index:55;background:#C23A00;color:#fff;border-radius:14px;padding:10px 14px;font-size:13.5px;font-weight:600;max-width:calc(100% - 32px);width:560px;text-align:center}
+.alerta[hidden]{display:none}
+
+/* perfil de Instagram: vista previa con la estética de la app, en claro */
+.igw{width:390px;padding:0;overflow:hidden;background:#fff;color:#000;border:1px solid var(--linea);font-family:-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;letter-spacing:0}
+.ig-top{display:flex;align-items:center;gap:6px;padding:12px 16px 4px;font-weight:700;font-size:19px}
+.ig-top small{font-size:13px;color:#737373;font-weight:400;margin-left:auto}
+.ig-head{display:flex;align-items:center;gap:22px;padding:10px 16px 0}
+.ig-av{width:86px;height:86px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;overflow:hidden;background:#0F2A47;color:#F4F1EA;font-family:var(--tit);font-weight:800;font-size:26px;letter-spacing:-.02em;box-shadow:0 0 0 1px #dbdbdb}
+.ig-av img,.ig-hl .c img{width:100%;height:100%;object-fit:cover;display:block}
+.ig-st{display:flex;flex:1;justify-content:space-around;text-align:center;font-size:13px;line-height:1.2}
+.ig-st b{display:block;font-size:17px}
+.ig-bio{padding:10px 16px 0;font-size:14px;line-height:1.35}
+.ig-bio .nm{font-weight:600}
+.ig-bio .ct{color:#737373}
+.ig-bio .tx{white-space:pre-line;overflow-wrap:anywhere}
+.ig-bio .lk{color:#00376B;font-weight:600}
+.ig-btns{display:flex;gap:6px;padding:12px 16px 0}
+.ig-btns span{flex:1;text-align:center;background:#EFEFEF;border-radius:8px;padding:7px 0;font-size:14px;font-weight:600}
+.ig-btns .seg-ig{background:#0095F6;color:#fff}
+.ig-hls{display:flex;gap:14px;padding:14px 16px 4px;overflow-x:auto;scrollbar-width:none}
+.ig-hl{width:66px;flex-shrink:0;text-align:center;font-size:12px}
+.ig-hl .c{width:66px;height:66px;border-radius:50%;padding:3px;background:#fff;box-shadow:0 0 0 1px #dbdbdb;margin-bottom:5px}
+.ig-hl .c > *{width:100%;height:100%;border-radius:50%;display:grid;place-items:center;overflow:hidden;font-family:var(--tit);font-weight:800;font-size:28px}
+.ig-hl .az{background:#0F2A47;color:#F4F1EA}
+.ig-hl .hu{background:#F4F1EA;color:#0F2A47}
+.ig-hl .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ig-tabs{display:flex;border-top:1px solid #dbdbdb;margin-top:10px}
+.ig-tabs span{flex:1;text-align:center;padding:9px 0;font-size:12px;font-weight:600;color:#737373}
+.ig-tabs span:first-child{color:#000;box-shadow:inset 0 -1px 0 #000}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.ig-grid div{aspect-ratio:3/4;position:relative;background:#EFEFEF;display:flex;align-items:flex-end;padding:8px;font-size:12.5px;font-weight:700;line-height:1.15;color:#737373}
+.ig-grid .fj{background:#0F2A47;color:#F4F1EA}
+.ig-grid .fj::before{content:"📌";position:absolute;top:6px;right:6px;font-size:12px}
+.ped{width:390px}
+.ped label{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gris);margin:0 0 6px}
+.ped .f{display:block}
+.ped input[type=text],.ped textarea,.ped select{display:block;width:100%;border:1px solid var(--linea-2);border-radius:10px;background:var(--negro-3);color:var(--hueso);font:inherit;font-size:15px;line-height:1.4;padding:9px 11px}
+.ped textarea{min-height:108px;resize:vertical}
+.ped input:focus,.ped textarea:focus,.ped select:focus{outline:none;border-color:var(--naranja);box-shadow:0 0 0 3px rgba(255,77,0,.18)}
+.ped .cnt{font-size:12px;color:var(--gris-2);margin:4px 0 0;text-align:right}
+.ped .cnt.mal{color:#FF7A45;font-weight:700}
+.ped .fila3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.ped .hl{display:grid;grid-template-columns:1fr 54px 92px;gap:6px;align-items:center;padding:8px 0;border-top:1px solid var(--linea)}
+.ped .hl .x{grid-column:1 / -1;display:flex;gap:10px;flex-wrap:wrap}
+.ped .lnk{background:none;border:0;padding:0;font-size:12.5px;font-weight:600;color:var(--gris);text-decoration:underline}
+.ped .btn{border:1px solid var(--linea-2);background:rgba(255,255,255,.04);border-radius:100px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--hueso)}
+.ped .btn:hover{border-color:var(--naranja)}
+.ped .acc{display:flex;gap:8px;flex-wrap:wrap}
+.ped input[type=file]{display:none}
+.hueco{font-size:12.5px;color:var(--gris-2);margin:4px 0 0}
 </style>
 </head>
 <body>
@@ -261,26 +320,65 @@ dialog .cerrar{margin-top:10px;background:transparent;border:0;color:var(--gris)
     <button id="bCopy">Copiar todo</button>
     <button id="bTxt">Descargar como texto</button>
   </div>
+  <div class="resp">
+    <p>Lo escrito vive solo en este dispositivo. Si vas a seguir otro día o en otro aparato, bajate un respaldo y cargalo después.</p>
+    <div class="btns">
+      <button id="bBak">Bajar respaldo</button>
+      <button id="bLoad">Cargar respaldo</button>
+    </div>
+    <input type="file" id="fLoad" accept="application/json,.json" hidden>
+  </div>
   <button class="cerrar" id="bClose">Cerrar</button>
 </dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="alerta" id="alerta" hidden>Este navegador no está guardando lo que escribís (puede ser una ventana privada). Antes de cerrar, tocá «Enviar» o bajate un respaldo.</div>
 
-<script src="guiones.js?v=2026-09-21h"></script>
+<script src="guiones.js?v=2026-09-21j"></script>
 <script>
 const D = window.GUIONES;
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+/* guardado: todo en localStorage de este navegador. Si falla, se avisa en vez de callarse. */
+let tToast;
+function avisarGuardado(){
+  const t = $('#toast'); if (!t) return;
+  const h = new Date(); t.textContent = 'Guardado en este dispositivo · ' + String(h.getHours()).padStart(2,'0') + ':' + String(h.getMinutes()).padStart(2,'0');
+  t.classList.add('on'); clearTimeout(tToast); tToast = setTimeout(() => t.classList.remove('on'), 1600);
+}
+function alertaGuardado(){ const a = $('#alerta'); if (a) a.hidden = false; }
+let pidioPersistir = false;
 const store = {
   get(k, d){ try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch { return d; } },
-  set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
+  set(k, v, callado){
+    try { localStorage.setItem(k, JSON.stringify(v)); }
+    catch { alertaGuardado(); return false; }
+    if (!callado) avisarGuardado();
+    if (!pidioPersistir && navigator.storage && navigator.storage.persist){ pidioPersistir = true; navigator.storage.persist().catch(() => {}); }
+    return true;
+  }
 };
+try { localStorage.setItem('sv-test', '1'); localStorage.removeItem('sv-test'); } catch { addEventListener('DOMContentLoaded', alertaGuardado); setTimeout(alertaGuardado, 0); }
 let resp = store.get('sv-resp', {});
 let fijo = store.get('sv-fijo', {});
 let conf = store.get('sv-conf', {});
 let hkx = store.get('sv-hkx', {});
 function allHooks(key, g){ return (g.hooks || []).concat((hkx[key] || []).map(t => ['Tuyo', t, null, true])); }
+/* El arranque elegido se guarda por su texto, no por su posición: así se pueden sumar opciones sin
+   correr la elección. Las elecciones viejas eran un número (diez fijos y después los propios). */
+(function migrarElecciones(){
+  let cambio = false;
+  D.refs.forEach(r => r.guiones.forEach(g => {
+    const key = r.n + g.v, k = 'hk' + key, v = conf[k];
+    if (typeof v !== 'number') return;
+    conf[k] = (v < 10 ? (g.hooks[v] || [])[1] : (hkx[key] || [])[v - 10]) || null;
+    cambio = true;
+  }));
+  if (cambio) try { localStorage.setItem('sv-conf', JSON.stringify(conf)); } catch {}
+})();
+const elegido = (key, g) => { const t = conf['hk' + key]; return t && allHooks(key, g).some(x => x[1] === t) ? t : null; };
 function hooksList(key, g){
-  const hk = conf['hk' + key], n = (g.hooks || []).length;
-  return allHooks(key, g).map((x, j) => `<li class="${hk === j ? 'sel' : ''}${x[3] ? ' mio' : ''}"><span class="mk">${esc(x[0])}</span><span class="tx">${esc(x[1])}</span>${x[2] ? `<span class="nt">${esc(x[2])}</span>` : ''}<button type="button" data-hk="${key}" data-i="${j}">${hk === j ? 'Elegido' : 'Este'}</button>${x[3] ? `<button type="button" class="del" data-hkdel="${key}" data-i="${j - n}">Borrar</button>` : ''}</li>`).join('');
+  const hk = elegido(key, g), n = (g.hooks || []).length;
+  return allHooks(key, g).map((x, j) => `<li class="${hk === x[1] ? 'sel' : ''}${x[3] ? ' mio' : ''}"><span class="mk">${esc(x[0])}</span><span class="tx">${esc(x[1])}</span>${x[2] ? `<span class="nt">${esc(x[2])}</span>` : ''}<button type="button" data-hk="${key}" data-i="${j}">${hk === x[1] ? 'Elegido' : 'Este'}</button>${x[3] ? `<button type="button" class="del" data-hkdel="${key}" data-i="${j - n}">Borrar</button>` : ''}</li>`).join('');
 }
 const nV = g => g.beats.filter(b => b[1] === 'V').length;
 const hechas = (key, g) => g.beats.reduce((s, b, i) => s + (b[1] === 'V' && (resp[key + '|' + i] || '').trim() ? 1 : 0), 0);
@@ -296,8 +394,8 @@ function renderScript(r, g){
         <textarea data-r="${key}|${i}" rows="3" aria-label="Respuesta de Víctor, ${esc(b[0])}" placeholder="Escribí cómo lo dirías…" class="${(resp[key + '|' + i] || '').trim() ? 'ok' : ''}">${esc(resp[key + '|' + i] || '')}</textarea>
         ${b[3] ? `<details class="ej"><summary>Ver un ejemplo</summary><p>${esc(b[3])}</p></details>` : ''}
       </div></div>`).join('');
-  const h = hechas(key, g), t = nV(g), c = conf[key], hk = conf['hk' + key];
-  const hooks = g.hooks ? `<details class="hks"><summary>10 arranques más · o escribí el tuyo</summary><ol data-hkl="${key}">${hooksList(key, g)}</ol><div class="hkadd"><textarea data-hkin="${key}" rows="2" aria-label="Tu propio arranque" placeholder="Escribí tu propio arranque…"></textarea><button type="button" data-hkadd="${key}">Agregar</button></div></details>` : '';
+  const h = hechas(key, g), t = nV(g), c = conf[key], hk = elegido(key, g);
+  const hooks = g.hooks ? `<details class="hks"><summary>${g.hooks.length} arranques más · o escribí el tuyo</summary><ol data-hkl="${key}">${hooksList(key, g)}</ol><div class="hkadd"><textarea data-hkin="${key}" rows="2" aria-label="Tu propio arranque" placeholder="Escribí tu propio arranque…"></textarea><button type="button" data-hkadd="${key}">Agregar</button></div></details>` : '';
   return `<article class="card g" data-v="${g.v}" data-k="${key}">
     <header>
       <span class="var">${esc(g.tipo)}</span>
@@ -307,7 +405,7 @@ function renderScript(r, g){
     </header>
     <div class="sec"><p class="lab">Arranque · primeros 3 segundos · dice ${esc(g.hook.quien)}</p>
       <div class="hook">
-        <div class="say" data-say="${key}">${esc(hk != null && g.hooks && allHooks(key, g)[hk] ? allHooks(key, g)[hk][1] : g.hook.dice)}</div>
+        <div class="say" data-say="${key}">${esc(hk || g.hook.dice)}</div>
       </div>
       ${hooks}
     </div>
@@ -364,6 +462,76 @@ function renderFijados(){
     </aside>`).join('')}
   </section>`;
 }
+/* perfil de Instagram: la propuesta sale de guiones.js; lo que se cambia se guarda encima */
+const P = D.perfil;
+const copia = o => JSON.parse(JSON.stringify(o));
+let perfil = Object.assign(copia(P ? P.base : {}), store.get('sv-perfil', {}));
+delete perfil.foto; /* sin foto de perfil: si quedó una de una versión anterior, se descarta */
+const LIM = {nombre: 30, bio: 150, usuario: 30};
+const largo = s => [...String(s || '')].length;
+const guardarPerfil = () => store.set('sv-perfil', perfil);
+function vistaPerfil(){
+  const p = perfil, iniciales = (p.nombre || p.usuario || 'S').replace(/[^A-Za-zÁÉÍÓÚÑáéíóúñ& ]/g, '').split(/\s+/).filter(w => w && w !== '&').slice(0, 2).map(w => w[0].toUpperCase()).join('&');
+  const hls = (p.destacadas || []).map(h => `<div class="ig-hl"><div class="c">${h.img ? `<div><img src="${h.img}" alt=""></div>` : `<div class="${h.fondo === 'hueso' ? 'hu' : 'az'}">${esc(h.letra)}</div>`}</div><div class="nm">${esc(h.nombre)}</div></div>`).join('');
+  const fj = (p.fijados || []).map(t => `<div class="fj">${esc(t)}</div>`).join('') + '<div></div><div></div><div></div>';
+  return `<div class="ig-top">${esc(p.usuario)}<small>vista de ejemplo</small></div>
+    <div class="ig-head"><div class="ig-av">${esc(iniciales)}</div>
+      <div class="ig-st"><div><b>${esc(p.posts)}</b>publicaciones</div><div><b>${esc(p.seguidores)}</b>seguidores</div><div><b>${esc(p.seguidos)}</b>seguidos</div></div></div>
+    <div class="ig-bio"><div class="nm">${esc(p.nombre)}</div>${p.categoria ? `<div class="ct">${esc(p.categoria)}</div>` : ''}<div class="tx">${esc(p.bio)}</div>${p.link ? `<div class="lk">🔗 ${esc(p.link)}</div>` : ''}</div>
+    <div class="ig-btns"><span class="seg-ig">Seguir</span><span>Mensaje</span><span>WhatsApp</span></div>
+    <div class="ig-hls">${hls}</div>
+    <div class="ig-tabs"><span>Publicaciones</span><span>Reels</span><span>Etiquetas</span></div>
+    <div class="ig-grid">${fj}</div>`;
+}
+const cnt = (campo, v) => LIM[campo] ? `<p class="cnt${largo(v) > LIM[campo] ? ' mal' : ''}" data-cnt="${campo}">${largo(v)} / ${LIM[campo]}</p>` : '';
+function editorPerfil(){
+  const p = perfil, campo = (c, lab, extra = '') => `<div class="sticky f"><label for="p-${c}">${lab}</label><input type="text" id="p-${c}" data-p="${c}" value="${esc(p[c])}" ${extra}>${cnt(c, p[c])}</div>`;
+  return `${campo('usuario', 'Usuario')}
+    ${campo('nombre', 'Nombre · es lo que busca Instagram')}
+    ${campo('categoria', 'Categoría')}
+    <div class="sticky f"><label for="p-bio">Bio</label><textarea id="p-bio" data-p="bio" rows="5">${esc(p.bio)}</textarea>${cnt('bio', p.bio)}</div>
+    ${campo('link', 'Link')}
+    <div class="sticky"><h4>Números</h4><div class="fila3">
+      ${['posts', 'seguidores', 'seguidos'].map(c => `<input type="text" data-p="${c}" value="${esc(p[c])}" aria-label="${c}" inputmode="numeric">`).join('')}</div>
+      <p class="hueco">Los de hoy (relevados el 3 de septiembre).</p></div>
+    <div class="sticky"><h4>Destacadas</h4>
+      ${(p.destacadas || []).map((h, i) => `<div class="hl">
+        <input type="text" data-hl="${i}" data-c="nombre" value="${esc(h.nombre)}" aria-label="Nombre de la destacada ${i + 1}" maxlength="20">
+        <input type="text" data-hl="${i}" data-c="letra" value="${esc(h.letra)}" aria-label="Letra de la portada" maxlength="2">
+        <select data-hl="${i}" data-c="fondo" aria-label="Fondo de la portada"><option value="azul"${h.fondo !== 'hueso' ? ' selected' : ''}>Azul</option><option value="hueso"${h.fondo === 'hueso' ? ' selected' : ''}>Hueso</option></select>
+        <div class="x"><button type="button" class="lnk" data-pfoto="${i}">${h.img ? 'Cambiar imagen' : 'Poner imagen'}</button>${h.img ? `<button type="button" class="lnk" data-pquitar="${i}">Sacar imagen</button>` : ''}<button type="button" class="lnk" data-hlquitar="${i}">Quitar</button></div>
+      </div>`).join('')}
+      <div class="acc" style="margin-top:10px"><button type="button" class="btn" id="hlmas">+ Agregar destacada</button></div></div>
+    <div class="sticky"><h4>Videos fijados</h4>${(p.fijados || []).map((t, i) => `<input type="text" data-fj="${i}" value="${esc(t)}" aria-label="Fijado ${i + 1}" style="margin-bottom:6px">`).join('')}</div>
+    <div class="sticky"><div class="acc"><button type="button" class="btn" id="preset">Volver a la propuesta</button></div></div>
+    <input type="file" id="pfile" accept="image/*">`;
+}
+function renderPerfil(){
+  if (!P) return '';
+  return `<section class="row" id="rP">
+    <div class="row-title"><span class="n">IG</span><span class="f">${esc(P.titulo)}</span><span class="m">${esc(P.resumen)}</span></div>
+    <div class="card igw" id="igv">${vistaPerfil()}</div>
+    <aside class="card ref ped" id="ped">${editorPerfil()}</aside>
+    <aside class="card ref"><div class="sticky" style="border-top:0;padding-top:0"><h4>Por qué así</h4><ol>${P.notas.map(n => `<li>${esc(n)}</li>`).join('')}</ol></div></aside>
+  </section>`;
+}
+const refrescarVista = () => { $('#igv').innerHTML = vistaPerfil(); };
+const refrescarEditor = () => { $('#ped').innerHTML = editorPerfil(); };
+function achicar(file, lado){
+  return new Promise((ok, mal) => {
+    const img = new Image(), url = URL.createObjectURL(file);
+    img.onload = () => {
+      const s = Math.min(1, lado / Math.min(img.width, img.height)), w = Math.round(img.width * s), h = Math.round(img.height * s);
+      const c = document.createElement('canvas'), q = Math.min(w, h); c.width = c.height = q;
+      c.getContext('2d').drawImage(img, -(w - q) / 2, -(h - q) / 2, w, h); /* recorte cuadrado al centro */
+      URL.revokeObjectURL(url); ok(c.toDataURL('image/jpeg', .85));
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); mal(); };
+    img.src = url;
+  });
+}
+let destinoFoto = null;
+
 function render(){
   const intro = `<section class="row" id="r0"><div class="card intro">
     <span class="rotulo">Solmi &amp; Asociados · primeros videos</span>
@@ -371,18 +539,29 @@ function render(){
     ${D.intro.map(p => `<p>${esc(p)}</p>`).join('')}
     <ul>${D.reglas.map(p => `<li>${esc(p)}</li>`).join('')}</ul>
   </div></section>`;
-  $('#world').innerHTML = intro + renderFijados() + D.refs.map(r => `<section class="row" id="r${r.n}">
+  $('#world').innerHTML = intro + renderPerfil() + renderFijados() + D.refs.map(r => `<section class="row" id="r${r.n}">
     <div class="row-title"><span class="n">${String(r.n).padStart(2,'0')}</span><span class="f">${esc(r.formato)}</span><span class="m">${esc(r.resumen)}</span></div>
     ${renderRef(r)}
     <div class="scripts">${r.guiones.map(g => renderScript(r, g)).join('')}</div>
   </section>`).join('') + renderIdeas();
-  $('#jump').innerHTML = `<option value="0">Ir a…</option>` + (D.fijados ? `<option value="F">★ · Los 3 fijados</option>` : '') + D.refs.map(r => `<option value="${r.n}">${String(r.n).padStart(2,'0')} · ${esc(r.formato)}</option>`).join('') + (D.ideas ? `<option value="${D.ideas.n}">${String(D.ideas.n).padStart(2,'0')} · ${esc(D.ideas.titulo)}</option>` : '');
+  $('#jump').innerHTML = `<option value="0">Ir a…</option>` + (P ? `<option value="P">IG · El perfil</option>` : '') + (D.fijados ? `<option value="F">★ · Los 3 fijados</option>` : '') + D.refs.map(r => `<option value="${r.n}">${String(r.n).padStart(2,'0')} · ${esc(r.formato)}</option>`).join('') + (D.ideas ? `<option value="${D.ideas.n}">${String(D.ideas.n).padStart(2,'0')} · ${esc(D.ideas.titulo)}</option>` : '');
   prog();
 }
 render();
 
 /* escribir: se guarda en el dispositivo a cada tecla */
 document.addEventListener('input', e => {
+  const pe = e.target;
+  if (pe.dataset && (pe.dataset.p || pe.dataset.hl || pe.dataset.fj)){
+    if (pe.dataset.p){
+      perfil[pe.dataset.p] = pe.value;
+      const c = document.querySelector(`[data-cnt="${pe.dataset.p}"]`);
+      if (c){ const n = largo(pe.value), m = LIM[pe.dataset.p]; c.textContent = n + ' / ' + m; c.classList.toggle('mal', n > m); }
+    } else if (pe.dataset.hl) perfil.destacadas[+pe.dataset.hl][pe.dataset.c] = pe.value;
+    else perfil.fijados[+pe.dataset.fj] = pe.value;
+    guardarPerfil(); refrescarVista();
+    return;
+  }
   const tf = e.target.closest && e.target.closest('textarea[data-f]');
   if (tf){
     const j = tf.dataset.f;
@@ -402,16 +581,38 @@ document.addEventListener('input', e => {
   el.textContent = h + ' de ' + t + ' respondidas'; el.classList.toggle('full', h === t);
   prog();
 });
+document.addEventListener('change', async e => {
+  if (e.target.id !== 'pfile' || !e.target.files[0]) return;
+  const f = e.target.files[0]; e.target.value = '';
+  try {
+    perfil.destacadas[+destinoFoto].img = await achicar(f, 200);
+    guardarPerfil(); /* si no entra, store.set ya muestra el aviso */
+    refrescarVista(); refrescarEditor();
+  } catch { alert('No se pudo abrir esa imagen. Probá con una foto JPG o PNG.'); }
+});
 document.addEventListener('click', e => {
+  const pf = e.target.closest('[data-pfoto]');
+  if (pf){ destinoFoto = pf.dataset.pfoto; $('#pfile').click(); return; }
+  const pq = e.target.closest('[data-pquitar]');
+  if (pq){ delete perfil.destacadas[+pq.dataset.pquitar].img; guardarPerfil(); refrescarVista(); refrescarEditor(); return; }
+  const hq = e.target.closest('[data-hlquitar]');
+  if (hq){ perfil.destacadas.splice(+hq.dataset.hlquitar, 1); guardarPerfil(); refrescarVista(); refrescarEditor(); return; }
+  if (e.target.closest('#hlmas')){
+    const n = perfil.destacadas.length;
+    perfil.destacadas.push({nombre: 'Nueva', letra: 'N', fondo: n % 2 ? 'hueso' : 'azul'});
+    guardarPerfil(); refrescarVista(); refrescarEditor(); return;
+  }
+  if (e.target.closest('#preset')){
+    if (!confirm('¿Volver al perfil propuesto? Se pierden los cambios que hiciste en el perfil (las respuestas de los guiones no se tocan).')) return;
+    perfil = copia(P.base); try { localStorage.removeItem('sv-perfil'); } catch {}
+    refrescarVista(); refrescarEditor(); return;
+  }
   const hb = e.target.closest('[data-hk]');
   if (hb){
-    const key = hb.dataset.hk, j = +hb.dataset.i, g = guion(key), k = 'hk' + key;
-    conf[k] = conf[k] === j ? null : j; store.set('sv-conf', conf);
-    hb.closest('ol').querySelectorAll('li').forEach((li, i) => {
-      li.classList.toggle('sel', conf[k] === i);
-      li.querySelector('button').textContent = conf[k] === i ? 'Elegido' : 'Este';
-    });
-    document.querySelector(`[data-say="${key}"]`).textContent = conf[k] != null ? allHooks(key, g)[conf[k]][1] : g.hook.dice;
+    const key = hb.dataset.hk, g = guion(key), k = 'hk' + key, t = allHooks(key, g)[+hb.dataset.i][1];
+    conf[k] = conf[k] === t ? null : t; store.set('sv-conf', conf);
+    document.querySelector(`[data-hkl="${key}"]`).innerHTML = hooksList(key, g);
+    document.querySelector(`[data-say="${key}"]`).textContent = elegido(key, g) || g.hook.dice;
     return;
   }
   const ab = e.target.closest('[data-hkadd]');
@@ -425,12 +626,11 @@ document.addEventListener('click', e => {
   }
   const db = e.target.closest('[data-hkdel]');
   if (db){
-    const key = db.dataset.hkdel, g = guion(key), i = +db.dataset.i, n = g.hooks.length, k = 'hk' + key;
-    hkx[key].splice(i, 1); if (!hkx[key].length) delete hkx[key]; store.set('sv-hkx', hkx);
-    if (conf[k] === n + i) conf[k] = null; else if (conf[k] > n + i) conf[k]--;
-    store.set('sv-conf', conf);
+    const key = db.dataset.hkdel, g = guion(key), i = +db.dataset.i, k = 'hk' + key;
+    const [borrado] = hkx[key].splice(i, 1); if (!hkx[key].length) delete hkx[key]; store.set('sv-hkx', hkx);
+    if (conf[k] === borrado && !allHooks(key, g).some(x => x[1] === borrado)){ conf[k] = null; store.set('sv-conf', conf); }
     document.querySelector(`[data-hkl="${key}"]`).innerHTML = hooksList(key, g);
-    document.querySelector(`[data-say="${key}"]`).textContent = conf[k] != null ? allHooks(key, g)[conf[k]][1] : g.hook.dice;
+    document.querySelector(`[data-say="${key}"]`).textContent = elegido(key, g) || g.hook.dice;
     return;
   }
   const cb = e.target.closest('[data-conf]');
@@ -454,8 +654,8 @@ function textoTodo(){
     const key = r.n + g.v;
     L.push('== ' + String(r.n).padStart(2,'0') + g.v + ' · ' + r.formato + ' · ' + g.titulo);
     L.push(g.hook.quien + ': ' + g.hook.dice);
-    const AH = g.hooks ? allHooks(key, g) : [];
-    if (AH.length && conf['hk' + key] != null && AH[conf['hk' + key]]) L.push('Arranque elegido (' + AH[conf['hk' + key]][0] + '): ' + AH[conf['hk' + key]][1]);
+    const el = g.hooks ? elegido(key, g) : null;
+    if (el) L.push('Arranque elegido (' + allHooks(key, g).find(x => x[1] === el)[0] + '): ' + el);
     (hkx[key] || []).forEach(t => L.push('Arranque propio: ' + t));
     g.beats.forEach((b, i) => {
       if (b[1] === 'E') L.push('Emanuel: ' + b[2]);
@@ -465,9 +665,35 @@ function textoTodo(){
     L.push('');
   }));
   if (D.fijados){ L.push('== ' + D.fijados.titulo); D.fijados.items.forEach((it, j) => L.push(it.n + ' · ' + it.formato + ': ' + ((fijo[j] || '').trim() || '(sin notas)'))); L.push(''); }
-  if (D.ideas){ L.push('== ' + D.ideas.titulo); D.ideas.items.forEach((it, j) => L.push(it.formato + ': ' + (conf['idea' + j] || 'sin marcar'))); }
+  if (D.ideas){ L.push('== ' + D.ideas.titulo); D.ideas.items.forEach((it, j) => L.push(it.formato + ': ' + (conf['idea' + j] || 'sin marcar'))); L.push(''); }
+  if (P){
+    const p = perfil, igual = JSON.stringify(p) === JSON.stringify(P.base);
+    L.push('== El perfil' + (igual ? ' (sin cambios, queda la propuesta)' : ''));
+    L.push('Usuario: ' + p.usuario, 'Nombre: ' + p.nombre, 'Categoría: ' + p.categoria, 'Bio:', p.bio, 'Link: ' + p.link);
+    L.push('Destacadas: ' + (p.destacadas || []).map(h => h.nombre + (h.img ? ' (con imagen)' : ' (' + h.letra + ', ' + h.fondo + ')')).join(' · '));
+    L.push('Fijados: ' + (p.fijados || []).join(' · '));
+  }
   return L.join('\n');
 }
+/* respaldo: todo lo guardado en un .json que se puede volver a cargar */
+const CLAVES = ['sv-resp', 'sv-fijo', 'sv-conf', 'sv-hkx', 'sv-perfil'];
+$('#bBak').onclick = () => {
+  const o = {pagina: 'solmi-guiones', fecha: new Date().toISOString()};
+  CLAVES.forEach(k => { const v = store.get(k, null); if (v !== null) o[k] = v; });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(o)], {type: 'application/json'}));
+  a.download = 'respaldo-guiones-solmi-' + o.fecha.slice(0, 10) + '.json'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+};
+$('#bLoad').onclick = () => $('#fLoad').click();
+$('#fLoad').onchange = async e => {
+  const f = e.target.files[0]; e.target.value = ''; if (!f) return;
+  let o; try { o = JSON.parse(await f.text()); } catch { alert('Ese archivo no es un respaldo de este tablero.'); return; }
+  if (!o || o.pagina !== 'solmi-guiones'){ alert('Ese archivo no es un respaldo de este tablero.'); return; }
+  if (!confirm('¿Cargar el respaldo del ' + String(o.fecha || '').slice(0, 10) + '? Reemplaza lo que hay ahora en este dispositivo.')) return;
+  try { CLAVES.forEach(k => { if (k in o) localStorage.setItem(k, JSON.stringify(o[k])); else localStorage.removeItem(k); }); }
+  catch { alertaGuardado(); return; }
+  location.reload();
+};
 $('#enviar').onclick = () => {
   const [h, t] = prog();
   $('#dlgtxt').textContent = h === t ? 'Están todas. ¡Gracias!' : `Respondiste ${h} de ${t}. Podés mandar lo que tengas y seguir después: queda guardado en este dispositivo.`;
@@ -541,7 +767,7 @@ function setMode(m){
   document.body.classList.toggle('list', m === 'list');
   $('#mList').setAttribute('aria-pressed', m === 'list');
   $('#mBoard').setAttribute('aria-pressed', m !== 'list');
-  store.set('sv-mode', m);
+  store.set('sv-mode', m, true);
   if (m !== 'list') apply();
 }
 $('#mBoard').onclick = () => setMode('board');
