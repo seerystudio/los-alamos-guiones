@@ -2,7 +2,7 @@
    E = pregunta de Emanuel (fija). V = respuesta de Víctor: casillero para que la escriba él.
    "ej" es solo una ayuda por si se traba; no es el guion. */
 window.GUIONES = {
-  titulo: "Once preguntas. Las respuestas son tuyas.",
+  titulo: "Doce preguntas. Las respuestas son tuyas.",
   intro: [
     "Estos son los primeros videos: tres formatos y tres temas —empresas, patrimonio y lo que se puede arreglar antes de un juicio—. Cada fila es un formato: a la izquierda, un video de ejemplo; a la derecha, sus guiones. Los marcados «Pregunta frecuente de tu web» salen de las preguntas de tu página: la respuesta ya es tuya, solo hay que decirla hablando. Debajo de cada arranque hay diez arranques más, cada uno armado con un gancho distinto: si te gusta más alguno, tocá «Este».",
     "Las preguntas ya están. Lo que falta sos vos: en cada casillero escribí cómo lo dirías hablando, no como lo escribirías. Si te trabás, tocá «Ver un ejemplo».",
@@ -179,6 +179,26 @@ window.GUIONES = {
             ["0:24", "E", "¿Y cómo sabés cuál conviene?"],
             ["0:26", "V", "Cómo se decide el camino.", "Mirando tu caso. Es lo primero que hacemos."]
           ]
+        },
+        {
+          v: "E", tipo: "Va fijado al perfil",
+          titulo: "Hay cientos de abogados: ¿por qué Solmi & Asociados?",
+          hooks: [["Contracorriente", "Víctor, dicen que todos los abogados son iguales. ¿Es así?"], ["Pregunta inducida", "Víctor, ¿cómo elige un abogado alguien que nunca tuvo uno?"], ["Provocación", "Víctor, convenceme: ¿por qué vendría acá y no a otro estudio?"], ["Secreto", "Víctor, ¿qué no sabe la gente de un estudio hasta que se sienta en el escritorio?"], ["Contraste", "Víctor, ¿qué te hace distinto: lo que decís o lo que hacés?"], ["Error", "Víctor, ¿cuál es el error más común al elegir un abogado?"], ["Vulnerabilidad", "Víctor, te soy sincero: a los abogados les tengo desconfianza. ¿Por qué confiaría en vos?", "Solo si es real."], ["Impacto visual", "[Sin hablar] Emanuel pasa el dedo por una lista larguísima de estudios en el celular y lo deja sobre el escritorio. «Víctor, ¿por qué ustedes?»"], ["Promesa con tiempo", "Víctor, tenés treinta segundos para decirme por qué elegirte."], ["Predicción", "Víctor, si hoy te elijo a vos, ¿cómo voy a estar dentro de cinco años?"]],
+          angulo: "Para el que ya llegó a tu perfil. No contestás con adjetivos: contás cosas que hacés. La respuesta llega a la mitad.",
+          dur: "≈40 s",
+          hook: { quien: "Emanuel", dice: "Víctor, hay cientos de abogados. ¿Por qué elegir Solmi & Asociados?", placa: "Hay cientos de abogados. ¿Por qué este?", plano: "Vos de costado al escritorio o de pie junto al mapa, mirando a Emanuel." },
+          beats: [
+            ["0:05", "V", "No contestes todavía: qué contesta todo el mundo a esta pregunta.", "Esa pregunta todos la contestan igual: compromiso, experiencia, cercanía. Y está bien, pero eso lo puede decir cualquiera."],
+            ["0:11", "V", "Qué vas a hacer vos en vez de decir adjetivos.", "Yo prefiero contarte lo que hago."],
+            ["0:14", "V", "Una cosa que hacés, que muestre cómo trabajás.", "Si lo tuyo no es lo mío, te lo digo en la primera charla, y te mando con quien sabe."],
+            ["0:20", "V", "Otra cosa que hacés, aunque no te convenga.", "Te digo cómo estás parado, aunque no sea lo que viniste a escuchar."],
+            ["0:26", "V", "Una más, mirando para adelante.", "Y pienso en cómo vas a estar dentro de cinco años, no en ganar esta."],
+            ["0:32", "E", "¿Y por qué trabajás así?"],
+            ["0:34", "V", "Tu porqué, en una frase. Es la que se va a recordar.", "Porque el que bien anda, bien acaba. Lo dijiste en Perfil y Fortuna."]
+          ],
+          cta: "Sin pedido: va fijado. Si querés, termina con «cómo trabajamos, en el otro video fijado».",
+          confirmar: "¿Querés decir en público que si un caso no es lo tuyo, lo derivás?",
+          ojo: "Sin nombrar ni compararte con otros estudios: hablás de lo que hacés vos, no de lo que hacen los demás."
         }
       ]
     },
@@ -324,7 +344,7 @@ window.GUIONES.fijados = {
         "Por ejemplo: si lo tuyo no es lo mío, te lo digo en la primera charla. Te digo lo que hay, aunque no sea lo que viniste a escuchar. Pienso en cómo vas a estar a largo plazo, no en ganar esta.",
         "Sin nombrar ni compararse con ningún otro estudio."
       ],
-      pide: "Sugerido: falsa entrevista, con Emanuel preguntando. Lo que te diferencia lo tenés que decir vos."
+      pide: "Ya tiene guion: el 2E, en la fila de la falsa entrevista («Hay cientos de abogados: ¿por qué Solmi & Asociados?»)."
     },
     {
       n: "03", formato: "Cómo trabajamos",
