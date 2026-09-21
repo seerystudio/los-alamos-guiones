@@ -31,14 +31,14 @@ window.GUIONES = {
         {
           v: "A", tipo: "Presentación · va fijado al perfil",
           titulo: "¿A qué te dedicás, explicado fácil?",
-          hooks: [["Pregunta inducida", "Víctor, ¿por qué nadie entiende qué hace un abogado hasta el día que lo necesita?"], ["Contracorriente", "Víctor, siempre pensé que a un abogado se lo llama cuando ya hay lío. ¿Es así?"], ["Provocación", "Víctor, te lo digo en serio: no tengo idea de qué hace un abogado. ¿Me lo explicás como si tuviera diez años?"], ["Lista", "Víctor, explicame a qué te dedicás, pero con tres ejemplos de la vida real."], ["Contraste", "Víctor, ¿vos sos de los abogados que pelean o de los que arreglan?"], ["Secreto", "Víctor, ¿qué hace un abogado que casi nadie sabe que hace?"], ["Advertencia", "Víctor, ¿qué me puede pasar si en toda mi vida no hablo nunca con un abogado?"], ["Impacto visual", "[Sin hablar] Emanuel deja sobre el escritorio un contrato, una escritura y una foto familiar. «Víctor, ¿con cuál de estos me ayudás vos?»"], ["Promesa con tiempo", "Víctor, ¿me explicás en treinta segundos a qué te dedicás?"], ["Vulnerabilidad", "Víctor, te confieso algo: cada vez que escucho «abogado» pienso en problemas. ¿Me convencés de lo contrario?"]],
+          hooks: [["Pregunta inducida", "Víctor, ¿por qué nadie entiende qué hace un abogado hasta el día que lo necesita?"], ["Contracorriente", "Víctor, siempre pensé que a un abogado se lo llama cuando ya hay lío. ¿Es así?"], ["Provocación", "Víctor, te lo digo en serio: no tengo idea de qué hace un abogado. ¿Me lo explicás como si tuviera diez años?"], ["Lista", "Víctor, explicame a qué te dedicás, pero con tres ejemplos de la vida real."], ["Contraste", "Víctor, ¿vos sos de los abogados que pelean o de los que arreglan?"], ["Secreto", "Víctor, ¿qué hace un abogado que casi nadie sabe que hace?"], ["Advertencia", "Víctor, ¿qué me puede pasar si en toda mi vida no hablo nunca con un abogado?"], ["Impacto visual", "[Sin hablar] Emanuel deja sobre el escritorio un contrato, una escritura y las llaves de una casa. «Víctor, ¿con cuál de estos me ayudás vos?»"], ["Promesa con tiempo", "Víctor, ¿me explicás en treinta segundos a qué te dedicás?"], ["Vulnerabilidad", "Víctor, te confieso algo: cada vez que escucho «abogado» pienso en problemas. ¿Me convencés de lo contrario?"]],
           angulo: "Contestás con tres situaciones de la vida real, no con nombres de áreas.",
           dur: "≈40 s",
           hook: { quien: "Emanuel", dice: "Víctor, ¿me podés explicar fácil a qué te dedicás? Para que gente común como yo entienda.", placa: "POV: le pedís a un abogado que te explique a qué se dedica. Fácil.", plano: "Vos del otro lado del escritorio, mirando a cámara." },
           beats: [
             ["0:05", "V", "Una frase corta que prometa explicarlo simple.", "Te lo explico con tres situaciones."],
             ["0:08", "V", "Situación 1 · un negocio con alguien. Qué hacés vos ahí.", "Abrís un negocio con un amigo. Todo bien. Yo me ocupo de que quede escrito qué pasa el día que no esté todo bien."],
-            ["0:15", "V", "Situación 2 · una casa, un terreno y los hijos.", "Tenés una casa, un terreno, y tenés hijos. Me ocupo de que el día de mañana eso no sea el motivo por el que dejan de hablarse."],
+            ["0:15", "V", "Situación 2 · lo que juntaste: la casa, un campo, lo de toda la vida.", "Tenés tu casa, un campo, lo que juntaste en toda una vida. Me ocupo de que quede ordenado y protegido, le vaya como le vaya al negocio."],
             ["0:23", "V", "Situación 3 · un problema que todavía no llegó a juicio.", "Y si ya tenés un problema con alguien, antes de ir a juicio nos sentamos a ver si se puede arreglar."],
             ["0:30", "E", "¿O sea que sos un abogado que no pelea?"],
             ["0:33", "V", "Una sola frase que resuma cómo trabajás. Es la que se va a recordar.", "Soy un abogado que prefiere que no haga falta."]
@@ -48,20 +48,21 @@ window.GUIONES = {
         },
         {
           v: "B", tipo: "Patrimonio",
-          titulo: "¿Por qué los hijos se pelean por los terrenos?",
-          hooks: [["Contracorriente", "Víctor, todos dicen que las herencias se pelean por plata. ¿Es así?"], ["Pregunta inducida", "Víctor, ¿por qué hermanos que se querían dejan de hablarse por un terreno?"], ["Secreto", "Víctor, ¿qué hay de verdad atrás de una pelea por un terreno?"], ["Error", "Víctor, ¿cuál es el error que comete casi cualquier padre que tiene un terreno y más de un hijo?"], ["Advertencia", "Víctor, si tengo un terreno y tres hijos y no hago nada, ¿qué va a pasar?"], ["Contraste", "Víctor, ¿qué pelea más a una familia: la plata o un terreno?"], ["Impacto visual", "[Sin hablar] Emanuel pone sobre el escritorio una foto vieja de un terreno. «Víctor, ¿por qué por esto se pelean los hermanos?»"], ["Provocación", "Víctor, ¿es verdad que las herencias sacan lo peor de una familia?"], ["Número específico", "Víctor, un terreno, tres hijos y ningún papel: ¿cómo termina eso?"], ["Vulnerabilidad", "Víctor, en mi familia pasó: por un terreno, mis tíos no se hablan más. ¿Por qué pasa esto?", "Solo si es real."]],
-          angulo: "Entra por una escena que todos vieron alguna vez y termina en lo que se puede ordenar antes.",
+          titulo: "Si al negocio le va mal, ¿me pueden sacar la casa?",
+          hooks: [["Contracorriente", "Víctor, todos dicen que lo del negocio es del negocio y lo de la casa es de la casa. ¿Es así?"], ["Pregunta inducida", "Víctor, ¿por qué hay gente que se funde con el negocio y pierde también la casa?"], ["Advertencia", "Víctor, tengo un negocio y la casa a mi nombre. ¿Me tengo que preocupar?"], ["Secreto", "Víctor, ¿qué es lo que casi nadie sabe cuando abre un negocio con la casa a su nombre?"], ["Error", "Víctor, ¿cuál es el error que pone en riesgo la casa del que tiene un negocio?"], ["Contraste", "Víctor, ¿qué diferencia al negocio que se funde solo del que se lleva la casa puesta?"], ["Impacto visual", "[Sin hablar] Emanuel deja sobre el escritorio las llaves del local y las de su casa, en el mismo llavero. «Víctor, ¿esto va junto o separado?»"], ["Predicción", "Víctor, si dentro de dos años al negocio le va mal, ¿qué pasa con mi casa?"], ["Provocación", "Víctor, ¿es verdad que un negocio te puede costar la casa?"], ["Vulnerabilidad", "Víctor, abrí un negocio y todo está a mi nombre. ¿Hice mal?", "Solo si es real."]],
+          angulo: "Proteger lo que tenés: primero lo que cree todo el que tiene un negocio, y la respuesta recién a la mitad.",
           dur: "≈35 s",
-          hook: { quien: "Emanuel", dice: "Víctor, ¿por qué cuando hay una herencia los hijos se viven peleando por los terrenos?", placa: "POV: le preguntás a un abogado por qué los hermanos se pelean por los terrenos", plano: "Vos del otro lado del escritorio, mirando a cámara." },
+          hook: { quien: "Emanuel", dice: "Víctor, si a mi negocio le va mal, ¿me pueden sacar la casa?", placa: "POV: le preguntás a un abogado si tu negocio te puede costar la casa", plano: "Vos del otro lado del escritorio, mirando a cámara." },
           beats: [
-            ["0:04", "V", "¿Es por la plata o por otra cosa? Contalo como lo ves vos.", "¿Querés que te diga la verdad? Casi nunca es por la plata."],
-            ["0:08", "V", "Qué tiene un terreno que no tiene la plata. Una imagen concreta.", "Un terreno no se parte como una torta. Uno lo quiere vender, otro quiere quedarse, y otro dice «ahí está papá»."],
-            ["0:16", "V", "El porqué de fondo, en una frase.", "Y como nadie dejó dicho qué quería, cada uno está seguro de que lo sabe."],
-            ["0:21", "E", "¿Y quién tiene razón?"],
-            ["0:23", "V", "Tu respuesta, llevándola a lo que se puede hacer antes.", "Todos un poco. Por eso conviene hablarlo y dejarlo escrito mientras el que tiene el terreno todavía puede decirlo."]
+            ["0:04", "V", "No contestes todavía: qué cree casi todo el que tiene un negocio.", "Casi todos los que tienen un negocio creen que no. Que lo del negocio es del negocio, y la casa es la casa."],
+            ["0:10", "V", "Cuándo se dan cuenta de que no era tan así. Sin asustar.", "Y muchos se enteran de que no era tan simple el día que al negocio le va mal."],
+            ["0:15", "E", "¿Entonces me la pueden sacar?"],
+            ["0:17", "V", "Recién acá, la respuesta: de qué depende. Solo nombrado, sin explicar cómo se hace.", "Depende de cómo armaste las cosas. A nombre de quién está el negocio, qué firmaste vos personalmente, si lo tuyo y lo del negocio están separados."],
+            ["0:26", "V", "Una frase que resuma la idea.", "Tu casa no está a salvo por ser tuya. Está a salvo por cómo ordenaste lo demás."]
           ],
-          cta: "Si tenés un terreno y más de un hijo, mandáselo a ellos. Es una forma de empezar la charla.",
-          ojo: "Que no se quede en la pelea: el video termina en lo que se puede ordenar antes."
+          cta: "Mandáselo a alguien que tenga un negocio y una casa.",
+          confirmar: "¿Se puede decir así: que si la casa queda expuesta depende de cómo está armado el negocio, qué firmó cada uno y si está separado de lo personal?",
+          ojo: "Sin prometer que la casa se salva ni explicar figuras (sociedades, fideicomisos): al que te ve por primera vez le alcanza con saber que depende de algo que se decide antes."
         },
         {
           v: "C", tipo: "Antes del juicio",
@@ -209,17 +210,20 @@ window.GUIONES = {
         },
         {
           v: "B", tipo: "Patrimonio",
-          titulo: "3 frases que escucho antes de que una familia se pelee",
-          hooks: [["Contracorriente", "Las peleas por una herencia no arrancan con odio. Arrancan con una frase de cariño."], ["Pregunta inducida", "¿Por qué familias que se quieren terminan peleadas por una herencia?"], ["Advertencia", "Si alguna vez dijiste «mis hijos se llevan bien», este video es para vos."], ["Secreto", "Hay frases que un abogado escucha antes de cada pelea familiar. Y el que las dice no se da cuenta."], ["Error", "El error más cariñoso que puede cometer un padre con sus hijos."], ["Lista", "Tres frases. Si dijiste alguna, en tu casa hay una charla pendiente."], ["Predicción", "Hay una frase que hoy decís en la sobremesa, y que dentro de veinte años puede pelear a tus hijos."], ["Impacto visual", "[Sin hablar] Una sobremesa familiar, todos riéndose. Víctor, a cámara: «Acá empiezan casi todas las peleas por herencias.»"], ["Contraste", "Hay familias que heredan y se siguen juntando los domingos, y otras que no. La diferencia está en tres frases."], ["Vulnerabilidad", "Yo también dije una de estas tres frases. Y soy abogado.", "Solo si es real."]],
-          angulo: "Tres frases que cualquiera dijo en su casa. Se reconoce y se ríe, y después piensa.",
+          titulo: "3 cosas que la gente hace para proteger su casa, y no la protegen",
+          hooks: [["Contracorriente", "Poner la casa a nombre de tu pareja no la protege. Y no es lo único que la gente hace mal."], ["Pregunta inducida", "¿Por qué hay gente que hizo de todo para proteger su casa y la tiene igual de expuesta?"], ["Error", "Tres errores que comete casi todo el que quiere proteger su casa. El primero es un clásico."], ["Secreto", "Lo que casi nadie sabe cuando pone su casa a nombre de otro."], ["Advertencia", "Si alguna vez pensaste «la pongo a nombre de mi mujer y listo», mirá esto."], ["Lista", "Tres cosas que la gente hace para proteger su casa. Ninguna la protege."], ["Contraste", "Hay gente que protegió su casa y gente que cree que la protegió. La diferencia está en estas tres cosas."], ["Impacto visual", "[Sin hablar] Víctor tiene las llaves de una casa y se las pasa a una mano que entra en cuadro. «Esto no es proteger tu casa.»"], ["Provocación", "Tu casa no está protegida porque la pusiste a nombre de otro. Está en otro lado, nomás."], ["Vulnerabilidad", "Casi todos los que se sientan acá ya hicieron una de estas tres cosas. Tranquilo: se puede ordenar."]],
+          angulo: "Tres «soluciones» que cualquiera escuchó en un asado. Se reconoce, se ríe, y después piensa.",
           dur: "≈30 s",
-          hook: { quien: "Víctor", dice: "Hay tres frases que escucho siempre antes de que una familia se pelee por una herencia. Fijate si alguna la dijiste vos." },
+          hook: { quien: "Víctor", dice: "Hay tres cosas que la gente hace para proteger su casa. Y ninguna la protege." },
           beats: [
-            ["0:05", "V", "Frase 1, y qué pasa después. Primer plano.", "«Mis hijos se llevan bien.» Y es verdad. Hasta que hay que decidir quién se queda con la casa de la costa."],
-            ["0:11", "V", "Frase 2, y qué pasa después. Plano medio.", "«Ya les dije lo que quiero.» En una sobremesa. Y cada uno se acuerda de una versión distinta."],
-            ["0:17", "V", "Frase 3, y qué pasa después. Primer plano.", "«Eso lo vemos después.» El después llega justo cuando ya no podés decidir vos."],
-            ["0:23", "V", "Qué tienen en común las tres.", "Las tres son frases de cariño. Por eso nadie las ve venir."]
-          ]
+            ["0:05", "V", "Cosa 1, y qué pasa en realidad. Primer plano.", "Una, el clásico: «La pongo a nombre de mi mujer». No la sacaste del riesgo: la cambiaste de riesgo."],
+            ["0:11", "V", "Cosa 2, y qué pasa en realidad. Plano medio.", "Dos: «Se la paso a uno de los chicos». Ahora la casa donde vivís es de otro. Y la decisión también."],
+            ["0:17", "V", "Cosa 3, y qué pasa en realidad. Primer plano.", "Tres: «Lo hago cuando empiecen los problemas». Lo que se mueve a las apuradas, cuando ya hay deudas, se puede revisar."],
+            ["0:23", "V", "Qué tienen en común las tres.", "Proteger lo tuyo no es sacarlo de tu nombre. Es ordenarlo a tiempo."]
+          ],
+          cta: "Si conocés a alguien que dijo alguna de estas tres, mandáselo.",
+          confirmar: "¿Se pueden decir así las tres: que poner la casa a nombre de otro no la protege, y que lo que se mueve cuando ya hay deudas se puede revisar?",
+          ojo: "Nombrás los errores, no enseñás a proteger la casa: el cómo es para la consulta."
         },
         {
           v: "C", tipo: "Antes del juicio",
@@ -255,9 +259,9 @@ window.GUIONES.ideas = {
         "Con saco y en la calle se ve serio, y a la vez tiene movimiento."
       ],
       ideas: [
-        "Ranking de lo que más peleas trae en una herencia: del auto a la casa. La mesa de la abuela sale más arriba de lo que uno cree.",
+        "Ranking de lo que más expone tu casa cuando tenés un negocio: de lo que menos riesgo trae a lo que más.",
         "Ranking de los papeles que todo negocio debería tener firmados, del menos al más importante.",
-        "Ranking de las excusas para no ordenar nada: «soy joven», «mis hijos se llevan bien», «sale caro».",
+        "Ranking de las excusas para no ordenar nada: «soy joven», «a mí no me va a pasar», «sale caro».",
         "Ranking de los peores errores al tener una empresa, del que menos cuesta al que más."
       ],
       pide: "Vos a cámara, de pie. Los íconos y los números se agregan en la edición."
@@ -273,7 +277,7 @@ window.GUIONES.ideas = {
       ],
       ideas: [
         "El que firmó con su socio y el que lo dejó de palabra: cinco años después.",
-        "La familia que lo habló en la mesa y la que lo dejó para después.",
+        "El que ordenó lo suyo cuando le iba bien, y el que esperó a tener deudas.",
         "El que se sentó a arreglar y el que fue directo a juicio: dónde está cada uno un año después.",
         "Situaciones en las que se puede evitar el juicio: el mismo problema, contado por los dos caminos."
       ],
@@ -289,7 +293,7 @@ window.GUIONES.ideas = {
         "Mucho gesto y tono de charla: serio sin ser solemne."
       ],
       ideas: [
-        "Lo que sirve y lo que no para dejar ordenada una herencia: lo dicho en una sobremesa, un audio de WhatsApp, un papel firmado.",
+        "Lo que protege tu casa y lo que no: ponerla a nombre de tu pareja, pasársela a un hijo, separar el negocio de lo tuyo.",
         "Lo que conviene dejar firmado y lo que no hace falta cuando abrís un negocio con alguien.",
         "Lo que se puede arreglar antes de un juicio y lo que no."
       ],
@@ -307,7 +311,7 @@ window.GUIONES.fijados = {
       contesta: "¿Quién es? ¿En qué me puede ayudar?",
       ideas: [
         "Abogado y empresario: conocés las dos sillas del escritorio, la del abogado y la del que tiene algo que cuidar.",
-        "En qué podés ayudar, contado como situaciones y no como áreas: si tenés un negocio, si querés dejar ordenado lo tuyo para tu familia, si tenés un problema y todavía no llegó a juicio.",
+        "En qué podés ayudar, contado como situaciones y no como áreas: si tenés un negocio, si querés proteger lo que juntaste, si tenés un problema y todavía no llegó a juicio.",
         "Termina mandando al segundo fijado."
       ],
       pide: "Sugerido: teleprompter, en tono de charla. Contanos qué empresas tenés (el rubro, sin nombres)."
