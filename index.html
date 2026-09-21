@@ -70,6 +70,9 @@ select.chip option{background:var(--negro-2);color:var(--hueso)}
 .fijo{border:1.5px solid var(--naranja)}
 .fijo .imp{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--negro);background:var(--naranja);border-radius:100px;padding:4px 10px}
 .fijo .q{font-size:15px;color:var(--hueso);margin:0}
+.fijo textarea{display:block;width:100%;min-height:96px;resize:vertical;border:1px solid var(--linea-2);border-radius:10px;background:var(--negro-3);color:var(--hueso);font:inherit;font-size:15px;line-height:1.4;padding:10px 12px}
+.fijo textarea:focus{outline:none;border-color:var(--naranja);box-shadow:0 0 0 3px rgba(255,77,0,.18)}
+.fijo .guardado{font-size:12px;color:var(--gris-2);margin:6px 0 0;min-height:1em}
 .ref .who b{color:var(--hueso);font-weight:600}
 .vid{position:relative;aspect-ratio:9/16;border-radius:12px;overflow:hidden;background:var(--negro-3);border:1px solid var(--linea);display:grid;place-items:center}
 .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
@@ -254,7 +257,7 @@ dialog .cerrar{margin-top:10px;background:transparent;border:0;color:var(--gris)
   <button class="cerrar" id="bClose">Cerrar</button>
 </dialog>
 
-<script src="guiones.js"></script>
+<script src="guiones.js?v=2026-09-21c"></script>
 <script>
 const D = window.GUIONES;
 const $ = s => document.querySelector(s);
@@ -264,6 +267,7 @@ const store = {
   set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
 };
 let resp = store.get('sv-resp', {});
+let fijo = store.get('sv-fijo', {});
 let conf = store.get('sv-conf', {});
 const nV = g => g.beats.filter(b => b[1] === 'V').length;
 const hechas = (key, g) => g.beats.reduce((s, b, i) => s + (b[1] === 'V' && (resp[key + '|' + i] || '').trim() ? 1 : 0), 0);
@@ -335,12 +339,15 @@ function renderFijados(){
   const F = D.fijados; if (!F) return '';
   return `<section class="row" id="rF">
     <div class="row-title"><span class="n">★</span><span class="f">${esc(F.titulo)}</span><span class="m">${esc(F.resumen)}</span></div>
-    ${F.items.map(it => `<aside class="card ref idea fijo">
+    ${F.items.map((it, j) => `<aside class="card ref idea fijo">
       <span class="imp">Importante · fijado ${esc(it.n)}</span>
       <h3 class="idea-f">${esc(it.formato)}</h3>
       <p class="q">${esc(it.contesta)}</p>
       <div class="sticky"><h4>La idea</h4><ol>${it.ideas.map(m => `<li>${esc(m)}</li>`).join('')}</ol></div>
       <div class="sticky"><h4>Qué pide</h4><p>${esc(it.pide)}</p></div>
+      <div class="sticky"><h4>Tus notas</h4>
+        <textarea data-f="${j}" rows="4" aria-label="Notas sobre el fijado ${esc(it.n)}" placeholder="Escribí lo que se te ocurra: qué dirías, qué cambiarías…">${esc(fijo[j] || '')}</textarea>
+        <p class="guardado" data-fg="${j}">${(fijo[j] || '').trim() ? 'Guardado en este dispositivo ✓' : ''}</p></div>
     </aside>`).join('')}
   </section>`;
 }
@@ -363,6 +370,14 @@ render();
 
 /* escribir: se guarda en el dispositivo a cada tecla */
 document.addEventListener('input', e => {
+  const tf = e.target.closest && e.target.closest('textarea[data-f]');
+  if (tf){
+    const j = tf.dataset.f;
+    if (tf.value.trim()) fijo[j] = tf.value; else delete fijo[j];
+    store.set('sv-fijo', fijo);
+    document.querySelector(`[data-fg="${j}"]`).textContent = tf.value.trim() ? 'Guardado en este dispositivo ✓' : '';
+    return;
+  }
   const ta = e.target.closest && e.target.closest('textarea[data-r]');
   if (!ta) return;
   const v = ta.value;
@@ -415,6 +430,7 @@ function textoTodo(){
     if (g.confirmar) L.push('Confirmar: ' + g.confirmar + ' → ' + (conf[key] || 'sin respuesta'));
     L.push('');
   }));
+  if (D.fijados){ L.push('== ' + D.fijados.titulo); D.fijados.items.forEach((it, j) => L.push(it.n + ' · ' + it.formato + ': ' + ((fijo[j] || '').trim() || '(sin notas)'))); L.push(''); }
   if (D.ideas){ L.push('== ' + D.ideas.titulo); D.ideas.items.forEach((it, j) => L.push(it.formato + ': ' + (conf['idea' + j] || 'sin marcar'))); }
   return L.join('\n');
 }
