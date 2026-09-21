@@ -297,3 +297,40 @@ window.GUIONES.ideas = {
     }
   ]
 };
+
+window.GUIONES.fijados = {
+  titulo: "Importante · los 3 videos fijados",
+  resumen: "Van fijados arriba de todo en el perfil. Son para el que ya llegó a la cuenta y quiere saber quién sos antes de escribirte",
+  items: [
+    {
+      n: "01", formato: "Quién soy",
+      contesta: "¿Quién es? ¿En qué me puede ayudar?",
+      ideas: [
+        "Abogado y empresario: conocés las dos sillas del escritorio, la del abogado y la del que tiene algo que cuidar.",
+        "En qué podés ayudar, contado como situaciones y no como áreas: si tenés un negocio, si querés dejar ordenado lo tuyo para tu familia, si tenés un problema y todavía no llegó a juicio.",
+        "Termina mandando al segundo fijado."
+      ],
+      pide: "Sugerido: teleprompter, en tono de charla. Contanos qué empresas tenés (el rubro, sin nombres)."
+    },
+    {
+      n: "02", formato: "Qué nos diferencia",
+      contesta: "¿Por qué este estudio y no otro?",
+      ideas: [
+        "No decir «compromiso, experiencia, cercanía», que es lo que dice todo el mundo: contar cosas que hacés.",
+        "Por ejemplo: si lo tuyo no es lo mío, te lo digo en la primera charla. Te digo lo que hay, aunque no sea lo que viniste a escuchar. Pienso en cómo vas a estar a largo plazo, no en ganar esta.",
+        "Sin nombrar ni compararse con ningún otro estudio."
+      ],
+      pide: "Sugerido: falsa entrevista, con Emanuel preguntando. Lo que te diferencia lo tenés que decir vos."
+    },
+    {
+      n: "03", formato: "Cómo trabajamos",
+      contesta: "¿Qué pasa si vengo con un problema?",
+      ideas: [
+        "El camino desde que alguien entra por la puerta: te cuenta con sus palabras, le explicás cómo está parado y qué opciones tiene, y si se puede arreglar sin juicio, se arranca por ahí.",
+        "Remate: es una charla, no un trámite. Consultar no te obliga a nada.",
+        "Es el único de los tres que invita a escribir."
+      ],
+      pide: "Sugerido: POV, la cámara entra al estudio y se sienta frente a vos."
+    }
+  ]
+};

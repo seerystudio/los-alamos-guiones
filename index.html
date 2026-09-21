@@ -67,6 +67,9 @@ select.chip option{background:var(--negro-2);color:var(--hueso)}
 .card{border-radius:18px;cursor:auto}
 .ref{width:340px;padding:14px;display:flex;flex-direction:column;gap:14px;background:var(--negro-2);border:1px solid var(--linea)}
 .ref .who{font-size:13px;color:var(--gris)}
+.fijo{border:1.5px solid var(--naranja)}
+.fijo .imp{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--negro);background:var(--naranja);border-radius:100px;padding:4px 10px}
+.fijo .q{font-size:15px;color:var(--hueso);margin:0}
 .ref .who b{color:var(--hueso);font-weight:600}
 .vid{position:relative;aspect-ratio:9/16;border-radius:12px;overflow:hidden;background:var(--negro-3);border:1px solid var(--linea);display:grid;place-items:center}
 .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
@@ -328,6 +331,20 @@ function renderIdeas(){
     </aside>`).join('')}
   </section>`;
 }
+function renderFijados(){
+  const F = D.fijados; if (!F) return '';
+  return `<section class="row" id="rF">
+    <div class="row-title"><span class="n">★</span><span class="f">${esc(F.titulo)}</span><span class="m">${esc(F.resumen)}</span></div>
+    ${F.items.map((it, j) => `<aside class="card ref idea fijo">
+      <span class="imp">Importante · fijado ${esc(it.n)}</span>
+      <h3 class="idea-f">${esc(it.formato)}</h3>
+      <p class="q">${esc(it.contesta)}</p>
+      <div class="sticky"><h4>La idea</h4><ol>${it.ideas.map(m => `<li>${esc(m)}</li>`).join('')}</ol></div>
+      <div class="sticky"><h4>Qué pide</h4><p>${esc(it.pide)}</p></div>
+      <div class="op">${['Lo haría', 'No me convence'].map(o => `<button type="button" data-conf="fijo${j}" aria-pressed="${conf['fijo' + j] === o}">${o}</button>`).join('')}</div>
+    </aside>`).join('')}
+  </section>`;
+}
 function render(){
   const intro = `<section class="row" id="r0"><div class="card intro">
     <span class="rotulo">Solmi &amp; Asociados · primeros videos</span>
@@ -335,12 +352,12 @@ function render(){
     ${D.intro.map(p => `<p>${esc(p)}</p>`).join('')}
     <ul>${D.reglas.map(p => `<li>${esc(p)}</li>`).join('')}</ul>
   </div></section>`;
-  $('#world').innerHTML = intro + D.refs.map(r => `<section class="row" id="r${r.n}">
+  $('#world').innerHTML = intro + renderFijados() + D.refs.map(r => `<section class="row" id="r${r.n}">
     <div class="row-title"><span class="n">${String(r.n).padStart(2,'0')}</span><span class="f">${esc(r.formato)}</span><span class="m">${esc(r.resumen)}</span></div>
     ${renderRef(r)}
     <div class="scripts">${r.guiones.map(g => renderScript(r, g)).join('')}</div>
   </section>`).join('') + renderIdeas();
-  $('#jump').innerHTML = `<option value="0">Ir a…</option>` + D.refs.map(r => `<option value="${r.n}">${String(r.n).padStart(2,'0')} · ${esc(r.formato)}</option>`).join('') + (D.ideas ? `<option value="${D.ideas.n}">${String(D.ideas.n).padStart(2,'0')} · ${esc(D.ideas.titulo)}</option>` : '');
+  $('#jump').innerHTML = `<option value="0">Ir a…</option>` + (D.fijados ? `<option value="F">★ · Los 3 fijados</option>` : '') + D.refs.map(r => `<option value="${r.n}">${String(r.n).padStart(2,'0')} · ${esc(r.formato)}</option>`).join('') + (D.ideas ? `<option value="${D.ideas.n}">${String(D.ideas.n).padStart(2,'0')} · ${esc(D.ideas.titulo)}</option>` : '');
   prog();
 }
 render();
@@ -399,6 +416,7 @@ function textoTodo(){
     if (g.confirmar) L.push('Confirmar: ' + g.confirmar + ' → ' + (conf[key] || 'sin respuesta'));
     L.push('');
   }));
+  if (D.fijados){ L.push('== ' + D.fijados.titulo); D.fijados.items.forEach((it, j) => L.push(it.n + ' ' + it.formato + ': ' + (conf['fijo' + j] || 'sin marcar'))); L.push(''); }
   if (D.ideas){ L.push('== ' + D.ideas.titulo); D.ideas.items.forEach((it, j) => L.push(it.formato + ': ' + (conf['idea' + j] || 'sin marcar'))); }
   return L.join('\n');
 }
