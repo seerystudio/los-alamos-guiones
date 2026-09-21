@@ -4,7 +4,7 @@
 window.GUIONES = {
   titulo: "Once preguntas. Las respuestas son tuyas.",
   intro: [
-    "Estos son los primeros videos: tres formatos y tres temas —empresas, patrimonio y lo que se puede arreglar antes de un juicio—. Cada fila es un formato: a la izquierda, un video de ejemplo; a la derecha, sus guiones. Los marcados «Pregunta frecuente de tu web» salen de las preguntas de tu página: la respuesta ya es tuya, solo hay que decirla hablando.",
+    "Estos son los primeros videos: tres formatos y tres temas —empresas, patrimonio y lo que se puede arreglar antes de un juicio—. Cada fila es un formato: a la izquierda, un video de ejemplo; a la derecha, sus guiones. Los marcados «Pregunta frecuente de tu web» salen de las preguntas de tu página: la respuesta ya es tuya, solo hay que decirla hablando. Debajo de cada arranque hay diez arranques más, cada uno armado con un gancho distinto: si te gusta más alguno, tocá «Este».",
     "Las preguntas ya están. Lo que falta sos vos: en cada casillero escribí cómo lo dirías hablando, no como lo escribirías. Si te trabás, tocá «Ver un ejemplo».",
     "Lo que escribís se guarda en este dispositivo. Cuando termines, tocá «Enviar» arriba y mandalas por WhatsApp."
   ],
@@ -31,6 +31,7 @@ window.GUIONES = {
         {
           v: "A", tipo: "Presentación · va fijado al perfil",
           titulo: "¿A qué te dedicás, explicado fácil?",
+          hooks: [["Pregunta inducida", "Víctor, ¿por qué nadie entiende qué hace un abogado hasta el día que lo necesita?"], ["Contracorriente", "Víctor, siempre pensé que a un abogado se lo llama cuando ya hay lío. ¿Es así?"], ["Provocación", "Víctor, te lo digo en serio: no tengo idea de qué hace un abogado. ¿Me lo explicás como si tuviera diez años?"], ["Lista", "Víctor, explicame a qué te dedicás, pero con tres ejemplos de la vida real."], ["Contraste", "Víctor, ¿vos sos de los abogados que pelean o de los que arreglan?"], ["Secreto", "Víctor, ¿qué hace un abogado que casi nadie sabe que hace?"], ["Advertencia", "Víctor, ¿qué me puede pasar si en toda mi vida no hablo nunca con un abogado?"], ["Impacto visual", "[Sin hablar] Emanuel deja sobre el escritorio un contrato, una escritura y una foto familiar. «Víctor, ¿con cuál de estos me ayudás vos?»"], ["Promesa con tiempo", "Víctor, ¿me explicás en treinta segundos a qué te dedicás?"], ["Vulnerabilidad", "Víctor, te confieso algo: cada vez que escucho «abogado» pienso en problemas. ¿Me convencés de lo contrario?"]],
           angulo: "Contestás con tres situaciones de la vida real, no con nombres de áreas.",
           dur: "≈40 s",
           hook: { quien: "Emanuel", dice: "Víctor, ¿me podés explicar fácil a qué te dedicás? Para que gente común como yo entienda.", placa: "POV: le pedís a un abogado que te explique a qué se dedica. Fácil.", plano: "Vos del otro lado del escritorio, mirando a cámara." },
@@ -48,6 +49,7 @@ window.GUIONES = {
         {
           v: "B", tipo: "Patrimonio",
           titulo: "¿Por qué los hijos se pelean por los terrenos?",
+          hooks: [["Contracorriente", "Víctor, todos dicen que las herencias se pelean por plata. ¿Es así?"], ["Pregunta inducida", "Víctor, ¿por qué hermanos que se querían dejan de hablarse por un terreno?"], ["Secreto", "Víctor, ¿qué hay de verdad atrás de una pelea por un terreno?"], ["Error", "Víctor, ¿cuál es el error que comete casi cualquier padre que tiene un terreno y más de un hijo?"], ["Advertencia", "Víctor, si tengo un terreno y tres hijos y no hago nada, ¿qué va a pasar?"], ["Contraste", "Víctor, ¿qué pelea más a una familia: la plata o un terreno?"], ["Impacto visual", "[Sin hablar] Emanuel pone sobre el escritorio una foto vieja de un terreno. «Víctor, ¿por qué por esto se pelean los hermanos?»"], ["Provocación", "Víctor, ¿es verdad que las herencias sacan lo peor de una familia?"], ["Número específico", "Víctor, un terreno, tres hijos y ningún papel: ¿cómo termina eso?"], ["Vulnerabilidad", "Víctor, en mi familia pasó: por un terreno, mis tíos no se hablan más. ¿Por qué pasa esto?", "Solo si es real."]],
           angulo: "Entra por una escena que todos vieron alguna vez y termina en lo que se puede ordenar antes.",
           dur: "≈35 s",
           hook: { quien: "Emanuel", dice: "Víctor, ¿por qué cuando hay una herencia los hijos se viven peleando por los terrenos?", placa: "POV: le preguntás a un abogado por qué los hermanos se pelean por los terrenos", plano: "Vos del otro lado del escritorio, mirando a cámara." },
@@ -64,6 +66,7 @@ window.GUIONES = {
         {
           v: "C", tipo: "Antes del juicio",
           titulo: "¿Una pelea se puede arreglar antes del juicio?",
+          hooks: [["Contracorriente", "Víctor, siempre escuché que si hay pelea, termina en juicio. ¿Es así?"], ["Secreto", "Víctor, ¿qué pasa antes de un juicio que en las películas nunca te muestran?"], ["Pregunta inducida", "Víctor, ¿por qué dos personas que no se hablan se sentarían en la misma mesa?"], ["Contraste", "Víctor, ¿qué conviene: arreglarlo sentados en una mesa o que lo decida un juez?"], ["Advertencia", "Víctor, si estoy peleado con mi socio y voy directo a juicio, ¿qué me estoy perdiendo?"], ["Impacto visual", "[Sin hablar] Una mesa, dos sillas enfrentadas y una en la punta. «Víctor, ¿para qué es esta mesa?»"], ["Predicción", "Víctor, si hoy me peleo con mi vecino, ¿dónde voy a estar dentro de un año?"], ["Vulnerabilidad", "Víctor, estoy peleado con alguien y no quiero ir a juicio. ¿Hay otra salida?"], ["Transformación", "Víctor, ¿es verdad que dos personas pueden entrar peleadas a una mesa y salir con un acuerdo?"], ["Provocación", "Víctor, ¿no es más fácil ir a juicio y que un juez diga quién tiene razón?"]],
           angulo: "Contás cómo es esa mesa, como una escena, sin explicar el trámite.",
           dur: "≈35 s",
           hook: { quien: "Emanuel", dice: "Víctor, ¿es verdad que una pelea se puede arreglar antes de llegar a un juicio?", placa: "POV: le preguntás a un abogado si una pelea se puede arreglar sin juicio", plano: "Vos del otro lado del escritorio, mirando a cámara." },
@@ -81,6 +84,7 @@ window.GUIONES = {
         {
           v: "D", tipo: "Pregunta frecuente de tu web",
           titulo: "¿Qué pasa en una primera consulta?",
+          hooks: [["Vulnerabilidad", "Perdón, es la primera vez que vengo a un abogado. Estoy un poco nervioso."], ["Pregunta inducida", "¿Por qué me da más miedo venir al abogado que el problema que tengo?"], ["Contracorriente", "Vengo a preguntar nomás, ¿eh? No le quiero hacer juicio a nadie."], ["Impacto visual", "[Sin hablar] Emanuel entra con una carpeta llena de papeles y la deja caer sobre el escritorio. «Traje todo… creo.»"], ["Provocación", "Te aviso: no entiendo nada de leyes y no pienso hacer como que entiendo."], ["Contraste", "¿Esto es una charla o ya es un trámite?"], ["Promesa con tiempo", "Tengo la hora del almuerzo. ¿Me alcanza para saber cómo estoy parado?"], ["Error", "Me dijeron que no venga sin saber qué pedir. ¿Hice mal en venir?"], ["Transformación", "Entré sin saber qué hacer. Vamos a ver cómo salgo."], ["Advertencia", "Antes de sentarme: si me siento acá, ¿ya estoy firmando algo?"]],
           angulo: "Para el que ya te vio y está pensando en consultar: la cámara es él, llegando a tu escritorio.",
           dur: "≈32 s",
           hook: { quien: "Emanuel", dice: "Hola… la verdad, no sé ni por dónde empezar." },
@@ -110,6 +114,7 @@ window.GUIONES = {
         {
           v: "A", tipo: "Empresas",
           titulo: "El error que más ves en los que tienen un negocio",
+          hooks: [["Contracorriente", "Víctor, dicen que entre amigos no hace falta firmar nada. ¿Estás de acuerdo?"], ["Pregunta inducida", "Víctor, ¿por qué tantos negocios que arrancan entre amigos terminan mal?"], ["Secreto", "Víctor, ¿qué es lo que un abogado ve venir en un negocio y el dueño no?"], ["Advertencia", "Víctor, si tengo un negocio y hoy me va bien, ¿de qué me tendría que cuidar?"], ["Vulnerabilidad", "Víctor, ¿cuál fue el error que más te costó como empresario?", "Solo si es real. Es la anécdota del guion, pero puesta al principio."], ["Contraste", "Víctor, ¿qué es peor para un negocio: un mal socio, o un buen socio sin nada firmado?"], ["Provocación", "Víctor, ¿firmar un papel con tu socio es desconfiar de él?"], ["Predicción", "Víctor, si abro un negocio con un amigo, ¿qué va a pasar dentro de cinco años?"], ["Impacto visual", "[Sin hablar] Dos manos que se estrechan, como cerrando un trato. «Víctor, ¿esto alcanza para arrancar un negocio?»"], ["Promesa con tiempo", "Víctor, si hoy abro un negocio, ¿qué hago la primera semana para no arrepentirme?"]],
           angulo: "Desde tu lugar de empresario y abogado, el error de todos los días.",
           dur: "≈40 s",
           hook: { quien: "Emanuel", dice: "Víctor, vos que sos empresario y abogado: ¿cuál es el error que más ves en los que tienen un negocio?", placa: "El error que más veo en los que tienen un negocio", plano: "Vos de costado al escritorio o de pie junto al mapa, mirando a Emanuel." },
@@ -126,6 +131,7 @@ window.GUIONES = {
         {
           v: "B", tipo: "Patrimonio",
           titulo: "La frase del que está armando su patrimonio",
+          hooks: [["Contracorriente", "Víctor, ¿ordenar lo que tenés es cosa de ricos?"], ["Pregunta inducida", "Víctor, ¿por qué el que está arrancando es el que menos cuida lo que tiene?"], ["Error", "Víctor, ¿cuál es el error del que está armando su patrimonio?"], ["Lista", "Víctor, nombrame tres decisiones que tendría que tomar hoy alguien que recién está armando lo suyo."], ["Advertencia", "Víctor, si mañana me pasa algo, ¿qué pasa con lo que tengo?"], ["Contraste", "Víctor, ¿qué va primero: hacer crecer lo que tenés u ordenarlo?"], ["Secreto", "Víctor, ¿qué sabe el que ya tiene patrimonio que el que está empezando todavía no?"], ["Transformación", "Víctor, ¿qué cambia cuando pasás de tener un sueldo a tener algo propio?"], ["Predicción", "Víctor, lo que hoy estoy armando, ¿a nombre de quién va a estar dentro de diez años?"], ["Impacto visual", "[Sin hablar] Emanuel deja sobre el escritorio las llaves de una casa, de un auto y de un local. «Víctor, ¿qué tengo que ordenar de todo esto?»"]],
           angulo: "Entra por lo que la gente quiere lograr, no por un problema.",
           dur: "≈35 s",
           hook: { quien: "Emanuel", dice: "Víctor, ¿qué frase escuchás más cuando alguien quiere armar su patrimonio?", placa: "La frase que más escucho del que está armando su patrimonio", plano: "Vos de costado al escritorio o de pie junto al mapa, mirando a Emanuel." },
@@ -142,6 +148,7 @@ window.GUIONES = {
         {
           v: "C", tipo: "Antes del juicio",
           titulo: "¿Por qué un abogado te diría que no hagas juicio?",
+          hooks: [["Contracorriente", "Víctor, ¿a un abogado no le conviene que hagas juicio?"], ["Pregunta inducida", "Víctor, ¿cómo puede ser que ganar un juicio no siempre sea ganar?"], ["Secreto", "Víctor, ¿qué cuesta un juicio que nadie te dice cuando lo empezás?"], ["Contraste", "Víctor, ¿qué conviene más: ganar un juicio o arreglar?"], ["Advertencia", "Víctor, si voy a juicio por bronca, ¿qué me puede salir mal?"], ["Caso real", "Víctor, ¿alguna vez le dijiste a alguien «no vayas a juicio» y te hizo caso?", "Solo si es real. Sin nombres."], ["Predicción", "Víctor, si hoy le hago juicio a alguien que conozco, ¿cómo va a estar esa relación cuando termine?"], ["Error", "Víctor, ¿cuál es el error del que va a juicio con ganas de «ganarle» al otro?"], ["Impacto visual", "[Sin hablar] Emanuel pone un martillo de juez de juguete sobre el escritorio. Víctor lo corre para un costado. «¿Por qué?»"], ["Provocación", "Víctor, arreglar ¿no es perder?"]],
           angulo: "Tu forma de trabajar, contada por vos, sin compararte con nadie.",
           dur: "≈40 s",
           hook: { quien: "Emanuel", dice: "Víctor, ¿por qué un abogado te diría que no hagas juicio?", placa: "¿Un abogado que te dice que no hagas juicio?", plano: "Vos de costado al escritorio o de pie junto al mapa, mirando a Emanuel." },
@@ -159,6 +166,7 @@ window.GUIONES = {
         {
           v: "D", tipo: "Pregunta frecuente de tu web",
           titulo: "¿Todos los problemas legales terminan en juicio?",
+          hooks: [["Contracorriente", "Víctor, todo el mundo dice que si llamás a un abogado, terminás en juicio. ¿Es así?"], ["Pregunta inducida", "Víctor, ¿por qué a la gente le da tanto miedo llamar a un abogado?"], ["Secreto", "Víctor, ¿qué es lo que casi nadie sabe cuando tiene un problema legal?"], ["Advertencia", "Víctor, si tengo un problema con alguien, ¿estoy condenado a años de juicio?"], ["Contraste", "Víctor, ¿juicio o acuerdo: quién decide eso?"], ["Impacto visual", "[Sin hablar] Emanuel apila carpetas y más carpetas sobre el escritorio. «Víctor, ¿todo termina así?»"], ["Provocación", "Víctor, ¿un abogado siempre te va a mandar a juicio?"], ["Error", "Víctor, ¿cuál es el error que comete casi todo el que tiene un problema legal?"], ["Vulnerabilidad", "Víctor, tengo un problema y no llamo a nadie porque no quiero un juicio. ¿Estoy haciendo mal?"], ["Lista", "Víctor, ¿cuántos caminos hay cuando tenés un problema legal?"]],
           angulo: "Primero contás lo que cree la gente, y recién después lo desarmás. La respuesta llega a la mitad.",
           dur: "≈32 s",
           hook: { quien: "Emanuel", dice: "Víctor, ¿todos los problemas legales terminan en juicio?" },
@@ -188,6 +196,7 @@ window.GUIONES = {
         {
           v: "A", tipo: "Empresas",
           titulo: "3 cosas de las empresas familiares que llegan a los nietos",
+          hooks: [["Contracorriente", "Una empresa familiar no se cae por la plata. Se cae en la mesa del domingo."], ["Pregunta inducida", "¿Por qué hay empresas familiares que llegan a los nietos, y otras que no pasan de los hijos?"], ["Error", "El error que cometen casi todas las empresas familiares, y que se nota recién cuando cambia de manos."], ["Secreto", "Lo que tienen las empresas familiares que duran, y que desde afuera no se ve."], ["Advertencia", "Si en tu empresa familiar deciden todos, tenemos un problema."], ["Contraste", "Hay empresas familiares que llegan a los nietos y otras que se terminan con los hijos. La diferencia no es la plata."], ["Provocación", "Tu empresa familiar no la va a heredar tu nieto. Va a heredar otra cosa."], ["Predicción", "Pensá en tu empresa dentro de treinta años. ¿Quién está sentado en tu silla?"], ["Impacto visual", "[Sin hablar] Una foto vieja de un negocio familiar, en blanco y negro. Víctor la deja sobre el escritorio: «¿Por qué hay empresas que llegan hasta acá?»"], ["Transformación", "De un abuelo con un almacén a nietos con una empresa. En el medio hicieron tres cosas."]],
           angulo: "Lo que tienen las que duran, contado con una sonrisa.",
           dur: "≈30 s",
           hook: { quien: "Víctor", dice: "Las empresas familiares que llegan a los nietos tienen tres cosas en común. Y ninguna es la plata." },
@@ -201,6 +210,7 @@ window.GUIONES = {
         {
           v: "B", tipo: "Patrimonio",
           titulo: "3 frases que escucho antes de que una familia se pelee",
+          hooks: [["Contracorriente", "Las peleas por una herencia no arrancan con odio. Arrancan con una frase de cariño."], ["Pregunta inducida", "¿Por qué familias que se quieren terminan peleadas por una herencia?"], ["Advertencia", "Si alguna vez dijiste «mis hijos se llevan bien», este video es para vos."], ["Secreto", "Hay frases que un abogado escucha antes de cada pelea familiar. Y el que las dice no se da cuenta."], ["Error", "El error más cariñoso que puede cometer un padre con sus hijos."], ["Lista", "Tres frases. Si dijiste alguna, en tu casa hay una charla pendiente."], ["Predicción", "Hay una frase que hoy decís en la sobremesa, y que dentro de veinte años puede pelear a tus hijos."], ["Impacto visual", "[Sin hablar] Una sobremesa familiar, todos riéndose. Víctor, a cámara: «Acá empiezan casi todas las peleas por herencias.»"], ["Contraste", "Hay familias que heredan y se siguen juntando los domingos, y otras que no. La diferencia está en tres frases."], ["Vulnerabilidad", "Yo también dije una de estas tres frases. Y soy abogado.", "Solo si es real."]],
           angulo: "Tres frases que cualquiera dijo en su casa. Se reconoce y se ríe, y después piensa.",
           dur: "≈30 s",
           hook: { quien: "Víctor", dice: "Hay tres frases que escucho siempre antes de que una familia se pelee por una herencia. Fijate si alguna la dijiste vos." },
@@ -214,6 +224,7 @@ window.GUIONES = {
         {
           v: "C", tipo: "Antes del juicio",
           titulo: "3 cosas que ves en una mediación y nadie te cuenta",
+          hooks: [["Contracorriente", "Todos creen que en una mediación se discute plata. Casi nunca es eso."], ["Pregunta inducida", "¿Por qué dos personas que no se hablan hace años terminan arreglando en una mesa?"], ["Impacto visual", "[Sin hablar] Dos sillas enfrentadas, una mesa y dos vasos de agua sin tocar. Víctor se sienta: «Acá pasan cosas que nadie cuenta.»"], ["Contraste", "En las películas hay gritos y un juez. En una mediación pasa otra cosa."], ["Secreto", "Hay una palabra que en una mediación vale más que cualquier número. Te cuento cuál."], ["Error", "El error de casi todos los que llegan a una mediación. Y no tiene nada que ver con la ley."], ["Advertencia", "Si te toca sentarte en una mediación, hay tres cosas que te conviene saber antes."], ["Provocación", "El que más grita en una mesa no siempre es el que tiene razón. Ni el que menos quiere arreglar."], ["Transformación", "Entran sin mirarse. Salen dándose la mano. Esto es lo que pasa en el medio."], ["Número específico", "Hace [X] años que me siento en mesas de mediación. Estas son tres cosas que vi.", "Poné tus años reales."]],
           angulo: "Lo humano de esa mesa, contado desde tu silla.",
           dur: "≈30 s",
           hook: { quien: "Víctor", dice: "Tres cosas que ves sentado en una mediación, y que en las películas no te muestran." },

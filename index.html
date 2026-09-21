@@ -190,6 +190,19 @@ details.ej summary::-webkit-details-marker{display:none}
 details.ej summary::before{content:"+ "}
 details.ej[open] summary::before{content:"− "}
 details.ej p{margin:6px 0 0;font-size:13.5px;font-style:italic;color:var(--tenue);border-left:2px solid var(--lin);padding-left:10px}
+details.hks{margin-top:12px;border-top:1px dashed var(--lin);padding-top:10px}
+details.hks summary{font-size:13px;font-weight:700;color:#C23A00;cursor:pointer;list-style:none}
+details.hks summary::-webkit-details-marker{display:none}
+details.hks summary::before{content:"▸ ";display:inline-block;transition:transform .2s}
+details.hks[open] summary::before{transform:rotate(90deg)}
+details.hks ol{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+details.hks li{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:start;padding:8px 10px;border:1px solid var(--lin);border-radius:10px;background:#fff}
+details.hks li.sel{border-color:var(--naranja);box-shadow:0 0 0 1px var(--naranja)}
+details.hks .mk{grid-column:1;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tenue)}
+details.hks .tx{grid-column:1;font-size:14px;line-height:1.35}
+details.hks .nt{grid-column:1;font-size:12px;font-style:italic;color:var(--tenue)}
+details.hks button{grid-column:2;grid-row:1 / span 3;align-self:center;border:1px solid rgba(0,0,0,.2);background:transparent;border-radius:100px;padding:5px 12px;font-size:12.5px;font-weight:600;color:#141414}
+details.hks li.sel button{background:var(--naranja);border-color:var(--naranja);color:#fff}
 .conf{font-size:13px;background:#fff;border:1px solid var(--naranja);border-radius:12px;padding:10px 12px;display:grid;gap:8px}
 .conf b{color:#C23A00}
 .conf .op{display:flex;gap:6px;flex-wrap:wrap}
@@ -263,7 +276,8 @@ function renderScript(r, g){
         <textarea data-r="${key}|${i}" rows="3" aria-label="Respuesta de Víctor, ${esc(b[0])}" placeholder="Escribí cómo lo dirías…" class="${(resp[key + '|' + i] || '').trim() ? 'ok' : ''}">${esc(resp[key + '|' + i] || '')}</textarea>
         ${b[3] ? `<details class="ej"><summary>Ver un ejemplo</summary><p>${esc(b[3])}</p></details>` : ''}
       </div></div>`).join('');
-  const h = hechas(key, g), t = nV(g), c = conf[key];
+  const h = hechas(key, g), t = nV(g), c = conf[key], hk = conf['hk' + key];
+  const hooks = g.hooks ? `<details class="hks"><summary>10 arranques más</summary><ol>${g.hooks.map((x, j) => `<li class="${hk === j ? 'sel' : ''}"><span class="mk">${esc(x[0])}</span><span class="tx">${esc(x[1])}</span>${x[2] ? `<span class="nt">${esc(x[2])}</span>` : ''}<button type="button" data-hk="${key}" data-i="${j}">${hk === j ? 'Elegido' : 'Este'}</button></li>`).join('')}</ol></details>` : '';
   return `<article class="card g" data-v="${g.v}" data-k="${key}">
     <header>
       <span class="var">${esc(g.tipo)}</span>
@@ -273,8 +287,9 @@ function renderScript(r, g){
     </header>
     <div class="sec"><p class="lab">Arranque · primeros 3 segundos · dice ${esc(g.hook.quien)}</p>
       <div class="hook">
-        <div class="say">${esc(g.hook.dice)}</div>
+        <div class="say" data-say="${key}">${esc(hk != null && g.hooks ? g.hooks[hk][1] : g.hook.dice)}</div>
       </div>
+      ${hooks}
     </div>
     <div class="sec"><p class="lab">Guion · ${esc(g.dur)}</p><div class="beats">${beats}</div></div>
     ${g.confirmar ? `<div class="sec"><div class="conf"><div><b>Confirmanos:</b> ${esc(g.confirmar)}</div>
@@ -344,6 +359,17 @@ document.addEventListener('input', e => {
   prog();
 });
 document.addEventListener('click', e => {
+  const hb = e.target.closest('[data-hk]');
+  if (hb){
+    const key = hb.dataset.hk, j = +hb.dataset.i, g = guion(key), k = 'hk' + key;
+    conf[k] = conf[k] === j ? null : j; store.set('sv-conf', conf);
+    hb.closest('ol').querySelectorAll('li').forEach((li, i) => {
+      li.classList.toggle('sel', conf[k] === i);
+      li.querySelector('button').textContent = conf[k] === i ? 'Elegido' : 'Este';
+    });
+    document.querySelector(`[data-say="${key}"]`).textContent = conf[k] != null ? g.hooks[conf[k]][1] : g.hook.dice;
+    return;
+  }
   const cb = e.target.closest('[data-conf]');
   if (cb){
     const k = cb.dataset.conf, o = cb.textContent;
@@ -365,6 +391,7 @@ function textoTodo(){
     const key = r.n + g.v;
     L.push('== ' + String(r.n).padStart(2,'0') + g.v + ' · ' + r.formato + ' · ' + g.titulo);
     L.push(g.hook.quien + ': ' + g.hook.dice);
+    if (g.hooks && conf['hk' + key] != null) L.push('Arranque elegido (' + g.hooks[conf['hk' + key]][0] + '): ' + g.hooks[conf['hk' + key]][1]);
     g.beats.forEach((b, i) => {
       if (b[1] === 'E') L.push('Emanuel: ' + b[2]);
       else L.push('Víctor: ' + ((resp[key + '|' + i] || '').trim() || '(sin responder)'));
