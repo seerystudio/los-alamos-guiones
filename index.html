@@ -333,7 +333,7 @@ dialog .resp .btns{grid-template-columns:1fr 1fr}
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="alerta" id="alerta" hidden>Este navegador no está guardando lo que escribís (puede ser una ventana privada). Antes de cerrar, tocá «Enviar» o bajate un respaldo.</div>
 
-<script src="guiones.js?v=2026-09-21k"></script>
+<script src="guiones.js?v=2026-09-21l"></script>
 <script>
 const D = window.GUIONES;
 const $ = s => document.querySelector(s);
@@ -403,7 +403,11 @@ async function bajar(){
       perfil = Object.assign(copia(P ? P.base : {}), store.get('sv-perfil', {})); delete perfil.foto;
       render(); if (!document.body.classList.contains('list')) apply();
       toast('Traje lo último que escribiste · ' + hora(new Date(o.fecha)), 2500);
-    } else subir();
+    } else {
+      /* lo escrito antes de que existiera la nube no tiene fecha de cambio: se sube igual */
+      if (!o.estado && !leerN('sv-cambio') && Object.keys(estadoLocal()).length) anotarN('sv-cambio', Date.now());
+      subir();
+    }
   } catch {}
 }
 addEventListener('online', () => subir());
