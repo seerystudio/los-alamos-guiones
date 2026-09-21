@@ -144,7 +144,7 @@ window.GUIONES = {
       ]
     },
     {
-      n: 3, id: "Dc2G3EAxZzh",
+      n: 3, id: "Db661pnRLe0",
       formato: "Teleprompter, sin solemnidad",
       resumen: "Vos a cámara con el texto en el celular, pero como hablás en una charla: suelto, con algún gesto y alguna sonrisa",
       cuenta: "@clemente.jimenez_", datos: "abogado, México",
