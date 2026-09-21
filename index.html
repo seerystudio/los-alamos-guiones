@@ -209,6 +209,13 @@ details.hks .tx{grid-column:1;font-size:14px;line-height:1.35}
 details.hks .nt{grid-column:1;font-size:12px;font-style:italic;color:var(--tenue)}
 details.hks button{grid-column:2;grid-row:1 / span 3;align-self:center;border:1px solid rgba(0,0,0,.2);background:transparent;border-radius:100px;padding:5px 12px;font-size:12.5px;font-weight:600;color:#141414}
 details.hks li.sel button{background:var(--naranja);border-color:var(--naranja);color:#fff}
+details.hks li.mio{border-style:dashed}
+details.hks li .del{grid-column:1;grid-row:auto;justify-self:start;border:0;background:none;padding:0;font-size:12px;font-weight:600;color:var(--tenue);text-decoration:underline}
+details.hks li.sel .del{background:none;color:var(--tenue)}
+.hkadd{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:10px;align-items:end}
+.hkadd textarea{width:100%;min-height:48px;resize:vertical;border:1px solid rgba(0,0,0,.18);border-radius:10px;background:#fff;color:#141414;font:inherit;font-size:14px;line-height:1.35;padding:8px 10px}
+.hkadd textarea:focus{outline:none;border-color:var(--naranja);box-shadow:0 0 0 3px rgba(255,77,0,.18)}
+details.hks .hkadd button{grid-column:2;grid-row:1;align-self:end;background:#141414;border-color:#141414;color:#fff;padding:8px 14px}
 .conf{font-size:13px;background:#fff;border:1px solid var(--naranja);border-radius:12px;padding:10px 12px;display:grid;gap:8px}
 .conf b{color:#C23A00}
 .conf .op{display:flex;gap:6px;flex-wrap:wrap}
@@ -257,7 +264,7 @@ dialog .cerrar{margin-top:10px;background:transparent;border:0;color:var(--gris)
   <button class="cerrar" id="bClose">Cerrar</button>
 </dialog>
 
-<script src="guiones.js?v=2026-09-21d"></script>
+<script src="guiones.js?v=2026-09-21e"></script>
 <script>
 const D = window.GUIONES;
 const $ = s => document.querySelector(s);
@@ -269,6 +276,12 @@ const store = {
 let resp = store.get('sv-resp', {});
 let fijo = store.get('sv-fijo', {});
 let conf = store.get('sv-conf', {});
+let hkx = store.get('sv-hkx', {});
+function allHooks(key, g){ return (g.hooks || []).concat((hkx[key] || []).map(t => ['Tuyo', t, null, true])); }
+function hooksList(key, g){
+  const hk = conf['hk' + key], n = (g.hooks || []).length;
+  return allHooks(key, g).map((x, j) => `<li class="${hk === j ? 'sel' : ''}${x[3] ? ' mio' : ''}"><span class="mk">${esc(x[0])}</span><span class="tx">${esc(x[1])}</span>${x[2] ? `<span class="nt">${esc(x[2])}</span>` : ''}<button type="button" data-hk="${key}" data-i="${j}">${hk === j ? 'Elegido' : 'Este'}</button>${x[3] ? `<button type="button" class="del" data-hkdel="${key}" data-i="${j - n}">Borrar</button>` : ''}</li>`).join('');
+}
 const nV = g => g.beats.filter(b => b[1] === 'V').length;
 const hechas = (key, g) => g.beats.reduce((s, b, i) => s + (b[1] === 'V' && (resp[key + '|' + i] || '').trim() ? 1 : 0), 0);
 const guion = key => { for (const r of D.refs) for (const g of r.guiones) if (r.n + g.v === key) return g; };
@@ -284,7 +297,7 @@ function renderScript(r, g){
         ${b[3] ? `<details class="ej"><summary>Ver un ejemplo</summary><p>${esc(b[3])}</p></details>` : ''}
       </div></div>`).join('');
   const h = hechas(key, g), t = nV(g), c = conf[key], hk = conf['hk' + key];
-  const hooks = g.hooks ? `<details class="hks"><summary>10 arranques más</summary><ol>${g.hooks.map((x, j) => `<li class="${hk === j ? 'sel' : ''}"><span class="mk">${esc(x[0])}</span><span class="tx">${esc(x[1])}</span>${x[2] ? `<span class="nt">${esc(x[2])}</span>` : ''}<button type="button" data-hk="${key}" data-i="${j}">${hk === j ? 'Elegido' : 'Este'}</button></li>`).join('')}</ol></details>` : '';
+  const hooks = g.hooks ? `<details class="hks"><summary>10 arranques más · o escribí el tuyo</summary><ol data-hkl="${key}">${hooksList(key, g)}</ol><div class="hkadd"><textarea data-hkin="${key}" rows="2" aria-label="Tu propio arranque" placeholder="Escribí tu propio arranque…"></textarea><button type="button" data-hkadd="${key}">Agregar</button></div></details>` : '';
   return `<article class="card g" data-v="${g.v}" data-k="${key}">
     <header>
       <span class="var">${esc(g.tipo)}</span>
@@ -294,7 +307,7 @@ function renderScript(r, g){
     </header>
     <div class="sec"><p class="lab">Arranque · primeros 3 segundos · dice ${esc(g.hook.quien)}</p>
       <div class="hook">
-        <div class="say" data-say="${key}">${esc(hk != null && g.hooks ? g.hooks[hk][1] : g.hook.dice)}</div>
+        <div class="say" data-say="${key}">${esc(hk != null && g.hooks && allHooks(key, g)[hk] ? allHooks(key, g)[hk][1] : g.hook.dice)}</div>
       </div>
       ${hooks}
     </div>
@@ -398,7 +411,26 @@ document.addEventListener('click', e => {
       li.classList.toggle('sel', conf[k] === i);
       li.querySelector('button').textContent = conf[k] === i ? 'Elegido' : 'Este';
     });
-    document.querySelector(`[data-say="${key}"]`).textContent = conf[k] != null ? g.hooks[conf[k]][1] : g.hook.dice;
+    document.querySelector(`[data-say="${key}"]`).textContent = conf[k] != null ? allHooks(key, g)[conf[k]][1] : g.hook.dice;
+    return;
+  }
+  const ab = e.target.closest('[data-hkadd]');
+  if (ab){
+    const key = ab.dataset.hkadd, g = guion(key), ta = document.querySelector(`[data-hkin="${key}"]`), t = ta.value.trim();
+    if (!t){ ta.focus(); return; }
+    (hkx[key] = hkx[key] || []).push(t); store.set('sv-hkx', hkx);
+    ta.value = '';
+    document.querySelector(`[data-hkl="${key}"]`).innerHTML = hooksList(key, g);
+    return;
+  }
+  const db = e.target.closest('[data-hkdel]');
+  if (db){
+    const key = db.dataset.hkdel, g = guion(key), i = +db.dataset.i, n = g.hooks.length, k = 'hk' + key;
+    hkx[key].splice(i, 1); if (!hkx[key].length) delete hkx[key]; store.set('sv-hkx', hkx);
+    if (conf[k] === n + i) conf[k] = null; else if (conf[k] > n + i) conf[k]--;
+    store.set('sv-conf', conf);
+    document.querySelector(`[data-hkl="${key}"]`).innerHTML = hooksList(key, g);
+    document.querySelector(`[data-say="${key}"]`).textContent = conf[k] != null ? allHooks(key, g)[conf[k]][1] : g.hook.dice;
     return;
   }
   const cb = e.target.closest('[data-conf]');
@@ -422,7 +454,9 @@ function textoTodo(){
     const key = r.n + g.v;
     L.push('== ' + String(r.n).padStart(2,'0') + g.v + ' · ' + r.formato + ' · ' + g.titulo);
     L.push(g.hook.quien + ': ' + g.hook.dice);
-    if (g.hooks && conf['hk' + key] != null) L.push('Arranque elegido (' + g.hooks[conf['hk' + key]][0] + '): ' + g.hooks[conf['hk' + key]][1]);
+    const AH = g.hooks ? allHooks(key, g) : [];
+    if (AH.length && conf['hk' + key] != null && AH[conf['hk' + key]]) L.push('Arranque elegido (' + AH[conf['hk' + key]][0] + '): ' + AH[conf['hk' + key]][1]);
+    (hkx[key] || []).forEach(t => L.push('Arranque propio: ' + t));
     g.beats.forEach((b, i) => {
       if (b[1] === 'E') L.push('Emanuel: ' + b[2]);
       else L.push('Víctor: ' + ((resp[key + '|' + i] || '').trim() || '(sin responder)'));
