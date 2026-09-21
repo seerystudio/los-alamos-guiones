@@ -2,7 +2,7 @@
    E = pregunta de Emanuel (fija). V = respuesta de Víctor: casillero para que la escriba él.
    "ej" es solo una ayuda por si se traba; no es el guion. */
 window.GUIONES = {
-  titulo: "Doce preguntas. Las respuestas son tuyas.",
+  titulo: "Trece preguntas. Las respuestas son tuyas.",
   intro: [
     "Estos son los primeros videos: tres formatos y tres temas —empresas, patrimonio y lo que se puede arreglar antes de un juicio—. Cada fila es un formato: a la izquierda, un video de ejemplo; a la derecha, sus guiones. Los marcados «Pregunta frecuente de tu web» salen de las preguntas de tu página: la respuesta ya es tuya, solo hay que decirla hablando. Debajo de cada arranque hay diez arranques más, cada uno armado con un gancho distinto: si te gusta más alguno, tocá «Este».",
     "Las preguntas ya están. Lo que falta sos vos: en cada casillero escribí cómo lo dirías hablando, no como lo escribirías. Si te trabás, tocá «Ver un ejemplo».",
@@ -258,6 +258,26 @@ window.GUIONES = {
             ["0:15", "V", "Cosa 3. Primer plano.", "Tres: a veces lo que destraba todo no es un número. Es un «perdoname»."],
             ["0:21", "V", "Qué dejan ver las tres.", "Lo que traba casi nunca es lo que se reclama."]
           ]
+        },
+        {
+          v: "D", tipo: "Va fijado al perfil",
+          titulo: "Qué pasa cuando nos confiás tu caso, paso a paso",
+          hooks: [["Promesa con tiempo", "Te explico en 90 segundos el paso a paso de cuando trabajás con el estudio."], ["Contracorriente", "Ir al abogado no es meterse en un trámite. Te muestro cómo es de verdad."], ["Pregunta inducida", "¿Por qué a tanta gente le da miedo llamar a un abogado? Porque no sabe qué pasa después."], ["Secreto", "Lo que pasa del otro lado del escritorio cuando nos contás tu caso."], ["Vulnerabilidad", "Si nunca fuiste a un abogado y te da un poco de miedo, este video es para vos."], ["Contraste", "Lo que te imaginás que pasa cuando vas al abogado, y lo que pasa en realidad."], ["Impacto visual", "[Sin hablar] Víctor abre una carpeta vacía sobre el escritorio y escribe en la tapa «Tu caso». «Te cuento qué pasa desde acá.»"], ["Transformación", "Entrás sin saber cómo estás parado. Salís sabiendo qué opciones tenés. Así es el camino."], ["Error", "El error de casi todos antes de consultar: creer que tienen que llegar con todo resuelto."], ["Provocación", "No necesitás saber de leyes para venir. Para eso estoy yo."]],
+          angulo: "El camino entero, de la primera charla al final, dicho con calma. Es el fijado «Cómo trabajamos»: más largo que los otros, porque el que llega al perfil quiere saber esto antes de escribir.",
+          dur: "≈70 s",
+          hook: { quien: "Víctor", dice: "Te voy a explicar qué pasa cuando nos confiás tu caso. Paso a paso, y sin palabras difíciles.", placa: "Qué pasa cuando nos confiás tu caso" },
+          beats: [
+            ["0:06", "V", "Antes de los pasos: qué se imagina la gente. Plano medio.", "La mayoría se imagina que entra, le llenan la mesa de papeles y sale sin entender nada. No es así."],
+            ["0:12", "V", "Paso 1 · la primera charla. Primer plano.", "Primero, me contás lo que te pasó, con tus palabras. No tenés que traer nada preparado ni saber de leyes."],
+            ["0:22", "V", "Paso 2 · cómo está parado. Plano medio.", "Después te pregunto lo que haga falta, y te explico claro cómo estás parado y qué opciones tenés."],
+            ["0:32", "V", "Paso 3 · antes de arrancar: cuándo se habla de los honorarios. Sin montos. Primer plano.", "Antes de arrancar, te digo cuánto sale y qué incluye. Nada de sorpresas."],
+            ["0:40", "V", "Paso 4 · qué camino se toma. Plano medio.", "Si se puede arreglar sin juicio, arrancamos por ahí: negociar, sentarse a acordar. Si no se puede, vamos a juicio, pero sabiendo por qué."],
+            ["0:52", "V", "Paso 5 · mientras dura. Primer plano.", "Y mientras dura, en cada paso sabés en qué está lo tuyo. No te enterás por otro lado."],
+            ["1:00", "V", "El remate: qué es y qué no es venir al estudio. Plano medio.", "Es una charla, no un trámite. Y consultar no te obliga a nada."]
+          ],
+          cta: "Si querés contarme lo tuyo, el WhatsApp está en el perfil.",
+          confirmar: "¿Los pasos son así en tu estudio? Sobre todo el de los honorarios (si los decís antes de arrancar) y el cierre con el WhatsApp.",
+          ojo: "Frases cortas y un plano distinto por paso: aunque sea largo, cada paso tiene que durar poco. Sin montos, plazos ni promesas de resultado."
         }
       ]
     }
@@ -354,7 +374,7 @@ window.GUIONES.fijados = {
         "Remate: es una charla, no un trámite. Consultar no te obliga a nada.",
         "Es el único de los tres que invita a escribir."
       ],
-      pide: "Sugerido: POV, la cámara entra al estudio y se sienta frente a vos."
+      pide: "Ya tiene guion: el 3D, en la fila del teleprompter («Qué pasa cuando nos confiás tu caso, paso a paso»)."
     }
   ]
 };
